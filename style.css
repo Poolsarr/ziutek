@@ -1,133 +1,81 @@
-/* Globalne style */
-body {
-    font-family: Arial, sans-serif;
-    background-color: #000;
-    color: white;
+.orb-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-47.5%, -48%);
+    width: 200%;
+    height: 200%;
+    z-index: -1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    pointer-events: none;
 }
 
-/* NAVBAR */
-.navbar {
-    background: none;
-    padding: 15px 0;
-}
-
-.navbar-brand .logo {
-    font-size: 28px;
-    color: white;
-}
-.navbar-brand .logo-bold {
-    font-size: 28px;
-    font-weight: bold;
-    color: white;
-}
-.navbar-nav .nav-link {
-    color: white;
-    margin-right: 20px;
-}
-.navbar-nav .nav-link:hover {
-    color: #c7c7c7;
-}
-.social-icons a {
-    color: white;
-    font-size: 18px;
-    margin-left: 10px;
-}
-.social-icons a:hover {
-    color: #ffffff;
-}
-.btn-success {
-    background-color: #27ae60;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-}
-.btn-success:hover {
-    background-color: #2ecc71;
-}
-
-
-/* HERO SECTION */
-.hero {
-    position: relative;
-    padding: 100px 0;
-    color: white;
-  }
-
-    .col-lg-6.text-center {
-        position: relative; /* grad. za okiem*/
-    }
-  
-    .orb-container {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        width: 200%;
-        height: 200%;
-        z-index: -1;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        pointer-events: none;
-    }
-    
-    .orb-outer {
-        position: absolute;
-        width: 100vmin;
-        height: 100vmin;
-        border-radius: 50%;
-        filter: blur(120px);
-        background: 
-            radial-gradient(circle at center, rgba(0, 0, 0, 0.3), transparent 40%),
-            conic-gradient(
-            #6ea361 0deg, 90deg,
-            #85afbe 45deg 180deg,
-            #3b7da5 180deg 270deg,
-            #72210f 270deg 360deg
-            );
-        opacity: 0.7;
-        z-index: -2; /* Znajduje się za orb-inner */
-    }
-    
-    .orb-inner {
-        position: absolute;
-        width: 70vmin; /* Mniejszy rozmiar dla lepszego efektu */
-        height: 70vmin;
-        border-radius: 50%;
-        filter: blur(40px); /* Mniejszy blur dla jaśniejszego efektu */
-        background: 
-            radial-gradient(circle at center, rgba(0, 0, 0, 0.3), transparent 40%),
-            conic-gradient(
-            #ace09f 0deg, 90deg,
-            #96d2e7 45deg 180deg,
-            #499acc 180deg 270deg,
-            #992d15 270deg 360deg
+.orb-outer {
+    position: absolute;
+    width: 100vmin;
+    height: 100vmin;
+    border-radius: 50%;
+    filter: blur(120px);
+    background: 
+        conic-gradient(
+        #6ea361 0deg, 90deg,
+        #85afbe 45deg 180deg,
+        #3b7da5 180deg 270deg,
+        #72210f 270deg 360deg
         );
-        opacity: 0.9;
-        z-index: -1; /* Znajduje się przed orb-outer */
-    }
+    opacity: 0.7;
+    z-index: -2; /* Znajduje się za orb-inner */
+}
 
-h1 {
-    font-weight: bold;
-    font-size: 48px;
+.orb-inner {
+    position: absolute;
+    width: 70vmin;
+    height: 70vmin;
+    border-radius: 50%;
+    filter: blur(40px);
+    background: 
+        conic-gradient(
+        #ace09f 0deg, 90deg,
+        #96d2e7 45deg 180deg,
+        #499acc 180deg 270deg,
+        #992d15 270deg 360deg
+    );
+    opacity: 0.9;
+    z-index: -1; /* Znajduje się przed orb-outer */
 }
-p {
-    color: rgba(255, 255, 255, 0.7);
-    font-size: 18px;
+
+.orb-super-container {
+    position: relative;
 }
+
+body {
+    overflow-x: hidden;
+    /* overflow-y: hidden; */
+    /* Font stack: Humanist + "Native font stack"(bootstrap) */
+    font-family: Seravek, 'Gill Sans Nova', Ubuntu, Calibri, 'DejaVu Sans', source-sans-pro, sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue","Noto Sans","Liberation Sans",Arial,sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; 
+}
+
+a{
+    color: var(--bs-white);
+    text-decoration: none;
+}
+a:hover{
+    color: var(--bs-gray-500);
+}
+
 .btn-primary {
     background-color: #6c5ce7;
-    border: none;
-    padding: 12px 24px;
-    font-size: 18px;
-    border-radius: 25px;
 }
 .btn-primary:hover {
     background-color: #4834d4;
 }
-.scroll-down {
-    position: absolute;
-    bottom: -20px;
-    left: 50%;
-    transform: translateX(-50%);
+
+h1{
+    font-size: 48px;
+}
+.icon{
+    height: 32px;
+    width: 32px;
 }
