@@ -85,20 +85,54 @@ h1{
     width: 32px;
 }
 
+/* Stylizacja przycisków z efektem neonowym */
 .custom-neon-btn {
-    background-color: transparent;
+    background: rgba(255, 255, 255, 0.05); /* delikatnie mleczne */
     border: 2px solid white;
     color: white;
-    box-shadow: 0 0 8px rgba(173, 216, 230, 0.7), 0 0 15px rgba(173, 216, 230, 0.6);
-    transition: all 0.3s ease-in-out;
+    border-radius: 50rem;
+    padding: 0.6rem 1.4rem;
+    
+    backdrop-filter: blur(8px);         /* klucz do glassmorphism */
+    -webkit-backdrop-filter: blur(8px); /* dla Safari */
+
+    box-shadow:
+        0 0 8px rgba(173, 216, 230, 0.3),
+        inset 0 0 1px rgba(173, 216, 230, 0.15);
+    
+    animation: neon-pulse 3s ease-in-out infinite;
+
+    transition:
+        box-shadow 1s cubic-bezier(0.4, 0, 0.2, 1),
+        border-color 1s cubic-bezier(0.4, 0, 0.2, 1),
+        color 1s cubic-bezier(0.4, 0, 0.2, 1),
+        background-color 1s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+
 .custom-neon-btn:hover {
-    color: #add8e6; /* Jasnoniebieski tekst przy hoverze */
-    box-shadow: 0 0 12px rgba(173, 216, 230, 1), 0 0 25px rgba(173, 216, 230, 0.9);
-    background-color: rgba(255, 255, 255, 0.05); /* Delikatne podświetlenie tła */
+    box-shadow:
+        0 0 20px rgba(173, 216, 230, 0.9),
+        0 0 36px rgba(173, 216, 230, 0.7),
+        inset 0 0 12px rgba(173, 216, 230, 0.5);
+    background: rgba(255, 255, 255, 0.08);
+    color: #add8e6;
     border-color: #add8e6;
 }
+
+@keyframes neon-pulse {
+  0%, 100% {
+    box-shadow:
+      0 0 8px rgba(173, 216, 230, 0.3),
+      inset 0 0 1px rgba(173, 216, 230, 0.15);
+  }
+  50% {
+    box-shadow:
+      0 0 12px rgba(173, 216, 230, 0.5),
+      inset 0 0 4px rgba(173, 216, 230, 0.3);
+  }
+}
+
 
 
 /* Poznaj Eye Story */
