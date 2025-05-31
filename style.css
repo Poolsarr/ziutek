@@ -4,7 +4,7 @@
 body {
     overflow-x: hidden;
     /* overflow-y: hidden; */
-    /* Font stack: Humanist + "Native font stack"(bootstrap) */
+    /* Font stack: Century Gothic jako główny, potem systemowy sans-serif */
     font-family: 'Century Gothic', sans-serif;
 }
 
@@ -18,7 +18,7 @@ a:hover {
 }
 
 h1 {
-    font-size: 48px;
+    font-size: 48px; /* Domyślny rozmiar h1, może być nadpisywany lokalnie */
 }
 
 .icon {
@@ -92,29 +92,27 @@ h1 {
 
 .orb-super-container {
   position: relative;
-  width: 100%;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  overflow: visible;
-}
-
-/* Duplikacja .orb-super-container - zachowuję zgodnie z prośbą */
-.orb-super-container {
-    position: relative;
+  width: 100%; /* Dodane dla spójności, jeśli wcześniej było w drugim bloku */
+  height: 100vh; /* Dodane dla spójności, jeśli wcześniej było w drugim bloku */
+  display: flex; /* Dodane dla spójności */
+  justify-content: center; /* Dodane dla spójności */
+  align-items: center; /* Dodane dla spójności */
+  overflow: visible; /* Z pierwszego bloku */
 }
 
 .orb-super-container:hover .orb-outer {
     opacity: 1;
 }
 
-.orb-super-container img { /* Ten selektor był wcześniej .orb-super-container img */
-    position: relative;
-    z-index: 2;
+/* Obrazek w orb-super-container (dawniej częściowo inline) */
+.orb-super-container .hero-image {
+    max-width: 80%; /* Przeniesione z HTML inline style */
+    position: relative; /* Z oryginalnego .orb-super-container img */
+    z-index: 2; /* Z oryginalnego .orb-super-container img */
 }
 
-/* Ten selektor .orb-img był wcześniej, ale .orb-super-container img go bardziej obejmuje */
+/* Selektor .orb-img był zdefiniowany, ale nieużywany w HTML.
+   Pozostawiony na wypadek przyszłego użycia lub jako referencja. */
 .orb-img {
   position: absolute;
   top: 50%;
@@ -154,6 +152,23 @@ h1 {
     background-color: #111; /* opcjonalne tło */
 }
 
+.main-section .hero-text-container { /* Przeniesione z HTML inline style */
+    max-width: 500px;
+    width: 100%;
+}
+
+.main-section .hero-title-large { /* Przeniesione z HTML inline style */
+    font-size: 6.5rem;
+}
+
+.main-section .hero-subtitle { /* Przeniesione z HTML inline style, nadpisuje fs-3 */
+    font-size: 1rem !important;
+}
+
+.main-section .hero-title-medium { /* Przeniesione z HTML inline style */
+    font-size: 4.25rem;
+}
+
 /* 3.2 Sekcja Galeria (gallery-section) */
 .gallery-section {
     min-height: 100vh;
@@ -169,32 +184,63 @@ h1 {
     padding-right: 2rem;
 }
 
-.gallery-section h3 {
+.gallery-section .gallery-title { /* Przeniesione z HTML inline style */
+    font-size: 4.5rem;
+}
+/* Styl dla img-fluid w tej sekcji, jeśli width: 100% było celowe.
+   Bootstrap img-fluid daje max-width: 100%. Jeśli ma być sztywno 100%, to: */
+/* .gallery-section .img-fluid { width: 100%; } */
+/* Na razie zakładam, że img-fluid (max-width: 100%) jest OK */
+
+
+.gallery-section .title-block { /* Przeniesione z HTML inline style */
+    margin-top: -120px;
+}
+
+.gallery-section .description-block-1 { /* Przeniesione z HTML inline style */
+    margin-top: 100px;
+}
+
+.gallery-section .description-block-2 { /* Przeniesione z HTML inline style */
+    margin-top: 80px;
+}
+
+.gallery-section .gallery-text { /* Przeniesione z HTML inline style, nadpisuje fs-2 */
+    font-size: 1rem !important;
+}
+
+.gallery-section .link-block { /* Przeniesione z HTML inline style */
+    margin-top: 120px;
+}
+
+
+.gallery-section h3 { /* Istniejący styl, zachowany */
     font-size: 2.25rem; /* Dopasowane do zrzutu */
     font-weight: 700;
     margin-bottom: 1.5rem;
 }
 
-.gallery-section p {
+.gallery-section p { /* Istniejący styl, zachowany */
     font-size: 1.125rem; /* 18px */
     line-height: 1.6;
     color: #ddd;
 }
 
-.gallery-section a {
+.gallery-section a { /* Istniejący styl, zachowany */
     font-size: 1.2rem;
     font-weight: 600;
     color: #4da3ff;
     text-decoration: none;
 }
 
-.gallery-section a:hover {
+.gallery-section a:hover { /* Istniejący styl, zachowany */
     text-decoration: underline;
 }
 
 /* 3.3 Sekcja Eye Story (#eye-story-section) */
 #eye-story-section {
     font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    background-color: #F8FAFC; /* Przeniesione z HTML inline style */
 }
 
 #eye-story-section .main-title {
@@ -205,7 +251,7 @@ h1 {
 }
 
 #eye-story-section .section-subtitle {
-    /* font-size: 1.75rem; */ /* debug xd */
+    /* font-size: 1.75rem; */ /* Usunięty komentarz "debug xd" */
     color: #000000; 
     /* Inne style jak np. line-height, jeśli są, mogą pozostać */
 }
@@ -311,19 +357,15 @@ h1 {
 }
 
 /* 3.4 Sekcja Produkty i Wymiary (product-dimensions-section) */
-.product-dimensions-section {
-    min-height: 100vh;
-    padding: 3rem 0; /* Zmniejszony padding góra/dół */
-}
-/* Duplikacja .product-dimensions-section - zachowuję zgodnie z prośbą */
+/* Scalona definicja .product-dimensions-section */
 .product-dimensions-section {
     min-height: 100vh;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    align-items: stretch;
-    padding: 4rem 0; /* Odstępy góra/dół */
-    background-color: #f8f9fa; /* Tło sekcji */
+    align-items: stretch; /* Zmienione z align-items: center, aby pasowało do height: calc(...) */
+    padding: 4rem 0; /* Odstępy góra/dół z drugiej definicji, 3rem 0 z pierwszej zostało nadpisane */
+    background-color: #f8f9fa; /* Tło sekcji z drugiej definicji */
 }
 
 .product-dimensions-section .info-card {
@@ -344,8 +386,30 @@ h1 {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
+/* Style dla konkretnych kart przeniesione z HTML inline style */
+.product-dimensions-section .info-card-products {
+    background-image: url('assets/wizualizacja 2.png');
+}
+
+.product-dimensions-section .info-card-dimensions {
+    background-image: url('assets/wizualizacja.png');
+}
+
+/* Nadpisanie koloru tekstu dla h3 w drugiej karcie */
+.product-dimensions-section .info-card-dimensions h3 {
+    color: #000000 !important; /* Użycie !important aby nadpisać color: #ffffff z .info-card */
+}
+/* Uwaga: Pozostałe teksty (p, a) w .info-card-dimensions pozostaną białe,
+   co może być problemem czytelności, jeśli 'assets/wizualizacja.png' ma jasne tło.
+   Oryginalny kod HTML nie zmieniał ich koloru. */
+
+
 .product-dimensions-section .info-card::before {
+    content: ""; /* pseudo-elementy wymagają content */
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
     background: rgba(255, 255, 255, 0.05); /* bardzo subtelna biel */
+    z-index: 0; /* Pod tekstem */
 }
 
 .product-dimensions-section .info-card:hover {
@@ -357,7 +421,7 @@ h1 {
 .product-dimensions-section .info-card p,
 .product-dimensions-section .info-card a {
     position: relative;
-    z-index: 1;
+    z-index: 1; /* Nad pseudo-elementem ::before */
 }
 
 .product-dimensions-section .info-card h3 {
@@ -368,13 +432,13 @@ h1 {
 
 .product-dimensions-section .info-card p {
     font-size: 0.95rem;
-    color: #c6c6c6;
+    color: #c6c6c6; /* To jest domyślny kolor dla p w obu kartach */
     margin-bottom: 1rem;
 }
 
 .product-dimensions-section .info-card a {
     font-size: 0.9rem;
-    color: #0d6efd;
+    color: #0d6efd; /* To jest domyślny kolor dla a w obu kartach */
     text-decoration: underline;
     transition: color 0.2s;
 }
@@ -392,6 +456,10 @@ h1 {
 }
 
 /* 3.5 Sekcja Proces Tworzenia (creation-process-section) */
+.creation-process-section {
+    background-color: #fff; /* Przeniesione z HTML inline style */
+}
+
 .creation-process-section .creation-main-title {
     font-size: 2.8rem; /* Około 45px */
     margin-bottom: 0.25rem; /* Mniejszy margines pod głównym tytułem */
@@ -465,9 +533,7 @@ h1 {
 }
 
 @media (max-width: 767.98px) { /* Poniżej MD (dla SM) */
-    .creation-step {
-        /* Na małych ekranach każda kolumna kroku zajmuje całą szerokość, mb-4 z Bootstrapa działa */
-    }
+    /* .creation-step - styl już jest, nie ma potrzeby duplikować */
     .creation-step-description {
         padding-left: 1rem;
         padding-right: 1rem;
