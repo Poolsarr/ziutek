@@ -2,9 +2,7 @@
    1. Style globalne i podstawowe tagi
    ========================================================================== */
 body {
-    overflow-x: hidden;
-    /* overflow-y: hidden; */
-    /* Font stack: Century Gothic jako główny, potem systemowy sans-serif */
+    overflow-x: hidden; 
     font-family: 'Century Gothic', sans-serif;
 }
 
@@ -14,16 +12,7 @@ a {
 }
 
 a:hover {
-    color: var(--bs-gray-500);
-}
-
-h1 {
-    font-size: 48px; /* Domyślny rozmiar h1, może być nadpisywany lokalnie */
-}
-
-.icon {
-    height: 32px;
-    width: 32px;
+    color: var(--bs-gray-500); 
 }
 
 /* ==========================================================================
@@ -36,7 +25,7 @@ h1 {
     border: 2px solid white;
     color: white;
     border-radius: 50rem;
-    padding: 0.6rem 1.4rem;
+    padding: 0.6rem 1.4rem; 
     box-shadow:
         0 0 4px rgba(173, 216, 230, 0.1),
         0 0 8px rgba(173, 216, 230, 0.1),
@@ -66,10 +55,11 @@ h1 {
     transform: translate(-50%, -50%);
     width: 100vmin;
     height: 100vmin;
-    z-index: 1;
+    z-index: 1; /* Pod obrazkiem i tekstem */
     display: flex;
     justify-content: center;
     align-items: center;
+    pointer-events: none;
 }
 
 .orb-outer {
@@ -87,40 +77,27 @@ h1 {
         );
     opacity: 0.5;
     transition: opacity 0.8s ease-in-out;
-    z-index: 0; /* Znajduje się za orb-inner */
+    z-index: 0; /* Najniżej */
 }
 
 .orb-super-container {
   position: relative;
-  width: 100%; /* Dodane dla spójności, jeśli wcześniej było w drugim bloku */
-  height: 100vh; /* Dodane dla spójności, jeśli wcześniej było w drugim bloku */
-  display: flex; /* Dodane dla spójności */
-  justify-content: center; /* Dodane dla spójności */
-  align-items: center; /* Dodane dla spójności */
-  overflow: visible; /* Z pierwszego bloku */
+  width: 100%;
+  height: 100vh; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: visible;
 }
 
 .orb-super-container:hover .orb-outer {
     opacity: 1;
 }
 
-/* Obrazek w orb-super-container (dawniej częściowo inline) */
 .orb-super-container .hero-image {
-    max-width: 80%; /* Przeniesione z HTML inline style */
-    position: relative; /* Z oryginalnego .orb-super-container img */
-    z-index: 2; /* Z oryginalnego .orb-super-container img */
-}
-
-/* Selektor .orb-img był zdefiniowany, ale nieużywany w HTML.
-   Pozostawiony na wypadek przyszłego użycia lub jako referencja. */
-.orb-img {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  max-width: 80%;
-  height: auto;
-  z-index: 2;
+    max-width: 80%;
+    position: relative;
+    z-index: 2; /* Nad orb-container i orb-inner/outer */
 }
 
 .orb-inner {
@@ -137,123 +114,135 @@ h1 {
         #992d15 270deg 360deg
     );
     opacity: 0.9;
-    z-index: 1; /* Znajduje się przed orb-outer */
+    z-index: 1; /* Tak jak orb-container, pod obrazkiem */
 }
 
 /* ==========================================================================
-   3. Style sekcji (w przybliżonej kolejności z HTML)
+   3. Style sekcji
    ========================================================================== */
 
 /* 3.1 Sekcja Główna (main-section) */
 .main-section {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    background-color: #111; /* opcjonalne tło */
-}
-
-.main-section .hero-text-container { /* Przeniesione z HTML inline style */
-    max-width: 500px;
-    width: 100%;
-}
-
-.main-section .hero-title-large { /* Przeniesione z HTML inline style */
-    font-size: 6.5rem;
-}
-
-.main-section .hero-subtitle { /* Przeniesione z HTML inline style, nadpisuje fs-3 */
-    font-size: 1rem !important;
-}
-
-.main-section .hero-title-medium { /* Przeniesione z HTML inline style */
-    font-size: 4.25rem;
-}
-
-/* 3.2 Sekcja Galeria (gallery-section) */
-.gallery-section {
-    min-height: 100vh;
+    min-height: 100vh; 
     display: flex;
     align-items: center;
     background-color: #111;
-    padding-top: 5rem; /* Odstęp od poprzedniej sekcji */
-    padding-bottom: 5rem;
+    position: relative; /* Dla poprawnego działania z-index dzieci */
+}
+
+.main-section .hero-text-container {
+    max-width: 500px; 
+    width: 100%;
+    position: relative; /* Dla z-index */
+    z-index: 3;         /* Tekst zawsze na wierzchu */
+}
+
+.main-section .hero-title-large {
+    font-size: 6.5rem; 
+}
+
+.main-section .hero-subtitle-medium { 
+    font-size: 1.5rem; 
+}
+
+.main-section .hero-title-medium {
+    font-size: 4.25rem; 
+}
+
+/* 3.2 Sekcja Galeria (gallery-section) */
+#galeria { 
+  scroll-margin-top: 70px; 
+}
+.gallery-section {
+    min-height: auto;
+    display: flex;
+    align-items: center;
+    background-color: #111;
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+    padding-left: 3rem; 
+    padding-right: 3rem;
 }
 
 .gallery-section .container-fluid {
-    margin-left: 3rem;  /* Od lewej krawędzi */
-    padding-right: 2rem;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-.gallery-section .gallery-title { /* Przeniesione z HTML inline style */
-    font-size: 4.5rem;
-}
-/* Styl dla img-fluid w tej sekcji, jeśli width: 100% było celowe.
-   Bootstrap img-fluid daje max-width: 100%. Jeśli ma być sztywno 100%, to: */
-/* .gallery-section .img-fluid { width: 100%; } */
-/* Na razie zakładam, że img-fluid (max-width: 100%) jest OK */
-
-
-.gallery-section .title-block { /* Przeniesione z HTML inline style */
-    margin-top: -120px;
+.gallery-section .gallery-text-column {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
-.gallery-section .description-block-1 { /* Przeniesione z HTML inline style */
-    margin-top: 100px;
+@media (min-width: 992px) {
+    .gallery-section .gallery-text-column {
+        padding-left: 5rem; 
+    }
 }
 
-.gallery-section .description-block-2 { /* Przeniesione z HTML inline style */
-    margin-top: 80px;
+.gallery-section .title-block,
+.gallery-section .description-block-1,
+.gallery-section .description-block-2,
+.gallery-section .link-block {
+    margin-top: 0;
 }
 
-.gallery-section .gallery-text { /* Przeniesione z HTML inline style, nadpisuje fs-2 */
-    font-size: 1rem !important;
+.gallery-section .gallery-title {
+    font-size: clamp(2.8rem, 6vw, 3.5rem);
+    line-height: 1.15;
+    margin-bottom: 3.5rem; 
+    color: #fff;
 }
 
-.gallery-section .link-block { /* Przeniesione z HTML inline style */
-    margin-top: 120px;
+.gallery-section .description-block-1 {
+    margin-bottom: 2rem;
 }
 
-
-.gallery-section h3 { /* Istniejący styl, zachowany */
-    font-size: 2.25rem; /* Dopasowane do zrzutu */
-    font-weight: 700;
-    margin-bottom: 1.5rem;
+.gallery-section .description-block-2 {
+    margin-bottom: 3rem;
 }
 
-.gallery-section p { /* Istniejący styl, zachowany */
-    font-size: 1.125rem; /* 18px */
-    line-height: 1.6;
-    color: #ddd;
+.gallery-section .link-block a {
+    font-weight: 500;
+    color: #a2ccfe !important;
+    text-decoration: underline !important;
+    transition: color 0.2s ease-in-out;
+}
+.gallery-section .link-block a:hover {
+    color: #79b3ed !important;
 }
 
-.gallery-section a { /* Istniejący styl, zachowany */
-    font-size: 1.2rem;
-    font-weight: 600;
-    color: #4da3ff;
-    text-decoration: none;
+.gallery-section .gallery-text-styling {
+    line-height: 1.25; 
+    margin-bottom: 0.2rem; 
+    color: #fff;
 }
 
-.gallery-section a:hover { /* Istniejący styl, zachowany */
-    text-decoration: underline;
+.gallery-section .gallery-text-styling:last-child {
+    margin-bottom: 0;
 }
+
+.gallery-section .gallery-text-styling strong {
+    font-weight: bold;
+}
+
 
 /* 3.3 Sekcja Eye Story (#eye-story-section) */
 #eye-story-section {
     font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-    background-color: #F8FAFC; /* Przeniesione z HTML inline style */
+    background-color: #F8FAFC;
 }
 
 #eye-story-section .main-title {
-    font-size: 3rem; /* Około 48px */
-    font-weight: 700; /* fw-bold */
+    font-size: 3rem; 
+    font-weight: 700;
     color: #000000;
     margin-bottom: 0.75rem;
 }
 
 #eye-story-section .section-subtitle {
-    /* font-size: 1.75rem; */ /* Usunięty komentarz "debug xd" */
     color: #000000; 
-    /* Inne style jak np. line-height, jeśli są, mogą pozostać */
 }
 
 #eye-story-section .section-subtitle strong {
@@ -264,37 +253,39 @@ h1 {
     font-weight: 500; 
 }
 
-/* Karty w karuzeli Eye Story */
 .eye-story-card-wide {
     background-color: #ffffff;
-    border-radius: 1rem; /* 16px */
+    border-radius: 3rem;
     box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
-    padding: 2rem; /* 32px */
-    width: 48%; /* Dwie karty obok siebie z małym marginesem przez gap-4 */
-    min-height: 280px; /* Zapewnia wystarczająco miejsca, można dostosować */
+    padding: 2rem;
+    padding-left: 3rem; /* zeby na mobilce byl odstep pomiedzy next kartami */
+    width: 38%; 
+    aspect-ratio: 1 / 1.3;
+    min-height: 280px; 
     display: flex;
     flex-direction: column;
     text-align: left;
 }
 
 .eye-story-card-wide h5 {
-    font-size: 1.4rem; /* ZMIANA: Zwiększony font tytułu karty (było 1.25rem) */
+    text-wrap: wrap;
+    font-size: 1.75rem; 
     color: #000000;
-    margin-bottom: 0.75rem; /* 12px */
+    margin-bottom: 0.75rem;
 }
 
 .eye-story-card-wide p {
-    font-size: 1.1rem; /* ZMIANA: Zwiększony font tekstu w karcie (było 1rem) */
-    color: #333333; /* Ciemnoszary, bardziej czytelny niż text-muted */
+    padding-top: 1.5rem;
+    font-size: 1.5rem; 
+    color: #333333;
     line-height: 1.6;
-    margin-bottom: 0; /* Usuwamy domyślny margines, jeśli karta ma być zwarta */
+    margin-bottom: 0;
 }
 
-/* Kontrolki karuzeli Eye Story */
 #eyeStoryCarousel .carousel-control-prev,
 #eyeStoryCarousel .carousel-control-next {
-    opacity: 0.6; /* Nieco bardziej subtelne */
-    width: 8%; /* Zwiększamy trochę obszar klikalny */
+    opacity: 0.6;
+    width: 8%;
     z-index: 5;
     transition: opacity 0.2s ease-in-out;
 }
@@ -312,9 +303,9 @@ h1 {
     background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23000000'%3e%3cpath d='M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
 }
 
-.carousel-control-next-icon, /* To jest bardziej generyczne, ale używane przez #eyeStoryCarousel */
+.carousel-control-next-icon,
 .carousel-control-prev-icon {
-    width: 1.5rem; /* Dostosowanie wielkości ikon */
+    width: 1.5rem;
     height: 1.5rem;
     background-size: 100% 100%;
 }
@@ -324,48 +315,16 @@ h1 {
     padding-bottom: 1rem;
 }
 
-/* Responsywność dla Sekcji Eye Story */
-@media (max-width: 768px) {
-    #eye-story-section .main-title {
-        font-size: 2.25rem; /* Dostosowanie na mniejsze ekrany */
-    }
-
-    #eye-story-section .section-subtitle {
-        font-size: 1.25rem; /* Dostosowanie na mniejsze ekrany */
-        margin-bottom: 2rem !important; /* Zmniejszenie marginesu na mobile */
-    }
-
-    .eye-story-card-wide {
-        width: 90%; /* Jedna karta na mobile */
-        min-height: auto; /* Pozwalamy na naturalną wysokość */
-        padding: 1.5rem;
-    }
-    
-    #eyeStoryCarousel .carousel-control-prev,
-    #eyeStoryCarousel .carousel-control-next {
-        width: 12%; /* Większy obszar na mobile */
-    }
-}
-
-@media (max-width: 576px) {
-    .eye-story-card-wide {
-        width: 100%; /* Pełna szerokość na bardzo małych ekranach */
-    }
-    #eyeStoryCarousel .d-flex.gap-4 {
-        gap: 1.5rem !important; /* Mniejszy odstęp na mobile */
-    }
-}
 
 /* 3.4 Sekcja Produkty i Wymiary (product-dimensions-section) */
-/* Scalona definicja .product-dimensions-section */
 .product-dimensions-section {
     min-height: 100vh;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    align-items: stretch; /* Zmienione z align-items: center, aby pasowało do height: calc(...) */
-    padding: 4rem 0; /* Odstępy góra/dół z drugiej definicji, 3rem 0 z pierwszej zostało nadpisane */
-    background-color: #f8f9fa; /* Tło sekcji z drugiej definicji */
+    align-items: stretch;
+    padding: 4rem 0;
+    background-color: #f8f9fa;
 }
 
 .product-dimensions-section .info-card {
@@ -374,19 +333,21 @@ h1 {
     padding: 2rem;
     color: #ffffff;
     text-align: center;
-    height: calc(100vh - 120px); /* Wysokość okna minus marginesy */
-    width: calc(100vw - 120px);   /* Szerokość okna minus marginesy boczne */
-    max-width: 700px;           /* Opcjonalny limit, by nie była zbyt szeroka na dużych ekranach */
-    margin: 0 auto;              /* Wyśrodkowanie */
+    height: calc(100vh - 120px); 
+    width: calc(100vw - 120px);  
+    max-width: 700px;          
+    margin: 0 auto;             
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
     overflow: hidden;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex; 
+    flex-direction: column;
+    justify-content: center;
 }
 
-/* Style dla konkretnych kart przeniesione z HTML inline style */
 .product-dimensions-section .info-card-products {
     background-image: url('assets/wizualizacja 2.png');
 }
@@ -395,21 +356,16 @@ h1 {
     background-image: url('assets/wizualizacja.png');
 }
 
-/* Nadpisanie koloru tekstu dla h3 w drugiej karcie */
 .product-dimensions-section .info-card-dimensions h3 {
-    color: #000000 !important; /* Użycie !important aby nadpisać color: #ffffff z .info-card */
+    color: #000000 !important;
 }
-/* Uwaga: Pozostałe teksty (p, a) w .info-card-dimensions pozostaną białe,
-   co może być problemem czytelności, jeśli 'assets/wizualizacja.png' ma jasne tło.
-   Oryginalny kod HTML nie zmieniał ich koloru. */
-
 
 .product-dimensions-section .info-card::before {
-    content: ""; /* pseudo-elementy wymagają content */
+    content: "";
     position: absolute;
     top: 0; left: 0; right: 0; bottom: 0;
-    background: rgba(255, 255, 255, 0.05); /* bardzo subtelna biel */
-    z-index: 0; /* Pod tekstem */
+    background: rgba(0, 0, 0, 0.3); 
+    z-index: 0;
 }
 
 .product-dimensions-section .info-card:hover {
@@ -421,121 +377,442 @@ h1 {
 .product-dimensions-section .info-card p,
 .product-dimensions-section .info-card a {
     position: relative;
-    z-index: 1; /* Nad pseudo-elementem ::before */
+    z-index: 1;
 }
 
 .product-dimensions-section .info-card h3 {
-    font-size: 1.6rem;
+    font-size: 1.8rem; 
     font-weight: bold;
-    margin-bottom: 0.75rem;
+    margin-bottom: 1rem; 
 }
 
 .product-dimensions-section .info-card p {
-    font-size: 0.95rem;
-    color: #c6c6c6; /* To jest domyślny kolor dla p w obu kartach */
-    margin-bottom: 1rem;
+    font-size: 1rem; 
+    color: #f0f0f0; 
+    margin-bottom: 1.2rem; 
+}
+.product-dimensions-section .info-card-dimensions p {
+    color: #333; 
 }
 
 .product-dimensions-section .info-card a {
-    font-size: 0.9rem;
-    color: #0d6efd; /* To jest domyślny kolor dla a w obu kartach */
+    font-size: 1rem; 
+    color: #87CEFA; 
     text-decoration: underline;
     transition: color 0.2s;
+    font-weight: bold;
 }
 
 .product-dimensions-section .info-card a:hover {
-    color: #084298;
-}
-
-/* Responsywność dla Sekcji Produkty i Wymiary */
-@media (min-width: 768px) {
-    .product-dimensions-section .info-card {
-        height: calc(100vh - 120px);
-        width: calc(100vw - 8rem); /* Większy margines boczny na dużych ekranach */
-    }
+    color: #add8e6; 
 }
 
 /* 3.5 Sekcja Proces Tworzenia (creation-process-section) */
 .creation-process-section {
-    background-color: #fff; /* Przeniesione z HTML inline style */
+    background-color: #fff;
 }
 
 .creation-process-section .creation-main-title {
-    font-size: 2.8rem; /* Około 45px */
-    margin-bottom: 0.25rem; /* Mniejszy margines pod głównym tytułem */
+    font-size: 2.8rem;
+    margin-bottom: 0.25rem;
 }
 
 .creation-process-section .creation-subtitle {
-    font-size: 1.75rem; /* Około 28px */
-    font-weight: 400; /* Normalna grubość */
-    margin-bottom: 4rem; /* Większy odstęp przed krokami */
+    font-size: 1.75rem;
+    font-weight: 400;
+    margin-bottom: 4rem;
 }
 
 .creation-steps-row {
-    align-items: flex-start; /* Elementy w kolumnach zaczynają się od góry */
+    align-items: flex-start;
 }
 
 .creation-icon-wrapper {
-    min-height: 60px; /* Zapewnia miejsce i wyrównanie dla strzałek */
+    min-height: 60px;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
 .creation-step-icon {
-    width: 48px;  /* Ustaw szerokość obrazka (odpowiednik ok. 3rem) */
-    height: 48px; /* Ustaw wysokość obrazka */
+    width: 48px; 
+    height: 48px;
     display: inline-block; 
-    object-fit: contain; /* Aby obrazek SVG skalował się poprawnie w ramach podanych wymiarów */
+    object-fit: contain;
 }
 
 .creation-step-title {
-    font-size: 1.3rem; /* Około 21px */
+    font-size: 1.3rem;
     color: #000000;
 }
 
 .creation-step-description {
-    font-size: 0.95rem; /* Około 15px */
+    font-size: 0.95rem;
     color: #333333;
     line-height: 1.6;
-    padding-left: 0.5rem; /* Minimalny padding dla estetyki */
+    padding-left: 0.5rem;
     padding-right: 0.5rem;
 }
 
 .creation-arrow-separator {
-    padding-left: 0.5rem;  /* Odstęp dla strzałek */
+    padding-left: 0.5rem;
     padding-right: 0.5rem;
-    align-self: flex-start; /* Wyrównaj kolumnę strzałki do góry */
-    padding-top: 1.1rem; /* Przesunięcie strzałki w dół, aby wizualnie pasowała do środka ikon */
+    align-self: flex-start;
+    padding-top: 1.1rem;
 }
 
 .creation-step-arrow {
-    width: 28px; /* Wielkość strzałki SVG */
+    width: 28px;
     height: 28px;
     color: #000000;
 }
 
-/* Responsywność dla Sekcji Proces Tworzenia */
-@media (max-width: 991.98px) { /* Poniżej LG (dla MD i SM) */
-    .creation-process-section .creation-main-title {
-        font-size: 2.2rem;
+
+/* ==========================================================================
+   4. Media Queries dla responsywności
+   ========================================================================== */
+
+/* === SEKCJA GŁÓWNA (HERO) - MOBILE - POPRAWKI DLA NACHODZENIA TEKSTU === */
+@media (max-width: 991.98px) { /* Poniżej LG (tablety i mniejsze) */
+    .main-section {
+        min-height: auto;
+        display: block; 
+        padding-top: 2rem; 
+        padding-bottom: 2rem;
+        /* position: relative; - Już jest ustawione w stylach podstawowych .main-section */
     }
-    .creation-process-section .creation-subtitle {
-        font-size: 1.3rem;
-        margin-bottom: 3rem;
+
+    .main-section .row {
+        display: flex; /* Potrzebne dla flex-direction i order */
+        flex-direction: column; 
+        /* Jeśli kolumna z tekstem jest PIERWSZA w HTML, a z orbem DRUGA,
+           i chcesz, aby orb był WIZUALNIE pierwszy: */
     }
-    .creation-step {
-        margin-bottom: 2.5rem !important; /* Większy odstęp między wierszami na tabletach */
+    
+    .main-section .col-lg-6.pb-5.pt-5.ps-lg-5 { /* Kolumna z orbem */
+        order: -1; /* Przesuń kolumnę z orbem na górę wizualnie */
+        padding-top: 0 !important; /* Usuń padding, jeśli orb ma być ciasno na górze */
+        padding-bottom: 0 !important; /* Usuń padding */
     }
-    .creation-step:last-child {
-        margin-bottom: 0 !important;
+
+
+    .orb-super-container {
+        height: auto; /* Wysokość dopasowuje się do zawartości */
+        /* margin-bottom: 0; << Usunięte, aby tekst mógł nachodzić */
+        max-width: 100%;   
+        position: relative; /* Dla z-index, jeśli jest potrzebny w kontekście innych elementów */
+        z-index: 1;         /* Orb pod tekstem */
+    }
+
+    .orb-super-container .hero-image {
+        max-width: 65%; /* Zmniejszamy oko, aby było więcej miejsca na tekst */
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 0; /* Aby tekst mógł podejść bliżej od dołu */
+    }
+
+    /* Dostosowanie efektu orb na tabletach */
+    .orb-container { width: 100vmin; height: 100vmin; } 
+    .orb-outer { width: 100vmin; height: 100vmin; filter: blur(70px); } /* Mniejszy blur */
+    .orb-inner { width: 70vmin; height: 70vmin; filter: blur(25px); } /* Mniejszy blur */
+
+
+    .main-section .hero-text-container {
+        text-align: center;
+        max-width: 90%;   
+        margin-left: auto; 
+        margin-right: auto;
+        padding-left: 0.5rem;
+        padding-right: 0.5rem;
+        position: relative; 
+        z-index: 2;         
+        margin-top: -5rem;  /* KLUCZOWE: Ujemny margines (np. -5rem, dostosuj!) */
+                            /* Zwiększono ujemny margines dla większego nachodzenia */
+    }
+
+    .main-section .hero-title-large {
+        font-size: 2.8rem; /* Dostosuj */
+        line-height: 1.1;
+        margin-bottom: 0.4rem; 
+    }
+    .main-section .hero-subtitle-medium {
+        font-size: 1rem !important; /* Dostosuj */
+        margin-top: 0.4rem;
+        margin-bottom: 0.4rem; 
+    }
+    .main-section .hero-title-medium {
+        font-size: 2rem; /* Dostosuj */
+        line-height: 1.1;
+        margin-bottom: 1.2rem; 
+    }
+    .custom-neon-btn.fs-4 {
+        font-size: 1rem !important;
+        padding: 0.6rem 1.1rem;
+        margin-top: 0.5rem !important; /* Mniejszy margines dla przycisku */
     }
 }
 
-@media (max-width: 767.98px) { /* Poniżej MD (dla SM) */
-    /* .creation-step - styl już jest, nie ma potrzeby duplikować */
-    .creation-step-description {
+@media (max-width: 767.98px) { /* Poniżej MD (telefony) */
+    .orb-super-container .hero-image {
+        max-width: 75%; /* Trochę większe oko na telefonach */
+    }
+
+    .main-section .hero-text-container {
+        margin-top: -4rem; /* Mniejszy ujemny margines, jeśli oko jest większe */
+        max-width: 95%;
+    }
+
+    .main-section .hero-title-large {
+        font-size: 2.4rem;
+    }
+    .main-section .hero-subtitle-medium {
+        font-size: 0.9rem !important;
+    }
+    .main-section .hero-title-medium {
+        font-size: 1.8rem;
+    }
+}
+
+@media (max-width: 575.98px) { /* Poniżej SM (bardzo małe telefony) */
+    .main-section .hero-text-container {
+        margin-top: -3rem; /* Jeszcze mniejszy ujemny margines */
+    }
+    .orb-super-container .hero-image {
+        max-width: 80%; 
+    }
+    .main-section .hero-title-large {
+        font-size: 2rem;
+    }
+    .main-section .hero-title-medium {
+        font-size: 1.5rem;
+    }
+    .main-section .hero-subtitle-medium {
+        font-size: 0.8rem !important;
+    }
+}
+
+
+/* === POZOSTAŁE SEKCJE - ZACHOWAJ SWOJE WCZEŚNIEJSZE MEDIA QUERIES === */
+/* Poniżej są Twoje poprzednie media queries dla innych sekcji - upewnij się, że są na końcu pliku
+   lub przynajmniej po podstawowych stylach tych sekcji. */
+
+      
+/* === SEKCJA GALERIA - MOBILE - Pomniejszenie i WYŚRODKOWANIE obrazków === */
+
+@media (max-width: 767.98px) { /* Poniżej MD (telefony), gdzie kolumny są col-12 */
+    
+    .gallery-section .row.g-md-4.g-2 { /* Rodzic kolumn z obrazkami */
+        justify-content: center; /* KLUCZOWE: Wyśrodkowuje elementy flex (kolumny) w osi głównej */
+                                 /* Ponieważ kolumny są ułożone pionowo (niejawnie przez Bootstrap lub col-12),
+                                    to odnosi się do centrowania ich w dostępnej przestrzeni,
+                                    jeśli są węższe niż kontener. */
+    }
+
+    .gallery-section .row.g-md-4.g-2 > .col-12 { 
+        max-width: 280px; /* Ustaw maksymalną szerokość dla kontenera obrazka */
+        /* margin-left: auto;  << USUWAMY */
+        /* margin-right: auto; << USUWAMY */
+        /* flex-grow: 0; */ /* Opcjonalnie, aby zapobiec rozciąganiu, jeśli inne kolumny mają inną szerokość */
+        /* flex-shrink: 0; */ /* Opcjonalnie */
+    }
+
+    /* Jeśli używasz .gallery-image-square do wymuszenia kwadratu */
+    .gallery-image-square {
+        aspect-ratio: 1 / 1; 
+        width: 100%; 
+        object-fit: cover;
+    }
+
+    /* Istniejące style dla odstępów i tekstu na mobile */
+    /* .gallery-section .row.g-md-4.g-2 - odstępy już są ustawione w HTML przez g-2, więc nie trzeba nadpisywać gutterów tutaj, chyba że chcesz je zmienić */
+    /*
+    .gallery-section .row.g-md-4.g-2 {
+        --bs-gutter-x: 0.5rem; 
+        --bs-gutter-y: 0.5rem; 
+    }
+    */
+
+    .gallery-section .gallery-text-column {
+        margin-top: 2rem; 
+        padding-left: 0.5rem; 
+        padding-right: 0.5rem;
+        text-align: center; 
+    }
+
+    .gallery-section .gallery-title {
+        font-size: clamp(1.8rem, 7vw, 2.2rem);
+    }
+    .gallery-section .fs-3 { 
+        font-size: 1.1rem !important; 
+    }
+    .gallery-section .link-block .fs-2 { 
+        font-size: 1.25rem !important; 
+    }
+    .gallery-section .description-block-1,
+    .gallery-section .description-block-2 {
+        margin-bottom: 1.5rem;
+    }
+}
+
+/* Ten blok @media (max-width: 991.98px) pozostaje ważny dla tabletów, gdzie układ jest 2x2 */
+@media (max-width: 991.98px) { 
+    .gallery-section {
         padding-left: 1rem;
         padding-right: 1rem;
+        padding-top: 3rem;
+        padding-bottom: 3rem;
+    }
+    /* Na tabletach (gdzie col-md-6 jest aktywne) tekst jest pod siatką obrazów */
+    .gallery-section .col-lg-6.d-flex.align-items-center + .gallery-text-column {
+        /* Ten selektor zadziała, jeśli kolumna tekstowa jest bezpośrednio po kolumnie z obrazami */
+        margin-top: 3rem; 
+        text-align: center;
+        padding-left: 0; /* Reset paddingu z desktopu */
+    }
+    .gallery-section .gallery-title { /* To może być już obsłużone przez węższy breakpoint */
+        /* font-size: clamp(2.2rem, 6vw, 2.8rem); */
+        /* margin-bottom: 1.5rem; */
+    }
+     .gallery-section .row.g-4 { /* Jeśli g-md-4 jest w HTML, to niepotrzebne */
+        /* --bs-gutter-x: 1rem; */
+        /* --bs-gutter-y: 1rem; */
+    }
+}
+
+
+
+@media (max-width: 767.98px) { 
+    .gallery-section .gallery-title {
+        font-size: clamp(1.8rem, 7vw, 2.2rem);
+    }
+    .gallery-section .fs-3 { 
+        font-size: 1.1rem !important; 
+    }
+    .gallery-section .link-block .fs-2 { 
+        font-size: 1.25rem !important; 
+    }
+    .gallery-section .description-block-1,
+    .gallery-section .description-block-2 {
+        margin-bottom: 1.5rem;
+    }
+}
+
+
+/* === SEKCJA EYE STORY - MOBILE === */
+@media (max-width: 768px) { 
+    #eye-story-section .main-title {
+        font-size: 2rem; 
+    }
+    #eye-story-section .section-subtitle {
+        font-size: 1.1rem !important; 
+        margin-bottom: 2.5rem !important; 
+    }
+    .eye-story-card-wide {
+        width: 90%; 
+        min-height: auto;
+        padding: 1.5rem;
+    }
+    #eyeStoryCarousel .carousel-control-prev,
+    #eyeStoryCarousel .carousel-control-next {
+        width: 12%;
+    }
+}
+
+@media (max-width: 576px) { 
+    #eye-story-section .main-title {
+        font-size: 1.8rem;
+    }
+    #eye-story-section .section-subtitle { 
+        font-size: 1rem !important;
+        margin-bottom: 2rem !important;
+    }
+     .eye-story-card-wide {
+        width: 100%;
+        padding: 1.25rem;
+    }
+    .eye-story-card-wide h5 {
+        font-size: 1.2rem;
+    }
+    .eye-story-card-wide p {
+        font-size: 0.95rem;
+    }
+    #eyeStoryCarousel .d-flex.gap-4 {
+        gap: 1rem !important; 
+    }
+}
+
+
+/* === SEKCJA PRODUKTY I WYMIARY - MOBILE === */
+@media (max-width: 767.98px) { 
+    .product-dimensions-section {
+        padding-top: 2rem;
+        padding-bottom: 1rem; 
+    }
+    .product-dimensions-section .info-card {
+        height: auto;
+        min-height: 280px; 
+        width: 90%;
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 2rem;
+        padding: 1.5rem; 
+    }
+    .product-dimensions-section .row.g-4 > .col-md-6:last-child .info-card {
+        margin-bottom: 0;
+    }
+    .product-dimensions-section .info-card h3 {
+        font-size: 1.5rem;
+    }
+    .product-dimensions-section .info-card p {
+        font-size: 0.9rem;
+    }
+    .product-dimensions-section .info-card a {
+        font-size: 0.9rem;
+    }
+}
+
+
+/* === SEKCJA PROCES TWORZENIA - MOBILE === */
+@media (max-width: 991.98px) { 
+    .creation-process-section .creation-main-title {
+        font-size: 2rem;
+    }
+    .creation-process-section .creation-subtitle {
+        font-size: 1.2rem;
+        margin-bottom: 2.5rem;
+    }
+    .creation-step {
+        margin-bottom: 2rem !important; 
+    }
+}
+
+@media (max-width: 767.98px) { 
+    .creation-process-section .creation-main-title {
+        font-size: 1.8rem;
+    }
+    .creation-process-section .creation-subtitle {
+        font-size: 1.1rem;
+    }
+    .creation-step-description {
+        padding-left: 0.5rem; 
+        padding-right: 0.5rem;
+    }
+}
+
+@media (max-width: 575.98px) { 
+    .creation-process-section {
+        padding-top: 2rem;
+        padding-bottom: 2rem;
+    }
+    .creation-step-icon {
+        width: 38px;
+        height: 38px;
+    }
+    .creation-step-title {
+        font-size: 1.1rem;
+    }
+    .creation-step-description {
+        font-size: 0.8rem;
     }
 }

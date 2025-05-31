@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pl"> <!-- Zmieniono lang na "pl" dla polskiej strony -->
+<html lang="pl">
 
 <head>
     <meta charset="UTF-8">
@@ -9,7 +9,7 @@
     <!-- Style zewnętrzne -->
     <link rel="stylesheet" href="https://necolas.github.io/normalize.css/latest/normalize.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"> <!-- Dodano link do Bootstrap Icons, jeśli używane -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="style.css">
 
     <!-- Skrypty (deferowane dla lepszej wydajności ładowania) -->
@@ -29,9 +29,10 @@
                 <div class="col-xl-5 col-lg-6 d-flex justify-content-center align-items-center py-5">
                     <div class="hero-text-container">
                         <h1 class="fw-bold display-1 hero-title-large">Stwórz<br>unikalny prezent,</h1>
-                        <p class="fs-3 mt-3 hero-subtitle">który sprawi, że każdy poczuje się naprawdę</p>
+                        <!-- ZMIANA KLASY dla lepszego targetowania w CSS -->
+                        <p class="fs-2 mt-3 hero-subtitle-medium">który sprawi, że każdy poczuje się naprawdę</p>
                         <h1 class="fw-bold mb-4 display-4 hero-title-medium">wyjątkowy.</h1>
-                        <a href="#galeria" class="btn custom-neon-btn fs-4 px-4 mt-5 py-3 rounded-pill">Zobacz szczegóły</a>
+                        <a href="#galeria-start-point" class="btn custom-neon-btn fs-4 px-4 mt-5 py-3 rounded-pill">Zobacz szczegóły</a>
                     </div>
                 </div>
                 <!-- Kolumna z obrazem i efektem orb -->
@@ -48,46 +49,48 @@
         </div>
     </section>
 
-    <!-- ========================================================================= -->
+        <!-- ========================================================================= -->
     <!-- Sekcja Galeria                                                            -->
     <!-- ========================================================================= -->
     <section id="galeria" class="main-section gallery-section">
         <div class="container-fluid px-3">
+            <div id="galeria-start-point" style="position: relative; top: -60px;"></div> <!-- Możesz dostosować 'top' lub użyć scroll-margin-top -->
             <div class="row gx-2 mt-2 align-items-center justify-content-center">
                 <!-- Kolumna z siatką obrazów -->
                 <div class="col-lg-6 d-flex align-items-center">
-                    <div class="row g-5">
-                        <div class="col-6">
-                            <img src="assets/przykład 1.png" alt="Przykład zdjęcia tęczówki 1" class="img-fluid rounded shadow" />
+                    <div class="row g-md-4 g-2"> 
+                        <!-- ZMIANA KLAS KOLUMN -->
+                        <div class="col-md-6 col-12 mb-2 mb-md-0"> 
+                            <img src="assets/przykład 1.png" alt="Przykład zdjęcia tęczówki 1" class="img-fluid rounded shadow gallery-image-square" />
                         </div>
-                        <div class="col-6">
-                            <img src="assets/wizualizacja 3.jpg" alt="Wizualizacja produktu 3" class="img-fluid rounded shadow" />
+                        <div class="col-md-6 col-12 mb-2 mb-md-0">
+                            <img src="assets/wizualizacja 3.jpg" alt="Wizualizacja produktu 3" class="img-fluid rounded shadow gallery-image-square" />
                         </div>
-                        <div class="col-6">
-                            <img src="assets/wizualizacja 4.jpg" alt="Wizualizacja produktu 4" class="img-fluid rounded shadow" />
+                        <div class="col-md-6 col-12 mb-2 mb-md-0">
+                            <img src="assets/wizualizacja 4.jpg" alt="Wizualizacja produktu 4" class="img-fluid rounded shadow gallery-image-square" />
                         </div>
-                        <div class="col-6">
-                            <img src="assets/przykład 2.png" alt="Przykład zdjęcia tęczówki 2" class="img-fluid rounded shadow" />
+                        <div class="col-md-6 col-12"> <!-- Ostatni nie potrzebuje mb-2 na mobile -->
+                            <img src="assets/przykład 2.png" alt="Przykład zdjęcia tęczówki 2" class="img-fluid rounded shadow gallery-image-square" />
                         </div>
                     </div>
                 </div>
                 <!-- Kolumna z tekstem opisowym galerii -->
-                <div class="col-lg-6 text-white ps-lg-5 position-relative">
+                <div class="col-lg-6 text-white gallery-text-column"> <!-- ps-lg-5 usunięte, kontrola w CSS -->
                     <div class="title-block">
-                        <h3 class="fw-bold mb-3 gallery-title">Twoja tęczówka jako<br>element wystroju</h3>
+                        <h3 class="fw-bold gallery-title">Twoja tęczówka jako<br>element wystroju</h3>
                     </div>
                     <div class="description-block-1">
-                        <p class="fs-2 mt-3 gallery-text">Dodaj osobisty akcent do swojego wnętrza.</p>
-                        <p class="fs-2 mt-3 gallery-text">Zdjęcie oka to nie tylko</p>
-                        <p class="fs-2 mt-3 gallery-text">wyjątkowa forma sztuki – to coś, co ma znaczenie.</p>
+                        <p class="fs-3 gallery-text-styling">Dodaj osobisty akcent do swojego wnętrza.</p>
+                        <p class="fs-3 gallery-text-styling">Zdjęcie oka to nie tylko</p>
+                        <p class="fs-3 gallery-text-styling">wyjątkowa forma sztuki – to coś, co ma znaczenie.</p>
                     </div>
                     <div class="description-block-2">
-                        <p class="fs-2 mt-3 gallery-text"><strong>Dostępne różne formaty -</strong></p>
-                        <p class="fs-2 mt-3 gallery-text">zapytaj mnie, a pomogę dobrać</p>
-                        <p class="fs-2 mt-3 gallery-text">odpowiedni dla Ciebie.</p>
+                        <p class="fs-3 gallery-text-styling"><strong>Dostępne różne formaty -</strong></p>
+                        <p class="fs-3 gallery-text-styling">zapytaj mnie, a pomogę dobrać</p>
+                        <p class="fs-3 gallery-text-styling">odpowiedni dla Ciebie.</p>
                     </div>
                     <div class="link-block">
-                        <a href="#" class="text-primary text-decoration-underline fs-2 mt-3 d-inline-block">Przejdź do galerii ></a>
+                        <a href="#" class="text-decoration-underline d-inline-block fs-2">Przejdź do galerii ></a>
                     </div>
                 </div>
             </div>
