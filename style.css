@@ -1,3 +1,64 @@
+/* ==========================================================================
+   1. Style globalne i podstawowe tagi
+   ========================================================================== */
+body {
+    overflow-x: hidden;
+    /* overflow-y: hidden; */
+    /* Font stack: Humanist + "Native font stack"(bootstrap) */
+    font-family: 'Century Gothic', sans-serif;
+}
+
+a {
+    color: var(--bs-white);
+    text-decoration: none;
+}
+
+a:hover {
+    color: var(--bs-gray-500);
+}
+
+h1 {
+    font-size: 48px;
+}
+
+.icon {
+    height: 32px;
+    width: 32px;
+}
+
+/* ==========================================================================
+   2. Komponenty specyficzne
+   ========================================================================== */
+
+/* 2.1 Przycisk neonowy */
+.custom-neon-btn {
+    background: rgba(255, 255, 255, 0.05);
+    border: 2px solid white;
+    color: white;
+    border-radius: 50rem;
+    padding: 0.6rem 1.4rem;
+    box-shadow:
+        0 0 4px rgba(173, 216, 230, 0.1),
+        0 0 8px rgba(173, 216, 230, 0.1),
+        inset 0 0 2px rgba(173, 216, 230, 0.05);
+    transition:
+        box-shadow 0.8s cubic-bezier(0.4, 0, 0.2, 1),
+        border-color 0.6s ease,
+        color 0.6s ease,
+        background-color 0.6s ease;
+}
+
+.custom-neon-btn:hover {
+    box-shadow:
+        0 0 6px rgba(173, 216, 230, 0.3),
+        0 0 15px rgba(173, 216, 230, 0.4),
+        inset 0 0 6px rgba(173, 216, 230, 0.2);
+    background: rgba(255, 255, 255, 0.07);
+    color: #add8e6;
+    border-color: #add8e6;
+}
+
+/* 2.2 Komponent Orb */
 .orb-container {
     position: absolute;
     top: 50%;
@@ -10,7 +71,6 @@
     justify-content: center;
     align-items: center;
 }
-
 
 .orb-outer {
     position: absolute;
@@ -30,10 +90,6 @@
     z-index: 0; /* Znajduje się za orb-inner */
 }
 
-.orb-super-container:hover .orb-outer {
-    opacity: 1;
-}
-
 .orb-super-container {
   position: relative;
   width: 100%;
@@ -44,7 +100,21 @@
   overflow: visible;
 }
 
+/* Duplikacja .orb-super-container - zachowuję zgodnie z prośbą */
+.orb-super-container {
+    position: relative;
+}
 
+.orb-super-container:hover .orb-outer {
+    opacity: 1;
+}
+
+.orb-super-container img { /* Ten selektor był wcześniej .orb-super-container img */
+    position: relative;
+    z-index: 2;
+}
+
+/* Ten selektor .orb-img był wcześniej, ale .orb-super-container img go bardziej obejmuje */
 .orb-img {
   position: absolute;
   top: 50%;
@@ -72,69 +142,11 @@
     z-index: 1; /* Znajduje się przed orb-outer */
 }
 
-.orb-super-container {
-    position: relative;
-}
+/* ==========================================================================
+   3. Style sekcji (w przybliżonej kolejności z HTML)
+   ========================================================================== */
 
-.orb-super-container img {
-    position: relative;
-    z-index: 2;
-}
-
-body {
-    overflow-x: hidden;
-    /* overflow-y: hidden; */
-    /* Font stack: Humanist + "Native font stack"(bootstrap) */
-    font-family: 'Century Gothic', sans-serif;
-}
-
-a{
-    color: var(--bs-white);
-    text-decoration: none;
-}
-a:hover{
-    color: var(--bs-gray-500);
-}
-
-h1{
-    font-size: 48px;
-}
-.icon{
-    height: 32px;
-    width: 32px;
-}
-
-/* Przycisk neonowy*/
-.custom-neon-btn {
-    background: rgba(255, 255, 255, 0.05);
-    border: 2px solid white;
-    color: white;
-    border-radius: 50rem;
-    padding: 0.6rem 1.4rem;
-
-    box-shadow:
-        0 0 4px rgba(173, 216, 230, 0.1),
-        0 0 8px rgba(173, 216, 230, 0.1),
-        inset 0 0 2px rgba(173, 216, 230, 0.05);
-
-    transition:
-        box-shadow 0.8s cubic-bezier(0.4, 0, 0.2, 1),
-        border-color 0.6s ease,
-        color 0.6s ease,
-        background-color 0.6s ease;
-}
-
-.custom-neon-btn:hover {
-    box-shadow:
-        0 0 6px rgba(173, 216, 230, 0.3),
-        0 0 15px rgba(173, 216, 230, 0.4),
-        inset 0 0 6px rgba(173, 216, 230, 0.2);
-    background: rgba(255, 255, 255, 0.07);
-    color: #add8e6;
-    border-color: #add8e6;
-}
-
-
+/* 3.1 Sekcja Główna (main-section) */
 .main-section {
     min-height: 100vh;
     display: flex;
@@ -142,74 +154,322 @@ h1{
     background-color: #111; /* opcjonalne tło */
 }
 
-
-
-
-/* Poznaj Eye Story */
-.eye-story-section .display-5 { /* Główny tytuł sekcji */
-    margin-bottom: 0.5rem;
-    color: #212529;
+/* 3.2 Sekcja Galeria (gallery-section) */
+.gallery-section {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    background-color: #111;
+    padding-top: 5rem; /* Odstęp od poprzedniej sekcji */
+    padding-bottom: 5rem;
 }
 
-.eye-story-section .lead.fs-4 { /* Podtytuł sekcji */
-    margin-bottom: 2rem; /* Zwiększony margines dolny dla odstępu od kart */
-    color: #495057;
+.gallery-section .container-fluid {
+    margin-left: 3rem;  /* Od lewej krawędzi */
+    padding-right: 2rem;
 }
 
-.eye-story-section .eye-story-card {
-    border: none; /* Usunięcie domyślnej ramki karty */
-    background-color: #ffffff; /* Białe tło kart */
-    border-radius: 0.5rem; /* Zaokrąglenie rogów kart */
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+.gallery-section h3 {
+    font-size: 2.25rem; /* Dopasowane do zrzutu */
+    font-weight: 700;
+    margin-bottom: 1.5rem;
 }
 
-.eye-story-section .eye-story-card .card-title {
-    font-weight: bold;
-    color: #212529;
+.gallery-section p {
+    font-size: 1.125rem; /* 18px */
+    line-height: 1.6;
+    color: #ddd;
+}
+
+.gallery-section a {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #4da3ff;
+    text-decoration: none;
+}
+
+.gallery-section a:hover {
+    text-decoration: underline;
+}
+
+/* 3.3 Sekcja Eye Story (#eye-story-section) */
+#eye-story-section {
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+}
+
+#eye-story-section .main-title {
+    font-size: 3rem; /* Około 48px */
+    font-weight: 700; /* fw-bold */
+    color: #000000;
     margin-bottom: 0.75rem;
 }
 
-.eye-story-section .eye-story-card .card-text {
-    color: #495057;
-    font-size: 0.9rem; /* Nieco mniejszy tekst w kartach */
+#eye-story-section .section-subtitle {
+    /* font-size: 1.75rem; */ /* debug xd */
+    color: #000000; 
+    /* Inne style jak np. line-height, jeśli są, mogą pozostać */
 }
 
-/* Stylizacja kontrolek karuzeli Bootstrap na czarne */
-#eyeStoryCarouselBootstrap .carousel-control-prev-icon {
-  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23000000'%3e%3cpath d='M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z'/%3e%3c/svg%3e");
+#eye-story-section .section-subtitle strong {
+    font-weight: 700; 
 }
 
-#eyeStoryCarouselBootstrap .carousel-control-prev,
-#eyeStoryCarouselBootstrap .carousel-control-next {
-    opacity: 0.7;
-    width: 5%; /* Szerokość obszaru klikalnego kontrolki */
-    z-index: 5; /* Upewnienie się, że kontrolki są nad innymi elementami, jeśli to konieczne */
+#eye-story-section .section-subtitle .subtitle-suffix {
+    font-weight: 500; 
 }
 
-/* NOWE/ZMODYFIKOWANE REGUŁY DLA POZYCJONOWANIA KONTROLEK */
-#eyeStoryCarouselBootstrap .carousel-control-prev {
-    /* Przesuwa przycisk "poprzedni" w lewo o jego własną szerokość,
-       umieszczając go całkowicie na zewnątrz obszaru slajdów.
-       Domyślna pozycja Bootstrap to left: 0; */
-    transform: translateX(-100%);
+/* Karty w karuzeli Eye Story */
+.eye-story-card-wide {
+    background-color: #ffffff;
+    border-radius: 1rem; /* 16px */
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+    padding: 2rem; /* 32px */
+    width: 48%; /* Dwie karty obok siebie z małym marginesem przez gap-4 */
+    min-height: 280px; /* Zapewnia wystarczająco miejsca, można dostosować */
+    display: flex;
+    flex-direction: column;
+    text-align: left;
 }
 
-#eyeStoryCarouselBootstrap .carousel-control-next {
-    /* Przesuwa przycisk "następny" w prawo o jego własną szerokość,
-       umieszczając go całkowicie na zewnątrz obszaru slajdów.
-       Domyślna pozycja Bootstrap to right: 0; */
-    transform: translateX(100%);
+.eye-story-card-wide h5 {
+    font-size: 1.4rem; /* ZMIANA: Zwiększony font tytułu karty (było 1.25rem) */
+    color: #000000;
+    margin-bottom: 0.75rem; /* 12px */
 }
 
+.eye-story-card-wide p {
+    font-size: 1.1rem; /* ZMIANA: Zwiększony font tekstu w karcie (było 1rem) */
+    color: #333333; /* Ciemnoszary, bardziej czytelny niż text-muted */
+    line-height: 1.6;
+    margin-bottom: 0; /* Usuwamy domyślny margines, jeśli karta ma być zwarta */
+}
 
+/* Kontrolki karuzeli Eye Story */
+#eyeStoryCarousel .carousel-control-prev,
+#eyeStoryCarousel .carousel-control-next {
+    opacity: 0.6; /* Nieco bardziej subtelne */
+    width: 8%; /* Zwiększamy trochę obszar klikalny */
+    z-index: 5;
+    transition: opacity 0.2s ease-in-out;
+}
 
-#eyeStoryCarouselBootstrap .carousel-control-prev:hover,
-#eyeStoryCarouselBootstrap .carousel-control-next:hover {
+#eyeStoryCarousel .carousel-control-prev:hover,
+#eyeStoryCarousel .carousel-control-next:hover {
     opacity: 0.9;
 }
 
-/* Proces tworzenia */
-.creation-process-section h2 {
-    font-size: 2.2rem; 
-    color: #212529;
+#eyeStoryCarousel .carousel-control-prev-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23000000'%3e%3cpath d='M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z'/%3e%3c/svg%3e");
+}
+
+#eyeStoryCarousel .carousel-control-next-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23000000'%3e%3cpath d='M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
+}
+
+.carousel-control-next-icon, /* To jest bardziej generyczne, ale używane przez #eyeStoryCarousel */
+.carousel-control-prev-icon {
+    width: 1.5rem; /* Dostosowanie wielkości ikon */
+    height: 1.5rem;
+    background-size: 100% 100%;
+}
+
+#eyeStoryCarousel .carousel-inner {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+
+/* Responsywność dla Sekcji Eye Story */
+@media (max-width: 768px) {
+    #eye-story-section .main-title {
+        font-size: 2.25rem; /* Dostosowanie na mniejsze ekrany */
+    }
+
+    #eye-story-section .section-subtitle {
+        font-size: 1.25rem; /* Dostosowanie na mniejsze ekrany */
+        margin-bottom: 2rem !important; /* Zmniejszenie marginesu na mobile */
+    }
+
+    .eye-story-card-wide {
+        width: 90%; /* Jedna karta na mobile */
+        min-height: auto; /* Pozwalamy na naturalną wysokość */
+        padding: 1.5rem;
+    }
+    
+    #eyeStoryCarousel .carousel-control-prev,
+    #eyeStoryCarousel .carousel-control-next {
+        width: 12%; /* Większy obszar na mobile */
+    }
+}
+
+@media (max-width: 576px) {
+    .eye-story-card-wide {
+        width: 100%; /* Pełna szerokość na bardzo małych ekranach */
+    }
+    #eyeStoryCarousel .d-flex.gap-4 {
+        gap: 1.5rem !important; /* Mniejszy odstęp na mobile */
+    }
+}
+
+/* 3.4 Sekcja Produkty i Wymiary (product-dimensions-section) */
+.product-dimensions-section {
+    min-height: 100vh;
+    padding: 3rem 0; /* Zmniejszony padding góra/dół */
+}
+/* Duplikacja .product-dimensions-section - zachowuję zgodnie z prośbą */
+.product-dimensions-section {
+    min-height: 100vh;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: stretch;
+    padding: 4rem 0; /* Odstępy góra/dół */
+    background-color: #f8f9fa; /* Tło sekcji */
+}
+
+.product-dimensions-section .info-card {
+    position: relative;
+    border-radius: 1rem;
+    padding: 2rem;
+    color: #ffffff;
+    text-align: center;
+    height: calc(100vh - 120px); /* Wysokość okna minus marginesy */
+    width: calc(100vw - 120px);   /* Szerokość okna minus marginesy boczne */
+    max-width: 700px;           /* Opcjonalny limit, by nie była zbyt szeroka na dużych ekranach */
+    margin: 0 auto;              /* Wyśrodkowanie */
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product-dimensions-section .info-card::before {
+    background: rgba(255, 255, 255, 0.05); /* bardzo subtelna biel */
+}
+
+.product-dimensions-section .info-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+}
+
+.product-dimensions-section .info-card h3,
+.product-dimensions-section .info-card p,
+.product-dimensions-section .info-card a {
+    position: relative;
+    z-index: 1;
+}
+
+.product-dimensions-section .info-card h3 {
+    font-size: 1.6rem;
+    font-weight: bold;
+    margin-bottom: 0.75rem;
+}
+
+.product-dimensions-section .info-card p {
+    font-size: 0.95rem;
+    color: #c6c6c6;
+    margin-bottom: 1rem;
+}
+
+.product-dimensions-section .info-card a {
+    font-size: 0.9rem;
+    color: #0d6efd;
+    text-decoration: underline;
+    transition: color 0.2s;
+}
+
+.product-dimensions-section .info-card a:hover {
+    color: #084298;
+}
+
+/* Responsywność dla Sekcji Produkty i Wymiary */
+@media (min-width: 768px) {
+    .product-dimensions-section .info-card {
+        height: calc(100vh - 120px);
+        width: calc(100vw - 8rem); /* Większy margines boczny na dużych ekranach */
+    }
+}
+
+/* 3.5 Sekcja Proces Tworzenia (creation-process-section) */
+.creation-process-section .creation-main-title {
+    font-size: 2.8rem; /* Około 45px */
+    margin-bottom: 0.25rem; /* Mniejszy margines pod głównym tytułem */
+}
+
+.creation-process-section .creation-subtitle {
+    font-size: 1.75rem; /* Około 28px */
+    font-weight: 400; /* Normalna grubość */
+    margin-bottom: 4rem; /* Większy odstęp przed krokami */
+}
+
+.creation-steps-row {
+    align-items: flex-start; /* Elementy w kolumnach zaczynają się od góry */
+}
+
+.creation-icon-wrapper {
+    min-height: 60px; /* Zapewnia miejsce i wyrównanie dla strzałek */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.creation-step-icon {
+    width: 48px;  /* Ustaw szerokość obrazka (odpowiednik ok. 3rem) */
+    height: 48px; /* Ustaw wysokość obrazka */
+    display: inline-block; 
+    object-fit: contain; /* Aby obrazek SVG skalował się poprawnie w ramach podanych wymiarów */
+}
+
+.creation-step-title {
+    font-size: 1.3rem; /* Około 21px */
+    color: #000000;
+}
+
+.creation-step-description {
+    font-size: 0.95rem; /* Około 15px */
+    color: #333333;
+    line-height: 1.6;
+    padding-left: 0.5rem; /* Minimalny padding dla estetyki */
+    padding-right: 0.5rem;
+}
+
+.creation-arrow-separator {
+    padding-left: 0.5rem;  /* Odstęp dla strzałek */
+    padding-right: 0.5rem;
+    align-self: flex-start; /* Wyrównaj kolumnę strzałki do góry */
+    padding-top: 1.1rem; /* Przesunięcie strzałki w dół, aby wizualnie pasowała do środka ikon */
+}
+
+.creation-step-arrow {
+    width: 28px; /* Wielkość strzałki SVG */
+    height: 28px;
+    color: #000000;
+}
+
+/* Responsywność dla Sekcji Proces Tworzenia */
+@media (max-width: 991.98px) { /* Poniżej LG (dla MD i SM) */
+    .creation-process-section .creation-main-title {
+        font-size: 2.2rem;
+    }
+    .creation-process-section .creation-subtitle {
+        font-size: 1.3rem;
+        margin-bottom: 3rem;
+    }
+    .creation-step {
+        margin-bottom: 2.5rem !important; /* Większy odstęp między wierszami na tabletach */
+    }
+    .creation-step:last-child {
+        margin-bottom: 0 !important;
+    }
+}
+
+@media (max-width: 767.98px) { /* Poniżej MD (dla SM) */
+    .creation-step {
+        /* Na małych ekranach każda kolumna kroku zajmuje całą szerokość, mb-4 z Bootstrapa działa */
+    }
+    .creation-step-description {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
 }
