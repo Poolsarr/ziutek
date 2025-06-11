@@ -619,9 +619,13 @@ a:hover {
 
     /* Jeśli używasz .gallery-image-square do wymuszenia kwadratu */
     .gallery-image-square {
-        aspect-ratio: 1 / 1; 
-        width: 100%; 
+        aspect-ratio: 1 / 1;
+        width: 100%;
         object-fit: cover;
+        display: block;
+        height: auto;
+        min-height: 0;
+        min-width: 0;
     }
 
     /* Istniejące style dla odstępów i tekstu na mobile */
@@ -656,28 +660,31 @@ a:hover {
 }
 
 /* Ten blok @media (max-width: 991.98px) pozostaje ważny dla tabletów, gdzie układ jest 2x2 */
-@media (max-width: 991.98px) { 
-    .gallery-section {
-        padding-left: 1rem;
-        padding-right: 1rem;
-        padding-top: 3rem;
-        padding-bottom: 3rem;
-    }
-    /* Na tabletach (gdzie col-md-6 jest aktywne) tekst jest pod siatką obrazów */
-    .gallery-section .col-lg-6.d-flex.align-items-center + .gallery-text-column {
-        /* Ten selektor zadziała, jeśli kolumna tekstowa jest bezpośrednio po kolumnie z obrazami */
-        margin-top: 3rem; 
-        text-align: center;
-        padding-left: 0; /* Reset paddingu z desktopu */
-    }
-    .gallery-section .gallery-title { /* To może być już obsłużone przez węższy breakpoint */
-        /* font-size: clamp(2.2rem, 6vw, 2.8rem); */
-        /* margin-bottom: 1.5rem; */
-    }
-     .gallery-section .row.g-4 { /* Jeśli g-md-4 jest w HTML, to niepotrzebne */
-        /* --bs-gutter-x: 1rem; */
-        /* --bs-gutter-y: 1rem; */
-    }
+@media (max-width: 991.98px) {
+  .gallery-section .gallery-grid-mobile {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    width: 100%;
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+    justify-content: center;
+  }
+  .gallery-section .gallery-grid-mobile > .col-6 {
+    flex: 0 0 50%;
+    max-width: 50%;
+    padding-left: 0;
+    padding-right: 0;
+    margin-bottom: 0;
+    display: flex;
+  }
+  .gallery-section .gallery-grid-mobile img {
+    width: 100%;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+    border-radius: 1rem;
+  }
 }
 
 
@@ -815,4 +822,154 @@ a:hover {
     .creation-step-description {
         font-size: 0.8rem;
     }
+}
+
+.gallery-grid-mobile {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  width: 100%;
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.gallery-grid-mobile > div {
+  aspect-ratio: 1/1;
+  width: 100%;
+  display: flex;
+}
+.gallery-grid-mobile img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 1rem;
+  display: block;
+}
+
+@media (max-width: 767.98px) {
+  #eye-story-section .carousel-inner .carousel-item .d-flex {
+    flex-direction: column !important;
+    gap: 1.5rem !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+  .eye-story-card-wide {
+    width: 100% !important;
+    min-width: 0;
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
+  }
+}
+
+
+/* Siatka 2x2 dla desktop */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.gallery-grid img {
+  width: 100%;
+  height: auto;
+  border-radius: 0.5rem;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+}
+
+/* Obrazki w karuzeli */
+.gallery-carousel-img {
+  width: 100%;
+  height: auto;
+  border-radius: 0.5rem;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+}
+
+/* === Sekcja: Dlaczego najlepiej z Eye Story === */
+.why-eye-story {
+  color: black;
+  background-color: #f8f9fa;
+  padding: 4rem 0;
+  text-align: center;
+}
+
+.why-eye-story .section-title {
+  font-size: 1.75rem;
+  font-weight: bold;
+  margin-bottom: 2rem;
+}
+
+.why-eye-story .custom-card {
+  background: #fff;
+      border-radius: 3rem;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  padding: 30px;
+  height: 100%;
+  transition: transform 0.2s ease;
+}
+
+.why-eye-story .custom-card:hover {
+  transform: translateY(-5px);
+}
+
+.why-eye-story .custom-card i {
+  font-size: 2rem;
+  color: #000;
+  display: block;
+  margin-bottom: 1rem;
+}
+
+.why-eye-story .custom-card i.highlight-text {
+  color: red;
+}
+
+.why-eye-story .text-link-small {
+  font-size: 0.85rem;
+  text-decoration: none;
+}
+
+/* === Sekcja: Formularz kontaktowy === */
+.contact-form-section {
+    color: black;
+  background: #fff;
+  padding: 4rem 0;
+  text-align: center;
+}
+
+.contact-form-section .section-title {
+  font-size: 1.75rem;
+  font-weight: bold;
+  margin-bottom: 2rem;
+}
+
+.contact-form-section form {
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.contact-form-section .form-label {
+  font-size: 0.95rem;
+  font-weight: bold;
+}
+
+.contact-form-section .form-label span {
+  color: red;
+}
+
+.contact-form-section .form-control {
+  font-size: 0.95rem;
+}
+
+.contact-form-section button[type="submit"] {
+  background-color: #aaa;
+  border: none;
+  font-weight: bold;
+  text-transform: uppercase;
+  padding: 0.5rem 2rem;
+}
+
+.contact-form-section button[type="submit"]:hover {
+  background-color: #888;
 }
