@@ -329,7 +329,7 @@ a:hover {
 
 .product-dimensions-section .info-card {
     position: relative;
-    border-radius: 1rem;
+    border-radius: 1.5rem;
     padding: 2rem;
     color: #ffffff;
     text-align: center;
@@ -350,6 +350,7 @@ a:hover {
 
 .product-dimensions-section .info-card-products {
     background-image: url('assets/wizualizacja 2.png');
+    
 }
 
 .product-dimensions-section .info-card-dimensions {
@@ -380,7 +381,7 @@ a:hover {
 }
 
 .product-dimensions-section .info-card h3 {
-    font-size: 1.8rem; 
+    font-size: 2.8rem; 
     font-weight: bold;
     margin-bottom: 1rem; 
 }
