@@ -973,3 +973,13 @@ a:hover {
 .contact-form-section button[type="submit"]:hover {
   background-color: #888;
 }
+
+#pricingDetails.collapsing {
+  height: 0;
+  overflow: hidden;
+  transition: height 0.5s ease-in-out;
+}
+
+#pricingDetails.collapse.show {
+  height: auto;
+}
