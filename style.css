@@ -314,6 +314,7 @@ a:hover {
 #eyeStoryCarousel .carousel-inner {
     padding-top: 1rem;
     padding-bottom: 1rem;
+    min-height: 500px; 
 }
 
 
@@ -982,12 +983,25 @@ a:hover {
   background-color: #888;
 }
 
-#pricingDetails.collapsing {
-  height: 0;
-  overflow: hidden;
-  transition: height 0.5s ease-in-out;
+#pricingDetails {
+    overflow: hidden;
+    max-height: 0;
+    opacity: 0;
+    transition: 
+        max-height 0.3s ease-out,
+        opacity 0.3s ease-out;
+}
+
+#pricingDetails.collapse {
+    display: block;
 }
 
 #pricingDetails.collapse.show {
-  height: auto;
+    max-height: 2000px; /* wartość większa niż faktyczna wysokość contentu */
+    opacity: 1;
+}
+
+#pricingDetails.collapsing {
+    max-height: 0;
+    opacity: 0;
 }
