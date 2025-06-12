@@ -318,7 +318,7 @@ a:hover {
 
 /* 3.4 Sekcja Produkty i Wymiary (product-dimensions-section) */
 .product-dimensions-section {
-    min-height: 100vh;
+    min-height: 60vh;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -333,8 +333,8 @@ a:hover {
     padding: 2rem;
     color: #ffffff;
     text-align: center;
-    height: calc(100vh - 120px); 
-    width: calc(100vw - 120px);  
+    height: calc(85vh - 120px); 
+    width: calc(45vw - 130px);  
     max-width: 700px;          
     margin: 0 auto;             
     background-size: cover;
@@ -364,7 +364,6 @@ a:hover {
     content: "";
     position: absolute;
     top: 0; left: 0; right: 0; bottom: 0;
-    background: rgba(0, 0, 0, 0.3); 
     z-index: 0;
 }
 
@@ -400,7 +399,7 @@ a:hover {
     color: #87CEFA; 
     text-decoration: underline;
     transition: color 0.2s;
-    font-weight: bold;
+    font-weight: lighter;
 }
 
 .product-dimensions-section .info-card a:hover {
