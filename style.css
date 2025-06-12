@@ -991,3 +991,25 @@ a:hover {
 #pricingDetails.collapse.show {
   height: auto;
 }
+
+
+#pricingDetails a.btn {
+    margin-top: 1rem;
+    font-weight: bold;
+    background-color: #54a3f5;
+    border-color: #54a3f5;
+    size: 2rem;
+    font-size: 1rem;
+    border-radius: 3rem;
+}
+
+#pricingDetails a.btn-primary {
+    padding: 0.5rem 2rem; /* góra/dół, lewo/prawo */
+    font-size: 1rem;
+    border-radius: 3rem;
+}
+
+.product-dimensions-section {
+    transition: padding-bottom 0.5s ease;
+}
+
