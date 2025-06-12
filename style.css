@@ -984,28 +984,24 @@ a:hover {
 }
 
 #pricingDetails {
+    background-color: #f8f9fa;
     overflow: hidden;
-    max-height: 0;
-    opacity: 0;
-    transition: 
-        max-height 0.3s ease-out,
-        opacity 0.3s ease-out;
+    transition: height 0.3s ease-out;
 }
 
-#pricingDetails.collapse {
-    display: block;
-}
-
-#pricingDetails.collapse.show {
-    max-height: 2000px; /* wartość większa niż faktyczna wysokość contentu */
-    opacity: 1;
+#pricingDetails.collapse:not(.show) {
+    display: none;
 }
 
 #pricingDetails.collapsing {
-    max-height: 0;
-    opacity: 0;
+    height: 0;
+    background-color: #f8f9fa;
 }
 
+#pricingDetails.collapse.show {
+    height: auto;
+    background-color: #f8f9fa;
+}
 
 #pricingDetails a.btn {
     margin-top: 1rem;
