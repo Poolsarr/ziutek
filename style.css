@@ -258,10 +258,11 @@ a:hover {
     border-radius: 3rem;
     box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
     padding: 2rem;
-    padding-left: 3rem; /* zeby na mobilce byl odstep pomiedzy next kartami */
-    width: 38%; 
-    aspect-ratio: 1 / 1.3;
-    min-height: 280px; 
+    padding-left: 3rem;
+    width: 40%;
+    max-width: 800px; /* Dodane ograniczenie maksymalnej szerokości */
+    margin: 0 auto; /* Wycentrowanie karty */
+    min-height: 280px;
     display: flex;
     flex-direction: column;
     text-align: left;
@@ -318,7 +319,7 @@ a:hover {
 
 /* 3.4 Sekcja Produkty i Wymiary (product-dimensions-section) */
 .product-dimensions-section {
-    min-height: 100vh;
+    min-height: 60vh;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -329,12 +330,12 @@ a:hover {
 
 .product-dimensions-section .info-card {
     position: relative;
-    border-radius: 1rem;
+    border-radius: 1.5rem;
     padding: 2rem;
     color: #ffffff;
     text-align: center;
-    height: calc(100vh - 120px); 
-    width: calc(100vw - 120px);  
+    height: calc(85vh - 120px); 
+    width: calc(45vw - 130px);  
     max-width: 700px;          
     margin: 0 auto;             
     background-size: cover;
@@ -350,6 +351,7 @@ a:hover {
 
 .product-dimensions-section .info-card-products {
     background-image: url('assets/wizualizacja 2.png');
+    
 }
 
 .product-dimensions-section .info-card-dimensions {
@@ -364,7 +366,6 @@ a:hover {
     content: "";
     position: absolute;
     top: 0; left: 0; right: 0; bottom: 0;
-    background: rgba(0, 0, 0, 0.3); 
     z-index: 0;
 }
 
@@ -381,7 +382,7 @@ a:hover {
 }
 
 .product-dimensions-section .info-card h3 {
-    font-size: 1.8rem; 
+    font-size: 2.8rem; 
     font-weight: bold;
     margin-bottom: 1rem; 
 }
@@ -400,7 +401,7 @@ a:hover {
     color: #87CEFA; 
     text-decoration: underline;
     transition: color 0.2s;
-    font-weight: bold;
+    font-weight: lighter;
 }
 
 .product-dimensions-section .info-card a:hover {
@@ -716,9 +717,16 @@ a:hover {
         margin-bottom: 2.5rem !important; 
     }
     .eye-story-card-wide {
-        width: 90%; 
-        min-height: auto;
+        width: 90%;
         padding: 1.5rem;
+    }
+    
+    .eye-story-card-wide h5 {
+        font-size: 1.5rem;
+    }
+    
+    .eye-story-card-wide p {
+        font-size: 1rem;
     }
     #eyeStoryCarousel .carousel-control-prev,
     #eyeStoryCarousel .carousel-control-next {
