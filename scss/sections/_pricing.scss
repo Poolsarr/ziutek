@@ -1,4 +1,4 @@
-/* Sekcja z kartami cennika */
+/* Sekcja z kartami cennika (bez zmian) */
 .pricing-section {
     background-color: #f8f9fa;
     padding: 3rem 0;
@@ -23,9 +23,12 @@
     }
 }
 
-/* Sekcja ze szczegółami cennika i zakładkami */
+/* ===== SEKCJA ZE SZCZEGÓŁAMI (POPRAWIONA) ===== */
 .pricing-details-section {
     font-family: sans-serif;
+    /* POPRAWKA: Dodajemy overflow-x: hidden, aby zapobiec poziomemu przewijaniu na urządzeniach mobilnych.
+       To "obcina" każdy element, który próbuje wyjść poza granice sekcji. */
+    overflow-x: hidden;
 
     .pricing-visual-wrapper {
         background-color: #f7f7f7;
@@ -35,16 +38,18 @@
         min-height: 480px;
         padding: 0;
     }
+    
 
     .product-image {
+        background-color: white;
         width: 100%;
         height: 100%;
-        object-fit: cover;
+        object-fit: contain; /*Żeby nie ucinalo obrazka*/
         position: absolute;
         top: 0;
         left: 0;
-    }
 
+    }
 
     .price-option {
         border: 1px solid #e0e0e0;
@@ -73,10 +78,14 @@
         border-bottom: none;
         display: flex;
         gap: 1rem;
+        flex-wrap: wrap; /* Pozwala przyciskom zawijać się w mniejszych widokach */
+        
         .nav-item {
             flex-grow: 1;
-            display: flex;
+            /* Ustawiamy minimalną szerokość, aby uniknąć ściśnięcia przycisków */
+            min-width: calc(10% - 0.5rem); 
         }
+
         .nav-link {
             border: 1px solid #dee2e6;
             border-radius: 8px;
@@ -99,26 +108,21 @@
         }
     }
 
-    @media (max-width: 991.98px) {
-        .size-indicators-container {
-            justify-content: center;
-            padding-left: 0;
-            margin-bottom: 8rem;
-        }
-        .pricing-visual-wrapper .display-2 { text-align: center; }
-    }
-
-    @media (max-width: 575.98px) {
-        .size-indicators-container {
-            gap: 0.5rem;
-            transform: scale(0.85);
-            transform-origin: center;
-            margin-bottom: 6rem;
-        }
+    /* POPRAWKA: Zaktualizowane i wyczyszczone style mobilne */
+    @media (max-width: 767.98px) {
         .pricing-visual-wrapper {
-            padding: 1.5rem;
-            min-height: 420px;
-            .display-2 { font-size: 3rem; }
+            /* Zmniejszamy wysokość na mniejszych ekranach dla lepszych proporcji */
+            min-height: 350px; 
+            /* Zmniejszamy zaokrąglenie rogów, aby wyglądało lepiej na węższym widoku */
+            border-radius: 15px;
+        }
+
+        .product-type-tabs {
+            gap: 0.5rem; /* Mniejszy odstęp na mobilce */
+            .nav-link {
+                padding: 0.6rem 0.5rem; /* Mniejszy padding w przyciskach */
+                font-size: 0.9rem;
+            }
         }
     }
 }
