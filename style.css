@@ -523,102 +523,16 @@ a:hover {
   border-radius: 25px;
   position: relative;
   overflow: hidden;
-  padding: 2.5rem;
   min-height: 480px;
-  display: flex;
-  flex-direction: column;
+  padding: 0;
 }
-.pricing-details-section .pricing-visual-wrapper .display-2 {
-  color: #343a40;
-  margin-bottom: 2rem;
-}
-.pricing-details-section .pricing-visual-wrapper .furniture-illustration {
+.pricing-details-section .product-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
   position: absolute;
-  bottom: 20px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 90%;
-  max-width: 500px;
-  z-index: 1;
-  opacity: 0.8;
-}
-.pricing-details-section .size-indicators-container {
-  display: flex;
-  align-items: flex-end;
-  gap: 1.5rem;
-  margin-bottom: 9rem;
-}
-.pricing-details-section .size-item {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-.pricing-details-section .size-label {
-  font-size: 0.75rem;
-  white-space: nowrap;
-}
-.pricing-details-section .size-box {
-  border: 3px solid #343a40;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 0.5rem;
-}
-.pricing-details-section .size-box-inner {
-  background-color: #343a40;
-  border-radius: 50%;
-}
-.pricing-details-section .size-s {
-  width: 40px;
-  height: 40px;
-}
-.pricing-details-section .size-s .size-box-inner {
-  width: 12px;
-  height: 12px;
-}
-.pricing-details-section .size-m {
-  width: 55px;
-  height: 55px;
-}
-.pricing-details-section .size-m .size-box-inner {
-  width: 18px;
-  height: 18px;
-}
-.pricing-details-section .size-l {
-  width: 80px;
-  height: 80px;
-}
-.pricing-details-section .size-l .size-box-inner {
-  width: 28px;
-  height: 28px;
-}
-.pricing-details-section .size-xl {
-  width: 110px;
-  height: 110px;
-}
-.pricing-details-section .size-xl .size-box-inner {
-  width: 38px;
-  height: 38px;
-}
-.pricing-details-section .slider-controls {
-  position: absolute;
-  bottom: 15px;
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  align-items: center;
-  z-index: 3;
-}
-.pricing-details-section .slider-controls .dot {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background-color: #adb5bd;
-  margin: 0 4px;
-  cursor: pointer;
-}
-.pricing-details-section .slider-controls .dot.active {
-  background-color: #343a40;
+  top: 0;
+  left: 0;
 }
 .pricing-details-section .price-option {
   border: 1px solid #e0e0e0;

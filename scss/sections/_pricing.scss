@@ -32,80 +32,19 @@
         border-radius: 25px;
         position: relative;
         overflow: hidden;
-        padding: 2.5rem;
         min-height: 480px;
-        display: flex;
-        flex-direction: column;
-
-        .display-2 {
-            color: #343a40;
-            margin-bottom: 2rem;
-        }
-
-        .furniture-illustration {
-            position: absolute;
-            bottom: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 90%;
-            max-width: 500px;
-            z-index: 1;
-            opacity: 0.8;
-        }
+        padding: 0;
     }
 
-    .size-indicators-container {
-        display: flex;
-        align-items: flex-end;
-        gap: 1.5rem;
-        margin-bottom: 9rem;
-    }
-
-    .size-item {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-    .size-label {
-        font-size: 0.75rem;
-        white-space: nowrap;
-    }
-    .size-box {
-        border: 3px solid #343a40;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        margin-top: 0.5rem;
-        &-inner {
-            background-color: #343a40;
-            border-radius: 50%;
-        }
-    }
-    .size-s { width: 40px; height: 40px; .size-box-inner { width: 12px; height: 12px; } }
-    .size-m { width: 55px; height: 55px; .size-box-inner { width: 18px; height: 18px; } }
-    .size-l { width: 80px; height: 80px; .size-box-inner { width: 28px; height: 28px; } }
-    .size-xl { width: 110px; height: 110px; .size-box-inner { width: 38px; height: 38px; } }
-
-    .slider-controls {
+    .product-image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
         position: absolute;
-        bottom: 15px;
-        left: 50%;
-        transform: translateX(-50%);
-        display: flex;
-        align-items: center;
-        z-index: 3;
-        .dot {
-            width: 8px;
-            height: 8px;
-            border-radius: 50%;
-            background-color: #adb5bd;
-            margin: 0 4px;
-            cursor: pointer;
-            &.active {
-                background-color: #343a40;
-            }
-        }
+        top: 0;
+        left: 0;
     }
+
 
     .price-option {
         border: 1px solid #e0e0e0;

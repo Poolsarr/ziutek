@@ -294,188 +294,130 @@
                 </div>
             </section>
 
-            <!-- ===== SEKCJA SZCZEGÓŁÓW Z ZAKŁADKAMI ===== -->
-            <section id="pricingDetailsSolo" class="collapse pricing-details-section bg-white text-dark py-5">
-                <div class="container">
-                    
-                    <!-- Przełącznik produktów (Tabs) - POPRAWIONA STRUKTURA BEZ GRUP -->
-                    <ul class="nav nav-tabs product-type-tabs mb-5" id="productTypeTab" role="tablist">
-                        <li class="nav-item" role="presentation">
-                            <button class="nav-link active" id="solo-tab" data-bs-toggle="tab" data-bs-target="#solo-tab-pane" type="button" role="tab" aria-controls="solo-tab-pane" aria-selected="true">SOLO</button>
-                        </li>
-                        <li class="nav-item" role="presentation">
-                            <button class="nav-link" id="duo-tab" data-bs-toggle="tab" data-bs-target="#duo-tab-pane" type="button" role="tab" aria-controls="duo-tab-pane" aria-selected="false">DUO</button>
-                        </li>
-                        <li class="nav-item" role="presentation">
-                            <button class="nav-link" id="trio-tab" data-bs-toggle="tab" data-bs-target="#trio-tab-pane" type="button" role="tab" aria-controls="trio-tab-pane" aria-selected="false">TRIO</button>
-                        </li>
-                        <li class="nav-item" role="presentation">
-                            <button class="nav-link" id="quadro-tab" data-bs-toggle="tab" data-bs-target="#quadro-tab-pane" type="button" role="tab" aria-controls="quadro-tab-pane" aria-selected="false">QUADRO</button>
-                        </li>
-                    </ul>
+            <!-- ===== SEKCJA SZCZEGÓŁÓW Z ZAKŁADKAMI (POPRAWIONA) ===== -->
+<section id="pricingDetailsSolo" class="collapse pricing-details-section bg-white text-dark py-5">
+    <div class="container">
+        
+        <!-- Przełącznik produktów (Tabs) - Bez zmian -->
+        <ul class="nav nav-tabs product-type-tabs mb-5" id="productTypeTab" role="tablist">
+            <li class="nav-item" role="presentation">
+                <button class="nav-link active" id="solo-tab" data-bs-toggle="tab" data-bs-target="#solo-tab-pane" type="button" role="tab" aria-controls="solo-tab-pane" aria-selected="true">SOLO</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="duo-tab" data-bs-toggle="tab" data-bs-target="#duo-tab-pane" type="button" role="tab" aria-controls="duo-tab-pane" aria-selected="false">DUO</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="trio-tab" data-bs-toggle="tab" data-bs-target="#trio-tab-pane" type="button" role="tab" aria-controls="trio-tab-pane" aria-selected="false">TRIO</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="quadro-tab" data-bs-toggle="tab" data-bs-target="#quadro-tab-pane" type="button" role="tab" aria-controls="quadro-tab-pane" aria-selected="false">QUADRO</button>
+            </li>
+        </ul>
 
-                    <!-- Zawartość dla poszczególnych zakładek -->
-                    <div class="tab-content" id="productTypeTabContent">
-                        
-                        <!-- ====== ZAWARTOSĆ DLA ZAKŁADKI SOLO ====== -->
-                        <div class="tab-pane fade show active" id="solo-tab-pane" role="tabpanel" aria-labelledby="solo-tab" tabindex="0">
-                            <div class="row align-items-center">
-                                <!-- Lewa Kolumna: Wizualizacja Produktu -->
-                                <div class="col-lg-8 mb-4 mb-lg-0">
-                                    <div class="pricing-visual-wrapper">
-                                        <div class="visual-content">
-                                            <h3 class="display-2 fw-bold">Solo</h3>
-                                            <div class="size-indicators-container">
-                                                <div class="size-item"><span class="fw-bold">S</span><span class="text-muted size-label">15x15 cm</span><div class="size-box size-s"><div class="size-box-inner"></div></div></div>
-                                                <div class="size-item"><span class="fw-bold">M</span><span class="text-muted size-label">20x20 cm</span><div class="size-box size-m"><div class="size-box-inner"></div></div></div>
-                                                <div class="size-item"><span class="fw-bold">L</span><span class="text-muted size-label">30x30 cm</span><div class="size-box size-l"><div class="size-box-inner"></div></div></div>
-                                                <div class="size-item"><span class="fw-bold">XL</span><span class="text-muted size-label">50x50 cm</span><div class="size-box size-xl"><div class="size-box-inner"></div></div></div>
-                                            </div>
-                                        </div>
-                                        <img src="assets/cennik-furniture.png" alt="Ilustracja wnętrza z meblami" class="furniture-illustration">
-                                        <div class="slider-controls">
-                                            <span class="dot active"></span>
-                                            <span class="dot"></span>
-                                            <button class="slider-arrow">></button>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- Prawa Kolumna: Opcje i Ceny -->
-                                <div class="col-lg-4">
-                                    <div class="pricing-options-wrapper">
-                                        <h4 class="fw-bold mb-3">Rozmiar. Który jest najważniejszy dla Ciebie?</h4>
-                                        <div class="price-option-list">
-                                            <div class="price-option d-flex justify-content-between align-items-center p-3 mb-2"><div><h6 class="fw-bold mb-0">S</h6><p class="mb-0 text-muted small">Ramka o wymiarach 15x15 cm</p></div><span class="fw-bold">129 zł</span></div>
-                                            <div class="price-option d-flex justify-content-between align-items-center p-3 mb-2"><div><h6 class="fw-bold mb-0">M</h6><p class="mb-0 text-muted small">Ramka o wymiarach 20x20 cm</p></div><span class="fw-bold">159 zł</span></div>
-                                            <div class="price-option d-flex justify-content-between align-items-center p-3 mb-2"><div><h6 class="fw-bold mb-0">L</h6><p class="mb-0 text-muted small">Ramka o wymiarach 30x30 cm</p></div><span class="fw-bold">209 zł</span></div>
-                                            <div class="price-option d-flex justify-content-between align-items-center p-3 mb-2"><div><h6 class="fw-bold mb-0">XL</h6><p class="mb-0 text-muted small">Ramka o wymiarach 50x50 cm</p></div><span class="fw-bold">289 zł</span></div>
-                                        </div>
-                                        <a href="#" class="btn contact-btn-blue w-100 py-2 fs-5 mt-3">Skontaktuj się już teraz!</a>
-                                    </div>
-                                </div>
-                            </div>
+        <!-- Zawartość dla poszczególnych zakładek -->
+        <div class="tab-content" id="productTypeTabContent">
+            
+            <!-- ====== ZAWARTOSĆ DLA ZAKŁADKI SOLO ====== -->
+            <div class="tab-pane fade show active" id="solo-tab-pane" role="tabpanel" aria-labelledby="solo-tab" tabindex="0">
+                <div class="row align-items-center">
+                    <!-- Lewa Kolumna: Wizualizacja Produktu -->
+                    <div class="col-lg-8 mb-4 mb-lg-0">
+                        <!-- ZMIANA: Usunięto starą wizualizację i wstawiono prosty obrazek -->
+                        <div class="pricing-visual-wrapper">
+                            <img src="assets/mockup 1-1.png" alt="Wizualizacja produktu Solo" class="product-image">
                         </div>
-
-                        <!-- ====== ZAWARTOSĆ DLA ZAKŁADKI DUO ====== -->
-                        <div class="tab-pane fade" id="duo-tab-pane" role="tabpanel" aria-labelledby="duo-tab" tabindex="0">
-                            <div class="row align-items-center">
-                                <!-- Lewa Kolumna: Wizualizacja Produktu -->
-                                <div class="col-lg-8 mb-4 mb-lg-0">
-                                    <div class="pricing-visual-wrapper">
-                                        <div class="visual-content">
-                                            <h3 class="display-2 fw-bold">Duo</h3>
-                                            <div class="size-indicators-container">
-                                                <div class="size-item"><span class="fw-bold">S</span><span class="text-muted size-label">15x15 cm</span><div class="size-box size-s"><div class="size-box-inner"></div></div></div>
-                                                <div class="size-item"><span class="fw-bold">M</span><span class="text-muted size-label">20x20 cm</span><div class="size-box size-m"><div class="size-box-inner"></div></div></div>
-                                                <div class="size-item"><span class="fw-bold">L</span><span class="text-muted size-label">30x30 cm</span><div class="size-box size-l"><div class="size-box-inner"></div></div></div>
-                                                <div class="size-item"><span class="fw-bold">XL</span><span class="text-muted size-label">50x50 cm</span><div class="size-box size-xl"><div class="size-box-inner"></div></div></div>
-                                            </div>
-                                        </div>
-                                        <img src="assets/cennik-furniture.png" alt="Ilustracja wnętrza z meblami" class="furniture-illustration">
-                                        <div class="slider-controls">
-                                            <span class="dot active"></span>
-                                            <span class="dot"></span>
-                                            <button class="slider-arrow">></button>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- Prawa Kolumna: Opcje i Ceny -->
-                                <div class="col-lg-4">
-                                    <div class="pricing-options-wrapper">
-                                        <h4 class="fw-bold mb-3">Rozmiar. Który jest najważniejszy dla Ciebie?</h4>
-                                        <div class="price-option-list">
-                                            <div class="price-option d-flex justify-content-between align-items-center p-3 mb-2"><div><h6 class="fw-bold mb-0">S</h6><p class="mb-0 text-muted small">Ramka o wymiarach 15x15 cm</p></div><span class="fw-bold">269 zł</span></div>
-                                            <div class="price-option d-flex justify-content-between align-items-center p-3 mb-2"><div><h6 class="fw-bold mb-0">M</h6><p class="mb-0 text-muted small">Ramka o wymiarach 20x20 cm</p></div><span class="fw-bold">299 zł</span></div>
-                                            <div class="price-option d-flex justify-content-between align-items-center p-3 mb-2"><div><h6 class="fw-bold mb-0">L</h6><p class="mb-0 text-muted small">Ramka o wymiarach 30x30 cm</p></div><span class="fw-bold">349 zł</span></div>
-                                            <div class="price-option d-flex justify-content-between align-items-center p-3 mb-2"><div><h6 class="fw-bold mb-0">XL</h6><p class="mb-0 text-muted small">Ramka o wymiarach 50x50 cm</p></div><span class="fw-bold">429 zł</span></div>
-                                        </div>
-                                        <a href="#" class="btn contact-btn-blue w-100 py-2 fs-5 mt-3">Skontaktuj się już teraz!</a>
-                                    </div>
-                                </div>
+                    </div>
+                    <!-- Prawa Kolumna: Opcje i Ceny (bez zmian) -->
+                    <div class="col-lg-4">
+                        <div class="pricing-options-wrapper">
+                            <h4 class="fw-bold mb-3">Solo. Wybierz swój rozmiar.</h4>
+                            <div class="price-option-list">
+                                <div class="price-option d-flex justify-content-between align-items-center p-3 mb-2"><div><h6 class="fw-bold mb-0">S</h6><p class="mb-0 text-muted small">Ramka o wymiarach 15x15 cm</p></div><span class="fw-bold">129 zł</span></div>
+                                <div class="price-option d-flex justify-content-between align-items-center p-3 mb-2"><div><h6 class="fw-bold mb-0">M</h6><p class="mb-0 text-muted small">Ramka o wymiarach 20x20 cm</p></div><span class="fw-bold">159 zł</span></div>
+                                <div class="price-option d-flex justify-content-between align-items-center p-3 mb-2"><div><h6 class="fw-bold mb-0">L</h6><p class="mb-0 text-muted small">Ramka o wymiarach 30x30 cm</p></div><span class="fw-bold">209 zł</span></div>
+                                <div class="price-option d-flex justify-content-between align-items-center p-3 mb-2"><div><h6 class="fw-bold mb-0">XL</h6><p class="mb-0 text-muted small">Ramka o wymiarach 50x50 cm</p></div><span class="fw-bold">289 zł</span></div>
                             </div>
+                            <a href="#" class="btn contact-btn-blue w-100 py-2 fs-5 mt-3">Skontaktuj się już teraz!</a>
                         </div>
-
-                        <!-- ====== ZAWARTOSĆ DLA ZAKŁADKI TRIO ====== -->
-                        <div class="tab-pane fade" id="trio-tab-pane" role="tabpanel" aria-labelledby="trio-tab" tabindex="0">
-                            <div class="row align-items-center">
-                                <!-- Lewa Kolumna: Wizualizacja Produktu -->
-                                <div class="col-lg-8 mb-4 mb-lg-0">
-                                    <div class="pricing-visual-wrapper">
-                                        <div class="visual-content">
-                                            <h3 class="display-2 fw-bold">Trio</h3>
-                                            <div class="size-indicators-container">
-                                                <div class="size-item"><span class="fw-bold">S</span><span class="text-muted size-label">15x15 cm</span><div class="size-box size-s"><div class="size-box-inner"></div></div></div>
-                                                <div class="size-item"><span class="fw-bold">M</span><span class="text-muted size-label">20x20 cm</span><div class="size-box size-m"><div class="size-box-inner"></div></div></div>
-                                                <div class="size-item"><span class="fw-bold">L</span><span class="text-muted size-label">30x30 cm</span><div class="size-box size-l"><div class="size-box-inner"></div></div></div>
-                                                <div class="size-item"><span class="fw-bold">XL</span><span class="text-muted size-label">50x50 cm</span><div class="size-box size-xl"><div class="size-box-inner"></div></div></div>
-                                            </div>
-                                        </div>
-                                        <img src="assets/cennik-furniture.png" alt="Ilustracja wnętrza z meblami" class="furniture-illustration">
-                                        <div class="slider-controls">
-                                            <span class="dot active"></span>
-                                            <span class="dot"></span>
-                                            <button class="slider-arrow">></button>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- Prawa Kolumna: Opcje i Ceny -->
-                                <div class="col-lg-4">
-                                    <div class="pricing-options-wrapper">
-                                        <h4 class="fw-bold mb-3">Rozmiar. Który jest najważniejszy dla Ciebie?</h4>
-                                        <div class="price-option-list">
-                                            <div class="price-option d-flex justify-content-between align-items-center p-3 mb-2"><div><h6 class="fw-bold mb-0">S</h6><p class="mb-0 text-muted small">Ramka o wymiarach 15x15 cm</p></div><span class="fw-bold">349 zł</span></div>
-                                            <div class="price-option d-flex justify-content-between align-items-center p-3 mb-2"><div><h6 class="fw-bold mb-0">M</h6><p class="mb-0 text-muted small">Ramka o wymiarach 20x20 cm</p></div><span class="fw-bold">389 zł</span></div>
-                                            <div class="price-option d-flex justify-content-between align-items-center p-3 mb-2"><div><h6 class="fw-bold mb-0">L</h6><p class="mb-0 text-muted small">Ramka o wymiarach 30x30 cm</p></div><span class="fw-bold">449 zł</span></div>
-                                            <div class="price-option d-flex justify-content-between align-items-center p-3 mb-2"><div><h6 class="fw-bold mb-0">XL</h6><p class="mb-0 text-muted small">Ramka o wymiarach 50x50 cm</p></div><span class="fw-bold">539 zł</span></div>
-                                        </div>
-                                        <a href="#" class="btn contact-btn-blue w-100 py-2 fs-5 mt-3">Skontaktuj się już teraz!</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- ====== ZAWARTOSĆ DLA ZAKŁADKI QUADRO ====== -->
-                        <div class="tab-pane fade" id="quadro-tab-pane" role="tabpanel" aria-labelledby="quadro-tab" tabindex="0">
-                            <div class="row align-items-center">
-                                <!-- Lewa Kolumna: Wizualizacja Produktu -->
-                                <div class="col-lg-8 mb-4 mb-lg-0">
-                                    <div class="pricing-visual-wrapper">
-                                        <div class="visual-content">
-                                            <h3 class="display-2 fw-bold">Quadro</h3>
-                                            <div class="size-indicators-container">
-                                                <div class="size-item"><span class="fw-bold">S</span><span class="text-muted size-label">15x15 cm</span><div class="size-box size-s"><div class="size-box-inner"></div></div></div>
-                                                <div class="size-item"><span class="fw-bold">M</span><span class="text-muted size-label">20x20 cm</span><div class="size-box size-m"><div class="size-box-inner"></div></div></div>
-                                                <div class="size-item"><span class="fw-bold">L</span><span class="text-muted size-label">30x30 cm</span><div class="size-box size-l"><div class="size-box-inner"></div></div></div>
-                                                <div class="size-item"><span class="fw-bold">XL</span><span class="text-muted size-label">50x50 cm</span><div class="size-box size-xl"><div class="size-box-inner"></div></div></div>
-                                            </div>
-                                        </div>
-                                        <img src="assets/cennik-furniture.png" alt="Ilustracja wnętrza z meblami" class="furniture-illustration">
-                                        <div class="slider-controls">
-                                            <span class="dot active"></span>
-                                            <span class="dot"></span>
-                                            <button class="slider-arrow">></button>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- Prawa Kolumna: Opcje i Ceny -->
-                                <div class="col-lg-4">
-                                    <div class="pricing-options-wrapper">
-                                        <h4 class="fw-bold mb-3">Rozmiar. Który jest najważniejszy dla Ciebie?</h4>
-                                        <div class="price-option-list">
-                                            <div class="price-option d-flex justify-content-between align-items-center p-3 mb-2"><div><h6 class="fw-bold mb-0">S</h6><p class="mb-0 text-muted small">Ramka o wymiarach 15x15 cm</p></div><span class="fw-bold">429 zł</span></div>
-                                            <div class="price-option d-flex justify-content-between align-items-center p-3 mb-2"><div><h6 class="fw-bold mb-0">M</h6><p class="mb-0 text-muted small">Ramka o wymiarach 20x20 cm</p></div><span class="fw-bold">479 zł</span></div>
-                                            <div class="price-option d-flex justify-content-between align-items-center p-3 mb-2"><div><h6 class="fw-bold mb-0">L</h6><p class="mb-0 text-muted small">Ramka o wymiarach 30x30 cm</p></div><span class="fw-bold">549 zł</span></div>
-                                            <div class="price-option d-flex justify-content-between align-items-center p-3 mb-2"><div><h6 class="fw-bold mb-0">XL</h6><p class="mb-0 text-muted small">Ramka o wymiarach 50x50 cm</p></div><span class="fw-bold">649 zł</span></div>
-                                        </div>
-                                        <a href="#" class="btn contact-btn-blue w-100 py-2 fs-5 mt-3">Skontaktuj się już teraz!</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        
                     </div>
                 </div>
-            </section>
+            </div>
+
+            <!-- ====== ZAWARTOSĆ DLA ZAKŁADKI DUO ====== -->
+            <div class="tab-pane fade" id="duo-tab-pane" role="tabpanel" aria-labelledby="duo-tab" tabindex="0">
+                <div class="row align-items-center">
+                    <div class="col-lg-8 mb-4 mb-lg-0">
+                        <!-- ZMIANA: Usunięto starą wizualizację i wstawiono prosty obrazek -->
+                        <div class="pricing-visual-wrapper">
+                            <img src="assets/mockup 2-1.png" alt="Wizualizacja produktu Duo" class="product-image">
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="pricing-options-wrapper">
+                            <h4 class="fw-bold mb-3">Duo. Wybierz swój rozmiar.</h4>
+                            <div class="price-option-list">
+                                <div class="price-option d-flex justify-content-between align-items-center p-3 mb-2"><div><h6 class="fw-bold mb-0">S</h6><p class="mb-0 text-muted small">Ramka o wymiarach 15x15 cm</p></div><span class="fw-bold">269 zł</span></div>
+                                <div class="price-option d-flex justify-content-between align-items-center p-3 mb-2"><div><h6 class="fw-bold mb-0">M</h6><p class="mb-0 text-muted small">Ramka o wymiarach 20x20 cm</p></div><span class="fw-bold">299 zł</span></div>
+                                <div class="price-option d-flex justify-content-between align-items-center p-3 mb-2"><div><h6 class="fw-bold mb-0">L</h6><p class="mb-0 text-muted small">Ramka o wymiarach 30x30 cm</p></div><span class="fw-bold">349 zł</span></div>
+                                <div class="price-option d-flex justify-content-between align-items-center p-3 mb-2"><div><h6 class="fw-bold mb-0">XL</h6><p class="mb-0 text-muted small">Ramka o wymiarach 50x50 cm</p></div><span class="fw-bold">429 zł</span></div>
+                            </div>
+                            <a href="#" class="btn contact-btn-blue w-100 py-2 fs-5 mt-3">Skontaktuj się już teraz!</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ====== ZAWARTOSĆ DLA ZAKŁADKI TRIO ====== -->
+            <div class="tab-pane fade" id="trio-tab-pane" role="tabpanel" aria-labelledby="trio-tab" tabindex="0">
+                <div class="row align-items-center">
+                    <div class="col-lg-8 mb-4 mb-lg-0">
+                        <!-- ZMIANA: Usunięto starą wizualizację i wstawiono prosty obrazek -->
+                        <div class="pricing-visual-wrapper">
+                             <img src="assets/mockup 3-1.png" alt="Wizualizacja produktu Trio" class="product-image">
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="pricing-options-wrapper">
+                            <h4 class="fw-bold mb-3">Trio. Wybierz swój rozmiar.</h4>
+                            <div class="price-option-list">
+                                <div class="price-option d-flex justify-content-between align-items-center p-3 mb-2"><div><h6 class="fw-bold mb-0">S</h6><p class="mb-0 text-muted small">Ramka o wymiarach 15x15 cm</p></div><span class="fw-bold">349 zł</span></div>
+                                <div class="price-option d-flex justify-content-between align-items-center p-3 mb-2"><div><h6 class="fw-bold mb-0">M</h6><p class="mb-0 text-muted small">Ramka o wymiarach 20x20 cm</p></div><span class="fw-bold">389 zł</span></div>
+                                <div class="price-option d-flex justify-content-between align-items-center p-3 mb-2"><div><h6 class="fw-bold mb-0">L</h6><p class="mb-0 text-muted small">Ramka o wymiarach 30x30 cm</p></div><span class="fw-bold">449 zł</span></div>
+                                <div class="price-option d-flex justify-content-between align-items-center p-3 mb-2"><div><h6 class="fw-bold mb-0">XL</h6><p class="mb-0 text-muted small">Ramka o wymiarach 50x50 cm</p></div><span class="fw-bold">539 zł</span></div>
+                            </div>
+                            <a href="#" class="btn contact-btn-blue w-100 py-2 fs-5 mt-3">Skontaktuj się już teraz!</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ====== ZAWARTOSĆ DLA ZAKŁADKI QUADRO ====== -->
+            <div class="tab-pane fade" id="quadro-tab-pane" role="tabpanel" aria-labelledby="quadro-tab" tabindex="0">
+                <div class="row align-items-center">
+                     <div class="col-lg-8 mb-4 mb-lg-0">
+                        <!-- ZMIANA: Usunięto starą wizualizację i wstawiono prosty obrazek -->
+                        <div class="pricing-visual-wrapper">
+                             <img src="assets/mockup 4-1.png" alt="Wizualizacja produktu Quadro" class="product-image">
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="pricing-options-wrapper">
+                            <h4 class="fw-bold mb-3">Quadro. Wybierz swój rozmiar.</h4>
+                            <div class="price-option-list">
+                                <div class="price-option d-flex justify-content-between align-items-center p-3 mb-2"><div><h6 class="fw-bold mb-0">S</h6><p class="mb-0 text-muted small">Ramka o wymiarach 15x15 cm</p></div><span class="fw-bold">429 zł</span></div>
+                                <div class="price-option d-flex justify-content-between align-items-center p-3 mb-2"><div><h6 class="fw-bold mb-0">M</h6><p class="mb-0 text-muted small">Ramka o wymiarach 20x20 cm</p></div><span class="fw-bold">479 zł</span></div>
+                                <div class="price-option d-flex justify-content-between align-items-center p-3 mb-2"><div><h6 class="fw-bold mb-0">L</h6><p class="mb-0 text-muted small">Ramka o wymiarach 30x30 cm</p></div><span class="fw-bold">549 zł</span></div>
+                                <div class="price-option d-flex justify-content-between align-items-center p-3 mb-2"><div><h6 class="fw-bold mb-0">XL</h6><p class="mb-0 text-muted small">Ramka o wymiarach 50x50 cm</p></div><span class="fw-bold">649 zł</span></div>
+                            </div>
+                            <a href="#" class="btn contact-btn-blue w-100 py-2 fs-5 mt-3">Skontaktuj się już teraz!</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</section>
         </div>
     </section>
 
