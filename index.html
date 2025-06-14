@@ -188,33 +188,39 @@
         </div>
     </section>
 
+      
     <!-- ========================================================================= -->
     <!-- Sekcja Produkty i Wymiary                                                 -->
     <!-- ========================================================================= -->
 
     <section class="product-dimensions-section container-fluid py-5">
-        <div class="row g-4">
-            <!-- Karta Produktów Końcowych -->
-            <div class="col-md-6">
-                <div class="info-card info-card-products justify-content-start">
-                    <h3>Produkty końcowe</h3 class="fw-bold display-1 hero-title-large">
+        <!-- Używamy row-cols-1, aby na małych ekranach karty były jedna pod drugą -->
+        <div class="row row-cols-1 justify-content-center"> 
+
+            <!-- Kolumna dla pierwszej karty - zajmuje 4/12 szerokości na desktopie -->
+            <div class="col-md-4">
+                <div class="info-card info-card-products">
+                    <h3>Produkty końcowe</h3>
                     <p>Zobacz galerię obrazów, <br> zdjęcia cyfrowe i nie tylko.</p>
                     <a href="#">Przejdź do galerii ></a>
                 </div>
             </div>
-            <!-- Karta Wymiarów -->
-            <div class="col-md-6">
-                <div class="info-card info-card-dimensions justify-content-start">
+            
+            <!-- Kolumna dla drugiej karty - zajmuje 4/12 szerokości i ma odstęp -->
+            <div class="col-md-4">
+                <div class="info-card info-card-dimensions">
                     <h3>Sprawdź wymiary</h3>
-                    <p>zanim zdecydujesz się na zakup,</p>
-                    <p>zobacz dostępne wymiary.</p>
+                    <p>zanim zdecydujesz się na zakup,<br>zobacz dostępne wymiary.</p>
                     <a class="btn btn-link p-0" data-bs-toggle="collapse" href="#pricingContainer" role="button" aria-expanded="false" aria-controls="pricingContainer">
-                    Zobacz cennik &gt;
+                    Zobacz cennik >
                     </a>
                 </div>
             </div>
+
         </div>
     </section>
+
+        
 
     <!-- ========================================================================= -->
     <!-- CENNIK                                                                    -->

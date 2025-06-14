@@ -1,0 +1,185 @@
+/* Sekcja z kartami cennika */
+.pricing-section {
+    background-color: #f8f9fa;
+    padding: 3rem 0;
+
+    h1 { font-size: 3rem; }
+    .my-rounded {
+      border-radius: 3rem;
+      max-width: 75%;
+    }
+    .btn-primary {
+        margin-top: 1rem;
+        font-weight: bold;
+        background-color: #54a3f5;
+        border-color: #54a3f5;
+        font-size: 0.9rem;
+        border-radius: 3rem;
+        padding: 0.5rem 1.5rem;
+        &:hover {
+            background-color: #3f8ae0;
+            border-color: #3f8ae0;
+        }
+    }
+}
+
+/* Sekcja ze szczegółami cennika i zakładkami */
+.pricing-details-section {
+    font-family: sans-serif;
+
+    .pricing-visual-wrapper {
+        background-color: #f7f7f7;
+        border-radius: 25px;
+        position: relative;
+        overflow: hidden;
+        padding: 2.5rem;
+        min-height: 480px;
+        display: flex;
+        flex-direction: column;
+
+        .display-2 {
+            color: #343a40;
+            margin-bottom: 2rem;
+        }
+
+        .furniture-illustration {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 90%;
+            max-width: 500px;
+            z-index: 1;
+            opacity: 0.8;
+        }
+    }
+
+    .size-indicators-container {
+        display: flex;
+        align-items: flex-end;
+        gap: 1.5rem;
+        margin-bottom: 9rem;
+    }
+
+    .size-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .size-label {
+        font-size: 0.75rem;
+        white-space: nowrap;
+    }
+    .size-box {
+        border: 3px solid #343a40;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 0.5rem;
+        &-inner {
+            background-color: #343a40;
+            border-radius: 50%;
+        }
+    }
+    .size-s { width: 40px; height: 40px; .size-box-inner { width: 12px; height: 12px; } }
+    .size-m { width: 55px; height: 55px; .size-box-inner { width: 18px; height: 18px; } }
+    .size-l { width: 80px; height: 80px; .size-box-inner { width: 28px; height: 28px; } }
+    .size-xl { width: 110px; height: 110px; .size-box-inner { width: 38px; height: 38px; } }
+
+    .slider-controls {
+        position: absolute;
+        bottom: 15px;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        align-items: center;
+        z-index: 3;
+        .dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background-color: #adb5bd;
+            margin: 0 4px;
+            cursor: pointer;
+            &.active {
+                background-color: #343a40;
+            }
+        }
+    }
+
+    .price-option {
+        border: 1px solid #e0e0e0;
+        border-radius: 12px;
+        transition: all 0.2s ease-in-out;
+        cursor: pointer;
+        &:hover {
+            border-color: #0d6efd;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+    }
+
+    .contact-btn-blue {
+        background-color: #0d6efd;
+        border: none;
+        border-radius: 8px;
+        font-weight: 500;
+        color: white;
+        transition: background-color 0.2s;
+        &:hover {
+            background-color: #0b5ed7;
+        }
+    }
+
+    .product-type-tabs {
+        border-bottom: none;
+        display: flex;
+        gap: 1rem;
+        .nav-item {
+            flex-grow: 1;
+            display: flex;
+        }
+        .nav-link {
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            color: #495057;
+            background-color: transparent;
+            font-weight: bold;
+            padding: 0.75rem 1rem;
+            transition: all 0.2s ease-in-out;
+            width: 100%;
+            text-align: center;
+            &.active {
+                background-color: #343a40;
+                color: #fff;
+                border-color: #343a40;
+            }
+            &:not(.active):hover {
+                background-color: #f1f3f5;
+                border-color: #ced4da;
+            }
+        }
+    }
+
+    @media (max-width: 991.98px) {
+        .size-indicators-container {
+            justify-content: center;
+            padding-left: 0;
+            margin-bottom: 8rem;
+        }
+        .pricing-visual-wrapper .display-2 { text-align: center; }
+    }
+
+    @media (max-width: 575.98px) {
+        .size-indicators-container {
+            gap: 0.5rem;
+            transform: scale(0.85);
+            transform-origin: center;
+            margin-bottom: 6rem;
+        }
+        .pricing-visual-wrapper {
+            padding: 1.5rem;
+            min-height: 420px;
+            .display-2 { font-size: 3rem; }
+        }
+    }
+}

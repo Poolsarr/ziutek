@@ -1,0 +1,31 @@
+/* Przycisk neonowy */
+.custom-neon-btn {
+    background: rgba(255, 255, 255, 0.05);
+    border: 2px solid white;
+    color: white;
+    border-radius: 50rem;
+    padding: 0.6rem 1.4rem; 
+    box-shadow:
+        0 0 4px rgba(173, 216, 230, 0.1),
+        0 0 8px rgba(173, 216, 230, 0.1),
+        inset 0 0 2px rgba(173, 216, 230, 0.05);
+    transition:
+        box-shadow 0.8s cubic-bezier(0.4, 0, 0.2, 1),
+        border-color 0.6s ease,
+        color 0.6s ease,
+        background-color 0.6s ease;
+    
+    @media (max-width: 991.98px) {
+        &.fs-4 { font-size: 1rem !important; padding: 0.6rem 1.1rem; }
+    }
+}
+
+.custom-neon-btn:hover {
+    box-shadow:
+        0 0 6px rgba(173, 216, 230, 0.3),
+        0 0 15px rgba(173, 216, 230, 0.4),
+        inset 0 0 6px rgba(173, 216, 230, 0.2);
+    background: rgba(255, 255, 255, 0.07);
+    color: #add8e6;
+    border-color: #add8e6;
+}

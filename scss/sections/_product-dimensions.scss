@@ -1,0 +1,79 @@
+// scss/sections/_product-dimensions.scss
+
+.product-dimensions-section {
+    padding: 4rem 0;
+    background-color: #f8f9fa;
+
+    .row {
+        gap: 4rem;
+        justify-content: center;
+    }
+
+    .info-card {
+        position: relative;
+        border-radius: 1.5rem;
+        padding: 2rem;
+        padding-top: 4rem; 
+        color: #ffffff;
+        text-align: center;
+        height: calc(85vh - 120px); 
+        width: calc(25vw + 20px);
+        max-width: 700px;          
+        margin: 0 auto;             
+        background-size: cover;
+        background-position: center;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        display: flex; 
+        flex-direction: column;
+        justify-content: flex-start;
+
+        & > * {
+            position: relative;
+            z-index: 1;
+        }
+
+        h3 {
+            font-size: 2.8rem; 
+            font-weight: bold;
+            margin-bottom: 1rem; 
+        }
+        p {
+            font-size: 1rem; 
+            margin-bottom: 1.2rem; 
+        }
+        a {
+            font-size: 1rem; 
+            color: #87CEFA; 
+            text-decoration: underline;
+            font-weight: lighter;
+            &:hover {
+                color: #add8e6; 
+            }
+        }
+
+        &:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+        }
+    }
+    .info-card-products { background-image: url('../assets/wizualizacja 2.png'); }
+    .info-card-dimensions {
+        background-image: url('../assets/wizualizacja.png');
+        h3 { color: #000000 !important; }
+        p { color: #333; }
+    }
+
+    @media (max-width: 767.98px) {
+        padding: 2rem 0 1rem; 
+        .info-card {
+            height: auto;
+            min-height: 280px; 
+            width: 90%;
+            margin-bottom: 2rem;
+            padding: 1.5rem; 
+            h3 { font-size: 1.5rem; }
+            p, a { font-size: 0.9rem; }
+        }
+    }
+}

@@ -1,0 +1,80 @@
+// scss/sections/_hero.scss
+
+.main-section {
+    min-height: 100vh; 
+    display: flex;
+    align-items: center;
+    background-color: #111;
+    position: relative;
+
+    .hero-text-container {
+        max-width: 500px; 
+        width: 100%;
+        position: relative;
+        z-index: 3;
+    }
+
+    .hero-title-large { font-size: 6.5rem; }
+    .hero-subtitle-medium { font-size: 1.5rem; }
+    .hero-title-medium { font-size: 4.25rem; }
+
+    @media (max-width: 991.98px) {
+        min-height: auto;
+        display: block; 
+        padding-top: 2rem; 
+        padding-bottom: 2rem;
+        
+        .row { flex-direction: column; }
+        
+        .col-lg-6.pb-5.pt-5.ps-lg-5 {
+            order: -1;
+            padding: 0 !important;
+        }
+        
+        .hero-text-container {
+            text-align: center;
+            max-width: 90%;   
+            // Przywracamy duży ujemny margines, aby cały kontener nachodził na obraz
+            margin: -5rem auto 0; 
+        }
+
+        .hero-title-large { 
+            font-size: 2.8rem; 
+            line-height: 1.1; 
+            // === KLUCZOWA ZMIANA ===
+            // Dodajemy margines górny tylko do tego nagłówka,
+            // aby "odepchnąć" go w dół od krawędzi kontenera.
+            margin-top: 3rem; // Możesz dostosować tę wartość (np. 2rem, 4rem)
+        }
+        .hero-subtitle-medium { font-size: 1rem !important; }
+        .hero-title-medium { font-size: 2rem; line-height: 1.1; }
+    }
+
+    @media (max-width: 767.98px) {
+        .hero-text-container { 
+            // Przywracamy oryginalny margines
+            margin-top: -4rem; 
+        }
+        .hero-title-large { 
+            font-size: 2.4rem; 
+            // Dodajemy margines także tutaj, aby zachować spójność
+            margin-top: 2.5rem; // Dostosuj w razie potrzeby
+        }
+        .hero-title-medium { font-size: 1.8rem; }
+        .hero-subtitle-medium { font-size: 0.9rem !important; }
+    }
+
+    @media (max-width: 575.98px) {
+        .hero-text-container { 
+            // Przywracamy oryginalny margines
+            margin-top: -3rem; 
+        }
+        .hero-title-large { 
+            font-size: 2rem; 
+            // I tutaj również
+            margin-top: 2rem; // Dostosuj w razie potrzeby
+        }
+        .hero-title-medium { font-size: 1.5rem; }
+        .hero-subtitle-medium { font-size: 0.8rem !important; }
+    }
+}

@@ -1,0 +1,70 @@
+/* Komponent Orb */
+.orb-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100vmin;
+    height: 100vmin;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    pointer-events: none;
+}
+
+.orb-outer, .orb-inner {
+    position: absolute;
+    border-radius: 50%;
+    background: conic-gradient(#6ea361 0deg, 90deg, #85afbe 45deg 180deg, #3b7da5 180deg 270deg, #72210f 270deg 360deg);
+}
+
+.orb-outer {
+    width: 100vmin;
+    height: 100vmin;
+    filter: blur(120px);
+    opacity: 0.5;
+    transition: opacity 0.8s ease-in-out;
+    z-index: 0;
+
+    @media (max-width: 991.98px) {
+        filter: blur(70px);
+    }
+}
+
+.orb-inner {
+    width: 70vmin;
+    height: 70vmin;
+    filter: blur(40px);
+    opacity: 0.9;
+    z-index: 1;
+
+    @media (max-width: 991.98px) {
+        filter: blur(25px);
+    }
+}
+
+.orb-super-container {
+  position: relative;
+  width: 100%;
+  height: 100vh; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: visible;
+
+  &:hover .orb-outer {
+    opacity: 1;
+  }
+
+  .hero-image {
+    max-width: 80%;
+    position: relative;
+    z-index: 2;
+  }
+
+  @media (max-width: 991.98px) { height: auto; }
+  @media (max-width: 991.98px) { .hero-image { max-width: 65%; } }
+  @media (max-width: 767.98px) { .hero-image { max-width: 75%; } }
+  @media (max-width: 575.98px) { .hero-image { max-width: 80%; } }
+}

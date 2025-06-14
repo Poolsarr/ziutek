@@ -1,0 +1,36 @@
+.contact-form-section {
+  background: #fff;
+  padding: 4rem 0;
+  text-align: center;
+
+  .section-title {
+    font-size: 1.75rem;
+    font-weight: bold;
+    margin-bottom: 2rem;
+  }
+  form {
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: left;
+  }
+  .form-label {
+    font-size: 0.95rem;
+    font-weight: bold;
+    span {
+      color: red;
+    }
+  }
+  .form-control {
+    font-size: 0.95rem;
+  }
+  button[type="submit"] {
+    background-color: #aaa;
+    border: none;
+    font-weight: bold;
+    text-transform: uppercase;
+    padding: 0.5rem 2rem;
+    &:hover {
+      background-color: #888;
+    }
+  }
+}
