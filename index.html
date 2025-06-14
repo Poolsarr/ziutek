@@ -2,6 +2,7 @@
 <html lang="pl">
 
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>EyeStory</title>
@@ -16,6 +17,9 @@
     <!-- Skrypty (deferowane dla lepszej wydajności ładowania) -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" defer integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <script src="carousel-touch.js" defer></script>
+    <script src="cennik-scroll.js" defer></script>
+    <script src="cennik-tabs.js" defer></script>
+
 </head>
 
 <body class="bg-black text-white">
@@ -204,7 +208,7 @@
                     <h3>Sprawdź wymiary</h3>
                     <p>zanim zdecydujesz się na zakup,</p>
                     <p>zobacz dostępne wymiary.</p>
-                    <a class="btn btn-link p-0" data-bs-toggle="collapse" href="#pricingDetails" role="button" aria-expanded="false" aria-controls="pricingDetails">
+                    <a class="btn btn-link p-0" data-bs-toggle="collapse" href="#pricingContainer" role="button" aria-expanded="false" aria-controls="pricingContainer">
                     Zobacz cennik &gt;
                     </a>
                 </div>
@@ -212,73 +216,263 @@
         </div>
     </section>
 
-    <!-- Sekcja cennika jako osobna sekcja -->
-    <section id="pricingDetails" class="collapse pricing-section">
-        <div class="container">
-            <h2 class="fw-bold mb-5">Tęczówki w komplecie.</h2>
-            
-            <div class="row row-cols-1 row-cols-md-4 g-4">
+    <!-- ========================================================================= -->
+    <!-- CENNIK                                                                    -->
+    <!-- ========================================================================= -->
 
-            <!-- SOLO -->
-            <div class="col">
-                <div class="card border-0 bg-light text-center">
-                <img src="solo.jpg" class="card-img-top rounded-4" alt="Solo">
-                <div class="card-body px-2">
-                    <h5 class="fw-bold">Solo</h5>
-                    <p class="text-muted mb-1">Jedna tęczówka.<br>Czysta forma.</p>
-                    <p class="fw-bold mb-2">Od 129 zł</p>
-                    <a href="#" class="btn btn-primary btn-sm px-3">Dowiedz się więcej</a>
-                </div>
-                </div>
-            </div>
+    <section id="cennik">
+        <div id="pricingContainer" class="collapse">
 
-            <!-- DUO -->
-            <div class="col">
-                <div class="card border-0 bg-light text-center">
-                <img src="duo.jpg" class="card-img-top rounded-4" alt="Duo">
-                <div class="card-body px-2">
-                    <h5 class="fw-bold">Duo</h5>
-                    <p class="text-muted mb-1">Dwie tęczówki.<br>Idealne dla par.</p>
-                    <p class="fw-bold mb-2">Od 269 zł</p>
-                    <a href="#" class="btn btn-primary btn-sm px-3">Dowiedz się więcej</a>
-                </div>
-                </div>
-            </div>
+            <!-- ===== SEKCJA KART PRODUKTÓW ===== -->
+            <section id="pricingDetails" class="pricing-section">
+                <div class="container">
+                    <h1 class="fw-bold mb-5 text-dark">Tęczówki w komplecie.</h1>
+                    
+                    <div class="row row-cols-1 row-cols-md-4 g-4">
 
-            <!-- TRIO -->
-            <div class="col">
-                <div class="card border-0 bg-light text-center">
-                <img src="trio.jpg" class="card-img-top rounded-4" alt="Trio">
-                <div class="card-body px-2">
-                    <h5 class="fw-bold">Trio</h5>
-                    <p class="text-muted mb-1">Trzy tęczówki.<br>Bliscy w jednym spojrzeniu.</p>
-                    <p class="fw-bold mb-2">Od 349 zł</p>
-                    <a href="#" class="btn btn-primary btn-sm px-3">Dowiedz się więcej</a>
-                </div>
-                </div>
-            </div>
+                        <!-- SOLO -->
+                        <div class="col">
+                            <div class="card border-0 bg-light text-center">
+                                <img src="assets/cennik solo.png" class="card-img-top my-rounded mb-5 mx-auto d-block" alt="Solo">
+                                <div class="card-body px-2">
+                                    <h5 class="fw-bold">Solo</h5>
+                                    <p class="text-muted mb-1">Jedna tęczówka.<br>Czysta forma.</p>
+                                    <p class="fw-bold mb-2 mt-2">Od 129 zł</p>
+                                    <a href="#pricingDetailsSolo" class="btn btn-primary btn-sm px-3" data-bs-toggle="collapse" data-bs-target="#pricingDetailsSolo" data-tab-target="#solo-tab">Dowiedz się więcej</a>
+                                </div>
+                            </div>
+                        </div>
 
-            <!-- QUADRO -->
-            <div class="col">
-                <div class="card border-0 bg-light text-center">
-                <img src="quadro.jpg" class="card-img-top rounded-4" alt="Quadro">
-                <div class="card-body px-2">
-                    <h5 class="fw-bold">Quadro</h5>
-                    <p class="text-muted mb-1">Cztery tęczówki.<br>Rodzina pełna więzi.</p>
-                    <p class="fw-bold mb-2">Od 429 zł</p>
-                    <a href="#" class="btn btn-primary btn-sm px-3">Dowiedz się więcej</a>
-                </div>
-                </div>
-            </div>
+                        <!-- DUO -->
+                        <div class="col">
+                            <div class="card border-0 bg-light text-center">
+                                <img src="assets/cennik duo.png" class="card-img-top my-rounded mb-5 mx-auto d-block" alt="Duo">
+                                <div class="card-body px-2">
+                                    <h5 class="fw-bold">Duo</h5>
+                                    <p class="text-muted mb-1">Dwie tęczówki.<br>Idealne dla par.</p>
+                                    <p class="fw-bold mb-2">Od 269 zł</p>
+                                    <a href="#pricingDetailsSolo" class="btn btn-primary btn-sm px-3" data-bs-toggle="collapse" data-bs-target="#pricingDetailsSolo" data-tab-target="#duo-tab">Dowiedz się więcej</a>
+                                </div>
+                            </div>
+                        </div>
 
-            </div>
+                        <!-- TRIO -->
+                        <div class="col">
+                            <div class="card border-0 bg-light text-center">
+                                <img src="assets/cennik trio.png" class="card-img-top my-rounded mb-5 mx-auto d-block" alt="Trio">
+                                <div class="card-body px-2">
+                                    <h5 class="fw-bold">Trio</h5>
+                                    <p class="text-muted mb-1">Trzy tęczówki.<br>Bliscy w jednym spojrzeniu.</p>
+                                    <p class="fw-bold mb-2">Od 349 zł</p>
+                                    <a href="#pricingDetailsSolo" class="btn btn-primary btn-sm px-3" data-bs-toggle="collapse" data-bs-target="#pricingDetailsSolo" data-tab-target="#trio-tab">Dowiedz się więcej</a>
+                                </div>
+                            </div>
+                        </div>
 
-            <!-- Podpis dolny -->
-            <p class="mt-4 text-muted small">
-            * Wersja cyfrowa <strong class="text-decoration-underline">za darmo</strong>
-            </p>
+                        <!-- QUADRO -->
+                        <div class="col">
+                            <div class="card border-0 bg-light text-center">
+                                <img src="assets/cennik quadro.png" class="card-img-top my-rounded mb-5 mx-auto d-block" alt="Quadro">
+                                <div class="card-body px-2">
+                                    <h5 class="fw-bold">Quadro</h5>
+                                    <p class="text-muted mb-1">Cztery tęczówki.<br>Rodzina pełna więzi.</p>
+                                    <p class="fw-bold mb-2">Od 429 zł</p>
+                                    <a href="#pricingDetailsSolo" class="btn btn-primary btn-sm px-3" data-bs-toggle="collapse" data-bs-target="#pricingDetailsSolo" data-tab-target="#quadro-tab">Dowiedz się więcej</a>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <p class="mt-4 text-muted small">* Wersja cyfrowa <strong class="text-decoration-underline">za darmo</strong></p>
+                </div>
+            </section>
+
+            <!-- ===== SEKCJA SZCZEGÓŁÓW Z ZAKŁADKAMI ===== -->
+            <section id="pricingDetailsSolo" class="collapse pricing-details-section bg-white text-dark py-5">
+                <div class="container">
+                    
+                    <!-- Przełącznik produktów (Tabs) - POPRAWIONA STRUKTURA BEZ GRUP -->
+                    <ul class="nav nav-tabs product-type-tabs mb-5" id="productTypeTab" role="tablist">
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link active" id="solo-tab" data-bs-toggle="tab" data-bs-target="#solo-tab-pane" type="button" role="tab" aria-controls="solo-tab-pane" aria-selected="true">SOLO</button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="duo-tab" data-bs-toggle="tab" data-bs-target="#duo-tab-pane" type="button" role="tab" aria-controls="duo-tab-pane" aria-selected="false">DUO</button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="trio-tab" data-bs-toggle="tab" data-bs-target="#trio-tab-pane" type="button" role="tab" aria-controls="trio-tab-pane" aria-selected="false">TRIO</button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="quadro-tab" data-bs-toggle="tab" data-bs-target="#quadro-tab-pane" type="button" role="tab" aria-controls="quadro-tab-pane" aria-selected="false">QUADRO</button>
+                        </li>
+                    </ul>
+
+                    <!-- Zawartość dla poszczególnych zakładek -->
+                    <div class="tab-content" id="productTypeTabContent">
+                        
+                        <!-- ====== ZAWARTOSĆ DLA ZAKŁADKI SOLO ====== -->
+                        <div class="tab-pane fade show active" id="solo-tab-pane" role="tabpanel" aria-labelledby="solo-tab" tabindex="0">
+                            <div class="row align-items-center">
+                                <!-- Lewa Kolumna: Wizualizacja Produktu -->
+                                <div class="col-lg-8 mb-4 mb-lg-0">
+                                    <div class="pricing-visual-wrapper">
+                                        <div class="visual-content">
+                                            <h3 class="display-2 fw-bold">Solo</h3>
+                                            <div class="size-indicators-container">
+                                                <div class="size-item"><span class="fw-bold">S</span><span class="text-muted size-label">15x15 cm</span><div class="size-box size-s"><div class="size-box-inner"></div></div></div>
+                                                <div class="size-item"><span class="fw-bold">M</span><span class="text-muted size-label">20x20 cm</span><div class="size-box size-m"><div class="size-box-inner"></div></div></div>
+                                                <div class="size-item"><span class="fw-bold">L</span><span class="text-muted size-label">30x30 cm</span><div class="size-box size-l"><div class="size-box-inner"></div></div></div>
+                                                <div class="size-item"><span class="fw-bold">XL</span><span class="text-muted size-label">50x50 cm</span><div class="size-box size-xl"><div class="size-box-inner"></div></div></div>
+                                            </div>
+                                        </div>
+                                        <img src="assets/cennik-furniture.png" alt="Ilustracja wnętrza z meblami" class="furniture-illustration">
+                                        <div class="slider-controls">
+                                            <span class="dot active"></span>
+                                            <span class="dot"></span>
+                                            <button class="slider-arrow">></button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Prawa Kolumna: Opcje i Ceny -->
+                                <div class="col-lg-4">
+                                    <div class="pricing-options-wrapper">
+                                        <h4 class="fw-bold mb-3">Rozmiar. Który jest najważniejszy dla Ciebie?</h4>
+                                        <div class="price-option-list">
+                                            <div class="price-option d-flex justify-content-between align-items-center p-3 mb-2"><div><h6 class="fw-bold mb-0">S</h6><p class="mb-0 text-muted small">Ramka o wymiarach 15x15 cm</p></div><span class="fw-bold">129 zł</span></div>
+                                            <div class="price-option d-flex justify-content-between align-items-center p-3 mb-2"><div><h6 class="fw-bold mb-0">M</h6><p class="mb-0 text-muted small">Ramka o wymiarach 20x20 cm</p></div><span class="fw-bold">159 zł</span></div>
+                                            <div class="price-option d-flex justify-content-between align-items-center p-3 mb-2"><div><h6 class="fw-bold mb-0">L</h6><p class="mb-0 text-muted small">Ramka o wymiarach 30x30 cm</p></div><span class="fw-bold">209 zł</span></div>
+                                            <div class="price-option d-flex justify-content-between align-items-center p-3 mb-2"><div><h6 class="fw-bold mb-0">XL</h6><p class="mb-0 text-muted small">Ramka o wymiarach 50x50 cm</p></div><span class="fw-bold">289 zł</span></div>
+                                        </div>
+                                        <a href="#" class="btn contact-btn-blue w-100 py-2 fs-5 mt-3">Skontaktuj się już teraz!</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- ====== ZAWARTOSĆ DLA ZAKŁADKI DUO ====== -->
+                        <div class="tab-pane fade" id="duo-tab-pane" role="tabpanel" aria-labelledby="duo-tab" tabindex="0">
+                            <div class="row align-items-center">
+                                <!-- Lewa Kolumna: Wizualizacja Produktu -->
+                                <div class="col-lg-8 mb-4 mb-lg-0">
+                                    <div class="pricing-visual-wrapper">
+                                        <div class="visual-content">
+                                            <h3 class="display-2 fw-bold">Duo</h3>
+                                            <div class="size-indicators-container">
+                                                <div class="size-item"><span class="fw-bold">S</span><span class="text-muted size-label">15x15 cm</span><div class="size-box size-s"><div class="size-box-inner"></div></div></div>
+                                                <div class="size-item"><span class="fw-bold">M</span><span class="text-muted size-label">20x20 cm</span><div class="size-box size-m"><div class="size-box-inner"></div></div></div>
+                                                <div class="size-item"><span class="fw-bold">L</span><span class="text-muted size-label">30x30 cm</span><div class="size-box size-l"><div class="size-box-inner"></div></div></div>
+                                                <div class="size-item"><span class="fw-bold">XL</span><span class="text-muted size-label">50x50 cm</span><div class="size-box size-xl"><div class="size-box-inner"></div></div></div>
+                                            </div>
+                                        </div>
+                                        <img src="assets/cennik-furniture.png" alt="Ilustracja wnętrza z meblami" class="furniture-illustration">
+                                        <div class="slider-controls">
+                                            <span class="dot active"></span>
+                                            <span class="dot"></span>
+                                            <button class="slider-arrow">></button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Prawa Kolumna: Opcje i Ceny -->
+                                <div class="col-lg-4">
+                                    <div class="pricing-options-wrapper">
+                                        <h4 class="fw-bold mb-3">Rozmiar. Który jest najważniejszy dla Ciebie?</h4>
+                                        <div class="price-option-list">
+                                            <div class="price-option d-flex justify-content-between align-items-center p-3 mb-2"><div><h6 class="fw-bold mb-0">S</h6><p class="mb-0 text-muted small">Ramka o wymiarach 15x15 cm</p></div><span class="fw-bold">269 zł</span></div>
+                                            <div class="price-option d-flex justify-content-between align-items-center p-3 mb-2"><div><h6 class="fw-bold mb-0">M</h6><p class="mb-0 text-muted small">Ramka o wymiarach 20x20 cm</p></div><span class="fw-bold">299 zł</span></div>
+                                            <div class="price-option d-flex justify-content-between align-items-center p-3 mb-2"><div><h6 class="fw-bold mb-0">L</h6><p class="mb-0 text-muted small">Ramka o wymiarach 30x30 cm</p></div><span class="fw-bold">349 zł</span></div>
+                                            <div class="price-option d-flex justify-content-between align-items-center p-3 mb-2"><div><h6 class="fw-bold mb-0">XL</h6><p class="mb-0 text-muted small">Ramka o wymiarach 50x50 cm</p></div><span class="fw-bold">429 zł</span></div>
+                                        </div>
+                                        <a href="#" class="btn contact-btn-blue w-100 py-2 fs-5 mt-3">Skontaktuj się już teraz!</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- ====== ZAWARTOSĆ DLA ZAKŁADKI TRIO ====== -->
+                        <div class="tab-pane fade" id="trio-tab-pane" role="tabpanel" aria-labelledby="trio-tab" tabindex="0">
+                            <div class="row align-items-center">
+                                <!-- Lewa Kolumna: Wizualizacja Produktu -->
+                                <div class="col-lg-8 mb-4 mb-lg-0">
+                                    <div class="pricing-visual-wrapper">
+                                        <div class="visual-content">
+                                            <h3 class="display-2 fw-bold">Trio</h3>
+                                            <div class="size-indicators-container">
+                                                <div class="size-item"><span class="fw-bold">S</span><span class="text-muted size-label">15x15 cm</span><div class="size-box size-s"><div class="size-box-inner"></div></div></div>
+                                                <div class="size-item"><span class="fw-bold">M</span><span class="text-muted size-label">20x20 cm</span><div class="size-box size-m"><div class="size-box-inner"></div></div></div>
+                                                <div class="size-item"><span class="fw-bold">L</span><span class="text-muted size-label">30x30 cm</span><div class="size-box size-l"><div class="size-box-inner"></div></div></div>
+                                                <div class="size-item"><span class="fw-bold">XL</span><span class="text-muted size-label">50x50 cm</span><div class="size-box size-xl"><div class="size-box-inner"></div></div></div>
+                                            </div>
+                                        </div>
+                                        <img src="assets/cennik-furniture.png" alt="Ilustracja wnętrza z meblami" class="furniture-illustration">
+                                        <div class="slider-controls">
+                                            <span class="dot active"></span>
+                                            <span class="dot"></span>
+                                            <button class="slider-arrow">></button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Prawa Kolumna: Opcje i Ceny -->
+                                <div class="col-lg-4">
+                                    <div class="pricing-options-wrapper">
+                                        <h4 class="fw-bold mb-3">Rozmiar. Który jest najważniejszy dla Ciebie?</h4>
+                                        <div class="price-option-list">
+                                            <div class="price-option d-flex justify-content-between align-items-center p-3 mb-2"><div><h6 class="fw-bold mb-0">S</h6><p class="mb-0 text-muted small">Ramka o wymiarach 15x15 cm</p></div><span class="fw-bold">349 zł</span></div>
+                                            <div class="price-option d-flex justify-content-between align-items-center p-3 mb-2"><div><h6 class="fw-bold mb-0">M</h6><p class="mb-0 text-muted small">Ramka o wymiarach 20x20 cm</p></div><span class="fw-bold">389 zł</span></div>
+                                            <div class="price-option d-flex justify-content-between align-items-center p-3 mb-2"><div><h6 class="fw-bold mb-0">L</h6><p class="mb-0 text-muted small">Ramka o wymiarach 30x30 cm</p></div><span class="fw-bold">449 zł</span></div>
+                                            <div class="price-option d-flex justify-content-between align-items-center p-3 mb-2"><div><h6 class="fw-bold mb-0">XL</h6><p class="mb-0 text-muted small">Ramka o wymiarach 50x50 cm</p></div><span class="fw-bold">539 zł</span></div>
+                                        </div>
+                                        <a href="#" class="btn contact-btn-blue w-100 py-2 fs-5 mt-3">Skontaktuj się już teraz!</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- ====== ZAWARTOSĆ DLA ZAKŁADKI QUADRO ====== -->
+                        <div class="tab-pane fade" id="quadro-tab-pane" role="tabpanel" aria-labelledby="quadro-tab" tabindex="0">
+                            <div class="row align-items-center">
+                                <!-- Lewa Kolumna: Wizualizacja Produktu -->
+                                <div class="col-lg-8 mb-4 mb-lg-0">
+                                    <div class="pricing-visual-wrapper">
+                                        <div class="visual-content">
+                                            <h3 class="display-2 fw-bold">Quadro</h3>
+                                            <div class="size-indicators-container">
+                                                <div class="size-item"><span class="fw-bold">S</span><span class="text-muted size-label">15x15 cm</span><div class="size-box size-s"><div class="size-box-inner"></div></div></div>
+                                                <div class="size-item"><span class="fw-bold">M</span><span class="text-muted size-label">20x20 cm</span><div class="size-box size-m"><div class="size-box-inner"></div></div></div>
+                                                <div class="size-item"><span class="fw-bold">L</span><span class="text-muted size-label">30x30 cm</span><div class="size-box size-l"><div class="size-box-inner"></div></div></div>
+                                                <div class="size-item"><span class="fw-bold">XL</span><span class="text-muted size-label">50x50 cm</span><div class="size-box size-xl"><div class="size-box-inner"></div></div></div>
+                                            </div>
+                                        </div>
+                                        <img src="assets/cennik-furniture.png" alt="Ilustracja wnętrza z meblami" class="furniture-illustration">
+                                        <div class="slider-controls">
+                                            <span class="dot active"></span>
+                                            <span class="dot"></span>
+                                            <button class="slider-arrow">></button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Prawa Kolumna: Opcje i Ceny -->
+                                <div class="col-lg-4">
+                                    <div class="pricing-options-wrapper">
+                                        <h4 class="fw-bold mb-3">Rozmiar. Który jest najważniejszy dla Ciebie?</h4>
+                                        <div class="price-option-list">
+                                            <div class="price-option d-flex justify-content-between align-items-center p-3 mb-2"><div><h6 class="fw-bold mb-0">S</h6><p class="mb-0 text-muted small">Ramka o wymiarach 15x15 cm</p></div><span class="fw-bold">429 zł</span></div>
+                                            <div class="price-option d-flex justify-content-between align-items-center p-3 mb-2"><div><h6 class="fw-bold mb-0">M</h6><p class="mb-0 text-muted small">Ramka o wymiarach 20x20 cm</p></div><span class="fw-bold">479 zł</span></div>
+                                            <div class="price-option d-flex justify-content-between align-items-center p-3 mb-2"><div><h6 class="fw-bold mb-0">L</h6><p class="mb-0 text-muted small">Ramka o wymiarach 30x30 cm</p></div><span class="fw-bold">549 zł</span></div>
+                                            <div class="price-option d-flex justify-content-between align-items-center p-3 mb-2"><div><h6 class="fw-bold mb-0">XL</h6><p class="mb-0 text-muted small">Ramka o wymiarach 50x50 cm</p></div><span class="fw-bold">649 zł</span></div>
+                                        </div>
+                                        <a href="#" class="btn contact-btn-blue w-100 py-2 fs-5 mt-3">Skontaktuj się już teraz!</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+            </section>
         </div>
     </section>
+
 
     <!-- ========================================================================= -->
     <!-- Sekcja Proces Tworzenia                                                   -->
@@ -301,8 +495,8 @@
                     <div class="creation-icon-wrapper mb-3">
                         <img src="assets/icons/ikona (6).svg" alt="Ikona: Umów spotkanie" class="creation-step-icon">
                     </div>
-                    <h5 class="creation-step-title fw-bold mb-2">Umów spotkanie</h5>
-                    <p class="creation-step-description">Skontaktuj się z nami przez formularz, telefon lub social media, aby zarezerwować termin sesji.</p>
+                    <h5 class="creation-step-title fw-bold mb-2 text-dark">Umów spotkanie</h5>
+                    <p class="creation-step-description text-dark">Skontaktuj się z nami przez formularz, telefon lub social media, aby zarezerwować termin sesji.</p>
                 </div>
 
                 <!-- Strzałka 1 -->
@@ -315,8 +509,8 @@
                     <div class="creation-icon-wrapper mb-3">
                         <img src="assets/icons/ikona (7).svg" alt="Ikona: Zdjęcie tęczówki" class="creation-step-icon">
                     </div>
-                    <h5 class="creation-step-title fw-bold mb-2">Zdjęcie tęczówki</h5>
-                    <p class="creation-step-description">Na miejscu wykonujemy fotografię oka – szybko, bezdotykowo i bezpiecznie. Całość trwa kilka minut.</p>
+                    <h5 class="creation-step-title fw-bold mb-2 text-dark">Zdjęcie tęczówki</h5>
+                    <p class="creation-step-description text-dark">Na miejscu wykonujemy fotografię oka – szybko, bezdotykowo i bezpiecznie. Całość trwa kilka minut.</p>
                 </div>
 
                 <!-- Strzałka 2 -->
@@ -329,8 +523,8 @@
                     <div class="creation-icon-wrapper mb-3">
                         <img src="assets/icons/ikona (1).svg" alt="Ikona: Obróbka graficzna" class="creation-step-icon">
                     </div>
-                    <h5 class="creation-step-title fw-bold mb-2">Obróbka graficzna</h5>
-                    <p class="creation-step-description">Zdjęcie przechodzi autorską edycję – podkreślam strukturę i kolory tęczówki tak aby finalnie nadawała się do wydruku.</p>
+                    <h5 class="creation-step-title fw-bold mb-2 text-dark">Obróbka graficzna</h5>
+                    <p class="creation-step-description text-dark">Zdjęcie przechodzi autorską edycję – podkreślam strukturę i kolory tęczówki tak aby finalnie nadawała się do wydruku.</p>
                 </div>
 
                 <!-- Strzałka 3 -->
@@ -343,8 +537,8 @@
                     <div class="creation-icon-wrapper mb-3">
                         <img src="assets/icons/ikona (5).svg" alt="Ikona: Gotowy wydruk" class="creation-step-icon">
                     </div>
-                    <h5 class="creation-step-title fw-bold mb-2">Gotowy wydruk</h5>
-                    <p class="creation-step-description">Jeszcze tego samego <span class="text-decoration-underline">dnia*</span> otrzymujesz gotowy wydruk w wybranym formacie.</p>
+                    <h5 class="creation-step-title fw-bold mb-2 text-dark">Gotowy wydruk</h5>
+                    <p class="creation-step-description text-dark">Jeszcze tego samego <span class="text-decoration-underline text-dark">dnia*</span> otrzymujesz gotowy wydruk w wybranym formacie.</p>
                 </div>
             </div> <!-- Koniec .creation-steps-row -->
         </div> <!-- Koniec .container -->
@@ -356,30 +550,30 @@
 
     <section class="why-eye-story">
         <div class="container">
-            <h2 class="section-title mb-4">Dlaczego najlepiej z Eye Story.</h2>
+            <h2 class="section-title mb-4 text-dark">Dlaczego najlepiej z Eye Story.</h2>
             <div class="row justify-content-center">
                 <!-- Karta 1 -->
                 <div class="col-md-4 mb-4">
                     <div class="custom-card">
                     <img src="assets/icons/ikona (2).svg" alt="Ikona: Dostawa" class="creation-step-icon mb-3">
-                    <h5 class="fw-bold">Bezpłatna dostawa.</h5>
-                    <p class="text-muted">Skorzystaj z darmowej dostawy prosto pod Twój adres.</p>
+                    <h5 class="fw-bold text-dark">Bezpłatna dostawa.</h5>
+                    <p class="text-muted text-dark">Skorzystaj z darmowej dostawy prosto pod Twój adres.</p>
                     </div>
                 </div>
                 <!-- Karta 2 -->
                 <div class="col-md-4 mb-4">
                     <div class="custom-card">
                     <img src="assets/icons/ikona (3).svg" alt="Ikona: Dostawa" class="creation-step-icon mb-3">
-                    <h5 class="fw-bold">Pomoc od ręki</h5>
-                    <p class="text-muted">Kompleksowa obsługa klienta podczas sesji oraz po dostarczeniu zamówienia. <br>Masz pytanie? Zadzwoń pod <strong>662 106 689</strong>.</p>
+                    <h5 class="fw-bold text-dark">Pomoc od ręki</h5>
+                    <p class="text-muted text-dark">Kompleksowa obsługa klienta podczas sesji oraz po dostarczeniu zamówienia. <br>Masz pytanie? Zadzwoń pod <strong>662 106 689</strong>.</p>
                     </div>
                 </div>
                 <!-- Karta 3 -->
                 <div class="col-md-4 mb-4">
                     <div class="custom-card">
                     <img src="assets/icons/ikona (4).svg" alt="Ikona: Dostawa" class="creation-step-icon mb-3">
-                    <h5 class="fw-bold">Brak sztucznej inteligencji</h5>
-                    <p class="text-muted">AI bardzo ingeruje w niepowtarzalność Twojej tęczówki, dlatego liczy się dla nas jak najwyższa jakość obrazu oraz personalizacja</p>
+                    <h5 class="fw-bold text-dark">Brak sztucznej inteligencji</h5>
+                    <p class="text-muted text-dark">AI bardzo ingeruje w niepowtarzalność Twojej tęczówki, dlatego liczy się dla nas jak najwyższa jakość obrazu oraz personalizacja</p>
                     </div>
                 </div>
             </div>
@@ -395,26 +589,26 @@
 
     <section class="contact-form-section">
         <div class="container">
-            <h3 class="section-title mb-4">Zainteresowany?<br>Skorzystaj z formularza kontaktowego</h3>
+            <h3 class="section-title mb-4 text-dark">Zainteresowany?<br>Skorzystaj z formularza kontaktowego</h3>
             <form>
                 <div class="mb-3">
-                    <label for="name" class="form-label">Imię i Nazwisko <span>*</span></label>
+                    <label for="name" class="form-label text-dark">Imię i Nazwisko <span>*</span></label>
                     <input type="text" class="form-control" id="name" required>
                 </div>
                 <div class="mb-3">
-                    <label for="email" class="form-label">E-mail <span>*</span></label>
-                    <input type="email" class="form-control" id="email" value="jan.kowalski@poczta.pl" required>
+                    <label for="email" class="form-label text-dark">E-mail <span>*</span></label>
+                    <input type="email" class="form-control" id="email" placeholder="jan.kowalski@poczta.pl" required>
                 </div>
                 <div class="mb-3">
-                    <label for="message" class="form-label">Wiadomość <span>*</span></label>
+                    <label for="message" class="form-label text-dark">Wiadomość <span>*</span></label>
                     <textarea class="form-control" id="message" rows="5" placeholder="Zacznij pisać..." required></textarea>
                 </div>
                 <div class="text-center mt-4">
                     <button type="submit" class="btn btn-secondary">PRZEŚLIJ</button>
+                    <!-- DEBUG <p><a href="mailto:someone@example.com">Send email</a></p> -->
                 </div>
             </form>
         </div>
     </section>
 </body>
-
 </html>
