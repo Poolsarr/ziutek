@@ -323,6 +323,7 @@ a:hover {
   flex-direction: column;
   text-align: left;
   width: 100%;
+  margin-bottom: 1rem;
 }
 #eye-story-section .eye-story-card-wide h5 {
   font-size: 1.75rem;
