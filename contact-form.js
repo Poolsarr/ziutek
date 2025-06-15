@@ -1,14 +1,32 @@
 document.addEventListener("DOMContentLoaded", function() {
-    document.getElementById("contactForm").addEventListener("submit", function(e){
-        e.preventDefault();
+    function handleFormSubmit(formId, fields) {
+        const form = document.getElementById(formId);
+        form.addEventListener("submit", function(e) {
+            e.preventDefault();
 
-        const name = document.getElementById("name").value;
-        const message = document.getElementById("message").value;
+            const name = document.getElementById(fields.name).value;
+            const email = document.getElementById(fields.email).value;
+            const message = document.getElementById(fields.message).value;
 
-        const recipient = "eyestory@email.pl";
-        const subject = encodeURIComponent("Wiadomość z formularza kontaktowego");
-        const body = encodeURIComponent(`${message}\n\ ${name}`);
+            const recipient = "eyestory@email.pl";
+            const subject = encodeURIComponent("Wiadomość z formularza kontaktowego");
+            const body = encodeURIComponent(`Imię i nazwisko: ${name}\nEmail: ${email}\n\n${message}`);
 
-        window.location.href = `mailto:${recipient}?subject=${subject}&body=${body}`;
+            window.location.href = `mailto:${recipient}?subject=${subject}&body=${body}`;
+        });
+    }
+
+    // Obsługa pierwszego formularza
+    handleFormSubmit("contactForm", {
+        name: "name",
+        email: "email",
+        message: "message"
+    });
+
+    // Obsługa drugiego formularza
+    handleFormSubmit("contactFormInspired", {
+        name: "contactName",
+        email: "contactEmail",
+        message: "contactMessage"
     });
 });
