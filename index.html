@@ -126,69 +126,114 @@
         </div>
     </section>
 
-    <!-- ========================================================================= -->
-    <!-- Sekcja Eye Story (Karuzele)                                               -->
-    <!-- ========================================================================= -->
+      
+<!-- ========================================================================= -->
+<!-- Sekcja Eye Story (Karuzele) - WERSJA Z PODZIAŁEM NA MOBILE/DESKTOP      -->
+<!-- ========================================================================= -->
+<section id="eye-story-section" class="py-5">
+    <div class="container text-center text-dark">
+        <h2 class="main-title fw-bold mb-4">Poznaj Eye Story</h2>
+        <p class="section-subtitle fs-1 mb-5">
+            <strong>Fotograficzny portret Twojej tęczówki</strong>
+            <span class="subtitle-suffix"> czyli,</span>
+        </p>
 
-    <section id="eye-story-section" class="py-5">
-        <div class="container text-center">
-            <h2 class="main-title fw-bold mb-4">Poznaj Eye Story</h2>
-            <p class="section-subtitle fs-1 mb-5">
-                <strong>Fotograficzny portret Twojej tęczówki</strong>
-                <span class="subtitle-suffix"> czyli,</span>
-            </p>
-            <div id="eyeStoryCarousel" class="carousel slide" data-bs-ride="carousel">
-                <div class="carousel-inner">
-                    <!-- Slide 1 -->
-                    <div class="carousel-item active">
-                        <div class="eye-story-card-wide mx-auto">
+        <!-- #################### WERSJA DESKTOP (2 karty na slajd) #################### -->
+        <!-- Widoczna tylko na ekranach lg i większych (d-none d-lg-block) -->
+        <div id="eyeStoryCarouselDesktop" class="carousel slide d-none d-lg-block" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <!-- Slide 1 (zawiera 2 karty) -->
+                <div class="carousel-item active">
+                    <div class="d-flex justify-content-center gap-4">
+                        <div class="eye-story-card-wide">
                             <h5 class="fw-bold">Niepowtarzalność.</h5>
                             <p>W Eye Story fotografuję tęczówki, zamieniając je w niepowtarzalne dzieła sztuki. Każda z nich jest jak kosmos – jedyna w swoim rodzaju. Uwieczniam ją, byś mógł zatrzymać ten fragment siebie na zawsze – w formie obrazu lub pamiątki dla bliskiej osoby.</p>
                         </div>
-                    </div>
-                    <!-- Slide 2 -->
-                    <div class="carousel-item">
-                        <div class="eye-story-card-wide mx-auto">
+                        <div class="eye-story-card-wide">
                             <h5 class="fw-bold">Sztuka, która powstaje z natury.</h5>
                             <p>Dzięki fotografii makro i autorskiej obróbce, zamieniam naturalne piękno oka w prawdziwe dzieło sztuki – hipnotyzujące, kolorowe, osobiste. Przy czym uwzględniam każdą sugestię klienta.</p>
                         </div>
                     </div>
-                    <!-- Slide 3 -->
-                    <div class="carousel-item">
-                        <div class="eye-story-card-wide mx-auto">
+                </div>
+                <!-- Slide 2 (zawiera 2 karty) -->
+                <div class="carousel-item">
+                    <div class="d-flex justify-content-center gap-4">
+                        <div class="eye-story-card-wide">
                             <h5 class="fw-bold">Pamiątka na całe życie.</h5>
                             <p>Zdjęcie Twojej tęczówki to osobista i trwała pamiątka. Możesz je oprawić i powiesić na ścianie, postawić na biurku lub podarować komuś bliskiemu. To wyjątkowy sposób, by zatrzymać coś naprawdę swojego – na zawsze.</p>
                         </div>
-                    </div>
-                    <!-- Slide 4 -->
-                    <div class="carousel-item">
-                        <div class="eye-story-card-wide mx-auto">
+                        <div class="eye-story-card-wide">
                             <h5 class="fw-bold">Sesja w 15 minut, efekt na lata.</h5>
                             <p>Fotografię wykonuję u Ciebie w domu, a gotowy obraz możesz otrzymać jeszcze tego samego dnia. Szybko, bezpiecznie i z dbałością o każdy detal.</p>
                         </div>
                     </div>
                 </div>
-                <!-- Kontrolki karuzeli -->
-                <button class="carousel-control-prev" type="button" data-bs-target="#eyeStoryCarousel" data-bs-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Poprzedni</span>
-                </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#eyeStoryCarousel" data-bs-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Następny</span>
-                </button>
-                <!-- Wskaźniki -->
-                <div class="carousel-indicators">
-                    <button type="button" data-bs-target="#eyeStoryCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                    <button type="button" data-bs-target="#eyeStoryCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                    <button type="button" data-bs-target="#eyeStoryCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
-                    <button type="button" data-bs-target="#eyeStoryCarousel" data-bs-slide-to="3" aria-label="Slide 4"></button>
-                </div>
+            </div>
+            <!-- Kontrolki karuzeli -->
+            <button class="carousel-control-prev" type="button" data-bs-target="#eyeStoryCarouselDesktop" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Poprzedni</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#eyeStoryCarouselDesktop" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Następny</span>
+            </button>
+            <!-- Wskaźniki -->
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#eyeStoryCarouselDesktop" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#eyeStoryCarouselDesktop" data-bs-slide-to="1" aria-label="Slide 2"></button>
             </div>
         </div>
-    </section>
 
-      
+        <!-- #################### WERSJA MOBILE (1 karta na slajd) #################### -->
+        <!-- Widoczna tylko na ekranach mniejszych niż lg (d-lg-none) -->
+        <div id="eyeStoryCarouselMobile" class="carousel slide d-lg-none" data-bs-ride="carousel">
+            <div class="carousel-inner text-dark">
+                <!-- Każda karta to teraz osobny slajd -->
+                <div class="carousel-item active">
+                    <div class="eye-story-card-wide">
+                        <h5 class="fw-bold">Niepowtarzalność.</h5>
+                        <p>W Eye Story fotografuję tęczówki, zamieniając je w niepowtarzalne dzieła sztuki. Każda z nich jest jak kosmos – jedyna w swoim rodzaju...</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="eye-story-card-wide">
+                        <h5 class="fw-bold">Sztuka, która powstaje z natury.</h5>
+                        <p>Dzięki fotografii makro i autorskiej obróbce, zamieniam naturalne piękno oka w prawdziwe dzieło sztuki – hipnotyzujące, kolorowe, osobiste...</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="eye-story-card-wide">
+                        <h5 class="fw-bold">Pamiątka na całe życie.</h5>
+                        <p>Zdjęcie Twojej tęczówki to osobista i trwała pamiątka. Możesz je oprawić i powiesić na ścianie, postawić na biurku lub podarować komuś bliskiemu...</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="eye-story-card-wide">
+                        <h5 class="fw-bold">Sesja w 15 minut, efekt na lata.</h5>
+                        <p>Fotografię wykonuję u Ciebie w domu, a gotowy obraz możesz otrzymać jeszcze tego samego dnia. Szybko, bezpiecznie i z dbałością o każdy detal.</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Kontrolki karuzeli -->
+            <button class="carousel-control-prev" type="button" data-bs-target="#eyeStoryCarouselMobile" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#eyeStoryCarouselMobile" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            </button>
+            <!-- Wskaźniki -->
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#eyeStoryCarouselMobile" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#eyeStoryCarouselMobile" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#eyeStoryCarouselMobile" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                <button type="button" data-bs-target="#eyeStoryCarouselMobile" data-bs-slide-to="3" aria-label="Slide 4"></button>
+            </div>
+        </div>
+
+    </div>
+</section>
+    
     <!-- ========================================================================= -->
     <!-- Sekcja Produkty i Wymiary                                                 -->
     <!-- ========================================================================= -->
