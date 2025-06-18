@@ -9,6 +9,7 @@ html {
 body {
   overflow-x: hidden;
   font-family: "Century Gothic", sans-serif;
+  background-color: #fff; /* <-- DODAJ TĘ LINIĘ */
 }
 
 a {
@@ -215,6 +216,9 @@ a:hover {
   }
 }
 
+/* ========================================================================= */
+/* Sekcja Galeria                                                            */
+/* ========================================================================= */
 #galeria {
   scroll-margin-top: 70px;
 }
@@ -225,6 +229,8 @@ a:hover {
   align-items: center;
   background-color: #111;
   padding: 4rem 3rem;
+  /* === POCZĄTEK POPRAWIONEGO BLOKU DLA MOBILE === */
+  /* === KONIEC POPRAWIONEGO BLOKU DLA MOBILE === */
 }
 .gallery-section .gallery-text-column {
   display: flex;
@@ -265,6 +271,10 @@ a:hover {
 @media (max-width: 767.98px) {
   .gallery-section {
     padding: 4rem 1rem;
+    /* NOWA REGUŁA: Dodaje odstęp między obrazkami w karuzeli */
+    /* Zmieniamy kontener karuzeli, aby zrobić miejsce na strzałki */
+    /* Przesuwamy strzałki na zewnątrz obrazka, w obszar stworzony przez padding */
+    /* Opcjonalne: Poprawia wygląd strzałek */
   }
   .gallery-section .gallery-text-column {
     margin-top: 2rem;
@@ -281,6 +291,34 @@ a:hover {
   }
   .gallery-section .description-block-1, .gallery-section .description-block-2 {
     margin-bottom: 1.5rem;
+  }
+  .gallery-section #mobileGalleryCarousel .carousel-item {
+    /* Dodajemy padding po lewej i prawej stronie każdego slajdu.
+       Wartość 8px da w sumie 16px odstępu między sąsiadującymi obrazkami. */
+    padding: 0 8px;
+    /* Upewniamy się, że padding jest wliczany w szerokość elementu, co jest kluczowe */
+    box-sizing: border-box;
+  }
+  .gallery-section #mobileGalleryCarousel {
+    /* Zwiększamy padding, aby strzałki miały gdzie "mieszkać" */
+    padding: 0 30px;
+    /* Usuwamy poprzedni margin, który nie jest już potrzebny */
+    margin: 0;
+  }
+  .gallery-section #mobileGalleryCarousel .carousel-control-prev {
+    left: 0; /* Ustawiamy na krawędzi nowej, węższej przestrzeni */
+  }
+  .gallery-section #mobileGalleryCarousel .carousel-control-next {
+    right: 0; /* Ustawiamy na krawędzi nowej, węższej przestrzeni */
+  }
+  .gallery-section #mobileGalleryCarousel .carousel-control-prev,
+  .gallery-section #mobileGalleryCarousel .carousel-control-next {
+    background-color: rgba(0, 0, 0, 0.3);
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    top: 50%;
+    transform: translateY(-50%);
   }
 }
 
@@ -436,7 +474,7 @@ a:hover {
   }
   #eye-story-section .section-subtitle {
     font-size: 1.1rem !important;
-    margin-bottom: 2.5rem !important;
+    margin-bottom: 0.5rem !important;
   }
   #eye-story-section .eye-story-card-wide {
     padding: 2rem;
@@ -469,7 +507,7 @@ a:hover {
 }
 .product-dimensions-section .info-card {
   position: relative;
-  border-radius: 1.5rem;
+  border-radius: 3rem;
   padding: 2rem;
   padding-top: 4rem;
   color: #ffffff;
@@ -496,11 +534,11 @@ a:hover {
   margin-bottom: 1rem;
 }
 .product-dimensions-section .info-card p {
-  font-size: 1rem;
+  font-size: 1.5rem; /* ZMIANA: Zwiększono z 1rem do 2rem */
   margin-bottom: 1.2rem;
 }
 .product-dimensions-section .info-card a {
-  font-size: 1rem;
+  font-size: 1.5rem; /* ZMIANA: Zwiększono z 1rem do 2rem */
   color: #87CEFA;
   text-decoration: underline;
   font-weight: lighter;
@@ -539,7 +577,7 @@ a:hover {
     font-size: 1.5rem;
   }
   .product-dimensions-section .info-card p, .product-dimensions-section .info-card a {
-    font-size: 0.9rem;
+    font-size: 1rem; /* ZMIANA: Zwiększono z 0.9rem do 1.8rem */
   }
 }
 
@@ -724,6 +762,9 @@ a:hover {
 }
 
 @media (max-width: 767.98px) {
+  #pricingCarousel .pricing-details-section .contact-btn-blue:hover {
+    margin-bottom: 5rem;
+  }
   #pricingCarousel .my-rounded {
     max-width: 60%;
   }
@@ -739,6 +780,24 @@ a:hover {
   /* Usuń padding z tego miejsca, ponieważ został przeniesiony do wewnętrznego elementu w HTML */
 }
 
+@media (max-width: 767.98px) {
+  /* === POCZĄTEK ZMIAN === */
+  .pricing-details-section {
+    margin-bottom: 3rem; /* Dodaj odstęp specjalnie dla widoku mobilnego */
+  }
+  /* === KONIEC ZMIAN === */
+  .pricing-details-section .pricing-visual-wrapper {
+    min-height: 350px;
+    border-radius: 15px;
+  }
+  .pricing-details-section .product-type-tabs {
+    gap: 0.5rem;
+  }
+  .pricing-details-section .product-type-tabs .nav-link {
+    padding: 0.6rem 0.5rem;
+    font-size: 0.9rem;
+  }
+}
 /* ========================================================================= */
 /* NOWE SEKCJE: FAQ I FORMULARZ KONTAKTOWY                                   */
 /* ========================================================================= */
@@ -860,6 +919,9 @@ button[type=submit]:hover {
   color: #000000;
 }
 @media (max-width: 991.98px) {
+  .creation-process-section {
+    background-color: #ffffff;
+  }
   .creation-process-section .creation-main-title {
     font-size: 2rem;
   }

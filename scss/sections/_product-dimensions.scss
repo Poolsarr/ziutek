@@ -11,7 +11,7 @@
 
     .info-card {
         position: relative;
-        border-radius: 1.5rem;
+        border-radius: 3rem;
         padding: 2rem;
         padding-top: 4rem; 
         color: #ffffff;
@@ -39,11 +39,11 @@
             margin-bottom: 1rem; 
         }
         p {
-            font-size: 1rem; 
+            font-size: 1.5rem; /* ZMIANA: Zwiększono z 1rem do 2rem */
             margin-bottom: 1.2rem; 
         }
         a {
-            font-size: 1rem; 
+            font-size: 1.5rem; /* ZMIANA: Zwiększono z 1rem do 2rem */
             color: #87CEFA; 
             text-decoration: underline;
             font-weight: lighter;
@@ -73,7 +73,9 @@
             margin-bottom: 2rem;
             padding: 1.5rem; 
             h3 { font-size: 1.5rem; }
-            p, a { font-size: 0.9rem; }
+            p, a { 
+                font-size: 1rem; /* ZMIANA: Zwiększono z 0.9rem do 1.8rem */
+            }
         }
     }
 }

@@ -163,6 +163,9 @@
     opacity: 1;
 }
 @media (max-width: 767.98px) {
+    #pricingCarousel .pricing-details-section .contact-btn-blue:hover {
+        margin-bottom: 5rem;
+    }
     #pricingCarousel .my-rounded {
         max-width: 60%;
     }
@@ -177,6 +180,27 @@
     font-family: 'Century Gothic', sans-serif;
     overflow-x: hidden;
     /* Usuń padding z tego miejsca, ponieważ został przeniesiony do wewnętrznego elementu w HTML */
+}
+
+@media (max-width: 767.98px) {
+    
+    /* === POCZĄTEK ZMIAN === */
+    .pricing-details-section {
+        margin-bottom: 3rem; /* Dodaj odstęp specjalnie dla widoku mobilnego */
+    }
+    /* === KONIEC ZMIAN === */
+
+    .pricing-details-section .pricing-visual-wrapper {
+        min-height: 350px;
+        border-radius: 15px;
+    }
+    .pricing-details-section .product-type-tabs {
+        gap: 0.5rem;
+    }
+    .pricing-details-section .product-type-tabs .nav-link {
+        padding: 0.6rem 0.5rem;
+        font-size: 0.9rem;
+    }
 }
 
 /* ========================================================================= */
