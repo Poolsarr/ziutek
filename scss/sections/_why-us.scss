@@ -14,27 +14,27 @@
   .custom-card {
     background: #fff;
     border-radius: 3rem;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 10px 30px rgba(45, 55, 72, 0.09); // ZMIANA: Lepszy, głębszy cień bazowy
     padding: 30px;
     height: 100%;
-    transition: transform 0.2s ease;
     color: #343a40;
     
-    // === KLUCZOWA ZMIANA TUTAJ ===
-    // Ustawiamy sztywny rozmiar dla ikon wewnątrz tych kart
-    // Używamy klasy, która już istnieje w HTML
+    /* ZMIANA: Dodajemy przejście dla cienia, aby animacja była płynna */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+
     .creation-step-icon {
-      width: 48px;  // Przywracamy stałą szerokość
-      height: 48px; // Przywracamy stałą wysokość
-      object-fit: contain; // Zapewnia, że ikona skaluje się proporcjonalnie
-      margin-bottom: 1.5rem; // Zwiększamy margines, aby pasował do oryginału
-      // Dodajemy marginesy auto, aby wycentrować ikonę w poziomie, bo jest blokowa
+      width: 48px;
+      height: 48px;
+      object-fit: contain;
+      margin-bottom: 1.5rem;
       margin-left: auto;
       margin-right: auto;
     }
 
     &:hover {
       transform: translateY(-5px);
+      /* ZMIANA: Dodajemy wzmocnienie cienia przy najechaniu, tak jak w karuzeli */
+      box-shadow: 0 15px 35px rgba(45, 55, 72, 0.12);
     }
   }
 

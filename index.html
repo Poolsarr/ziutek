@@ -16,9 +16,8 @@
 
     <!-- Skrypty (deferowane dla lepszej wydajności ładowania) -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" defer integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-    <script src="carousel-touch.js" defer></script>
-    <script src="cennik-scroll.js" defer></script>
-    <script src="cennik-tabs.js" defer></script>
+    <script src="scripts/carousel-touch.js" defer></script>
+    <script src="scripts/cennik.js" defer></script>
 
 </head>
 
@@ -61,7 +60,7 @@
 
     <section id="galeria" class="main-section gallery-section">
         <div class="container-fluid px-3">
-            <div id="galeria-start-point" style="position: relative; top: -60px;"></div> <!-- Możesz dostosować 'top' lub użyć scroll-margin-top -->
+            <div id="galeria-start-point" style="position: relative; top: -60px;"></div>
             <div class="row gx-2 mt-2 align-items-center justify-content-center">
         <!-- Galeria -->
         <div class="col-lg-6 d-flex align-items-center">
@@ -104,7 +103,7 @@
         </div>
         </div>
             <!-- Kolumna z tekstem opisowym galerii -->
-            <div class="col-lg-6 text-white gallery-text-column"> <!-- ps-lg-5 usunięte, kontrola w CSS -->
+            <div class="col-lg-6 text-white gallery-text-column">
                 <div class="title-block">
                     <h3 class="fw-bold gallery-title">Twoja tęczówka jako<br>element wystroju</h3>
                 </div>
@@ -128,7 +127,7 @@
 
       
 <!-- ========================================================================= -->
-<!-- Sekcja Eye Story (Karuzele) - WERSJA Z PODZIAŁEM NA MOBILE/DESKTOP      -->
+<!-- Sekcja Eye Story (Karuzele) - POPRAWIONA WERSJA Z PEŁNYM TEKSTEM          -->
 <!-- ========================================================================= -->
 <section id="eye-story-section" class="py-5">
     <div class="container text-center text-dark">
@@ -139,12 +138,11 @@
         </p>
 
         <!-- #################### WERSJA DESKTOP (2 karty na slajd) #################### -->
-        <!-- Widoczna tylko na ekranach lg i większych (d-none d-lg-block) -->
-        <div id="eyeStoryCarouselDesktop" class="carousel slide d-none d-lg-block" data-bs-ride="carousel">
+        <div id="eyeStoryCarouselDesktop" class="carousel slide d-none d-lg-block" data-bs-ride="carousel" data-bs-interval="25000">
             <div class="carousel-inner">
                 <!-- Slide 1 (zawiera 2 karty) -->
-                <div class="carousel-item active">
-                    <div class="d-flex justify-content-center gap-4">
+                <div class="carousel-item active py-5">
+                    <div class="d-flex justify-content-center gap-5 pb-5">
                         <div class="eye-story-card-wide">
                             <h5 class="fw-bold">Niepowtarzalność.</h5>
                             <p>W Eye Story fotografuję tęczówki, zamieniając je w niepowtarzalne dzieła sztuki. Każda z nich jest jak kosmos – jedyna w swoim rodzaju. Uwieczniam ją, byś mógł zatrzymać ten fragment siebie na zawsze – w formie obrazu lub pamiątki dla bliskiej osoby.</p>
@@ -156,8 +154,8 @@
                     </div>
                 </div>
                 <!-- Slide 2 (zawiera 2 karty) -->
-                <div class="carousel-item">
-                    <div class="d-flex justify-content-center gap-4">
+                <div class="carousel-item py-5">
+                    <div class="d-flex justify-content-center gap-5 pb-5">
                         <div class="eye-story-card-wide">
                             <h5 class="fw-bold">Pamiątka na całe życie.</h5>
                             <p>Zdjęcie Twojej tęczówki to osobista i trwała pamiątka. Możesz je oprawić i powiesić na ścianie, postawić na biurku lub podarować komuś bliskiemu. To wyjątkowy sposób, by zatrzymać coś naprawdę swojego – na zawsze.</p>
@@ -186,29 +184,28 @@
         </div>
 
         <!-- #################### WERSJA MOBILE (1 karta na slajd) #################### -->
-        <!-- Widoczna tylko na ekranach mniejszych niż lg (d-lg-none) -->
-        <div id="eyeStoryCarouselMobile" class="carousel slide d-lg-none" data-bs-ride="carousel">
+        <div id="eyeStoryCarouselMobile" class="carousel slide d-lg-none" data-bs-ride="carousel" data-bs-interval="25000">
             <div class="carousel-inner text-dark">
-                <!-- Każda karta to teraz osobny slajd -->
-                <div class="carousel-item active">
+                <!-- Każda karta to teraz osobny slajd z PEŁNĄ treścią -->
+                <div class="carousel-item active py-5">
                     <div class="eye-story-card-wide">
                         <h5 class="fw-bold">Niepowtarzalność.</h5>
-                        <p>W Eye Story fotografuję tęczówki, zamieniając je w niepowtarzalne dzieła sztuki. Każda z nich jest jak kosmos – jedyna w swoim rodzaju...</p>
+                        <p>W Eye Story fotografuję tęczówki, zamieniając je w niepowtarzalne dzieła sztuki. Każda z nich jest jak kosmos – jedyna w swoim rodzaju. Uwieczniam ją, byś mógł zatrzymać ten fragment siebie na zawsze – w formie obrazu lub pamiątki dla bliskiej osoby.</p>
                     </div>
                 </div>
-                <div class="carousel-item">
+                <div class="carousel-item py-5">
                     <div class="eye-story-card-wide">
                         <h5 class="fw-bold">Sztuka, która powstaje z natury.</h5>
-                        <p>Dzięki fotografii makro i autorskiej obróbce, zamieniam naturalne piękno oka w prawdziwe dzieło sztuki – hipnotyzujące, kolorowe, osobiste...</p>
+                        <p>Dzięki fotografii makro i autorskiej obróbce, zamieniam naturalne piękno oka w prawdziwe dzieło sztuki – hipnotyzujące, kolorowe, osobiste. Przy czym uwzględniam każdą sugestię klienta.</p>
                     </div>
                 </div>
-                <div class="carousel-item">
+                <div class="carousel-item py-5">
                     <div class="eye-story-card-wide">
                         <h5 class="fw-bold">Pamiątka na całe życie.</h5>
-                        <p>Zdjęcie Twojej tęczówki to osobista i trwała pamiątka. Możesz je oprawić i powiesić na ścianie, postawić na biurku lub podarować komuś bliskiemu...</p>
+                        <p>Zdjęcie Twojej tęczówki to osobista i trwała pamiątka. Możesz je oprawić i powiesić na ścianie, postawić na biurku lub podarować komuś bliskiemu. To wyjątkowy sposób, by zatrzymać coś naprawdę swojego – na zawsze.</p>
                     </div>
                 </div>
-                <div class="carousel-item">
+                <div class="carousel-item py-5">
                     <div class="eye-story-card-wide">
                         <h5 class="fw-bold">Sesja w 15 minut, efekt na lata.</h5>
                         <p>Fotografię wykonuję u Ciebie w domu, a gotowy obraz możesz otrzymać jeszcze tego samego dnia. Szybko, bezpiecznie i z dbałością o każdy detal.</p>
@@ -631,61 +628,54 @@
                                 </div>
                             </div> <!-- /#quadro-tab-pane -->
 
-                        </div> <!-- /#productTypeTabContent -->
-                    </div> <!-- /.container -->
-                </div>
-            </section> <!-- /#pricingDetailsSolo -->
+                <!-- =================================== -->
+                <!-- CZĘŚĆ 3: SEKCJA FAQ                 -->
+                <!-- =================================== -->
+                <section id="faq-cennik" class="faq-section pt-5 pb-5 bg-white">
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-8">
+                                <h2 class="text-left fw-bold mb-4 text-dark">Częste pytania</h2>
+                                <div class="accordion" id="faqAccordion">
 
-
-            <!-- =================================== -->
-            <!-- CZĘŚĆ 3: SEKCJA FAQ                 -->
-            <!-- =================================== -->
-            <section id="faq-cennik" class="faq-section pt-5 pb-5 bg-white">
-                <div class="container">
-                    <div class="row justify-content-center">
-                        <div class="col-lg-8">
-                            <h2 class="text-left fw-bold mb-4 text-dark">Częste pytania</h2>
-                            <div class="accordion" id="faqAccordion">
-
-                                <div class="accordion-item">
-                                    <h2 class="accordion-header" id="headingOne">
-                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
-                                            Czy to jest placeholderowe pytanie?
-                                        </button>
-                                    </h2>
-                                    <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#faqAccordion">
-                                        <div class="accordion-body text-muted">
-                                            Tak, to jest przykładowa odpowiedź na często zadawane pytanie. Możesz tutaj umieścić szczegółowe informacje dotyczące Twoich usług, procesu zamawiania, czasu realizacji czy dostępnych opcji.
+                                    <div class="accordion-item">
+                                        <h2 class="accordion-header" id="headingOne">
+                                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                                                Czy to jest placeholderowe pytanie?
+                                            </button>
+                                        </h2>
+                                        <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#faqAccordion">
+                                            <div class="accordion-body text-muted">
+                                                Tak, to jest przykładowa odpowiedź na często zadawane pytanie. Możesz tutaj umieścić szczegółowe informacje dotyczące Twoich usług, procesu zamawiania, czasu realizacji czy dostępnych opcji.
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
 
-                                <div class="accordion-item">
-                                    <h2 class="accordion-header" id="headingTwo">
-                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                            Jak długo trwa realizacja zamówienia?
-                                        </button>
-                                    </h2>
-                                    <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#faqAccordion">
-                                        <div class="accordion-body text-muted">
-                                            Standardowy czas realizacji to X dni roboczych od momentu zaksięgowania wpłaty. W przypadku projektów niestandardowych czas ten może ulec zmianie, o czym poinformujemy Cię indywidualnie.
+                                    <div class="accordion-item">
+                                        <h2 class="accordion-header" id="headingTwo">
+                                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                                Jak długo trwa realizacja zamówienia?
+                                            </button>
+                                        </h2>
+                                        <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#faqAccordion">
+                                            <div class="accordion-body text-muted">
+                                                Standardowy czas realizacji to X dni roboczych od momentu zaksięgowania wpłaty. W przypadku projektów niestandardowych czas ten może ulec zmianie, o czym poinformujemy Cię indywidualnie.
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
 
-                                <div class="accordion-item">
-                                    <h2 class="accordion-header" id="headingThree">
-                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                                            Czy otrzymam projekt do akceptacji?
-                                        </button>
-                                    </h2>
-                                    <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#faqAccordion">
-                                        <div class="accordion-body text-muted">
-                                            Oczywiście. Przed finalnym wydrukiem lub wysyłką wersji cyfrowej, zawsze przesyłamy projekt do Twojej akceptacji, aby upewnić się, że wszystko jest zgodne z Twoimi oczekiwaniami.
+                                    <div class="accordion-item">
+                                        <h2 class="accordion-header" id="headingThree">
+                                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                                Czy otrzymam projekt do akceptacji?
+                                            </button>
+                                        </h2>
+                                        <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#faqAccordion">
+                                            <div class="accordion-body text-muted">
+                                                Oczywiście. Przed finalnym wydrukiem lub wysyłką wersji cyfrowej, zawsze przesyłamy projekt do Twojej akceptacji, aby upewnić się, że wszystko jest zgodne z Twoimi oczekiwaniami.
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-
                             </div> <!-- /#faqAccordion -->
                         </div> <!-- /.col-lg-8 -->
                     </div> <!-- /.row -->
@@ -724,6 +714,11 @@
                 </div> <!-- /.container -->
             </section> <!-- /.contact-section-inspired -->
 
+                        </div> <!-- /#productTypeTabContent -->
+                    </div> <!-- /.container -->
+                </div>
+            </section> <!-- /#pricingDetailsSolo -->
+
         </div> <!-- /#pricingContainer -->
     </section> <!-- /#cennik -->
 
@@ -731,7 +726,7 @@
     <!-- Sekcja Proces Tworzenia                                                   -->
     <!-- ========================================================================= -->
 
-    <section class="creation-process-section py-5 text-dark">
+    <section id="proces-tworzenia" class="creation-process-section py-5 text-dark">
         <div class="container">
             <!-- Nagłówek sekcji -->
             <div class="row">
@@ -803,7 +798,7 @@
 
     <section class="why-eye-story">
         <div class="container">
-            <h2 class="section-title mb-4 text-dark">Dlaczego najlepiej z Eye Story.</h2>
+            <h2 class="section-title mb-5 text-dark">Dlaczego najlepiej z Eye Story.</h2>
             <div class="row justify-content-center">
                 <!-- Karta 1 -->
                 <div class="col-md-4 mb-4">
@@ -863,6 +858,6 @@
             </form>
         </div>
     </section>
-    <script src="contact-form.js"></script>
+    <script src="scripts/contact-form.js"></script>
 </body>
 </html>

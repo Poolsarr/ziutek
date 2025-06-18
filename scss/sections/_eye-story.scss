@@ -2,118 +2,168 @@
     font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
     background-color: #F8FAFC;
     overflow-x: hidden;
+    padding-top: 7rem;
+    padding-bottom: 9rem; 
+}
 
-    .main-title {
-        font-size: 3rem; 
-        font-weight: 700;
-        margin-bottom: 0.75rem;
+#eye-story-section .main-title {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 0.75rem;
+}
+
+#eye-story-section .section-subtitle {
+    font-size: 1.75rem;
+}
+
+#eye-story-section .section-subtitle strong {
+    font-weight: 700;
+}
+
+#eye-story-section .section-subtitle .subtitle-suffix {
+    font-weight: 500;
+}
+
+#eye-story-section .eye-story-card-wide {
+    background-color: #ffffff;
+    border-radius: 3rem;
+    box-shadow: 0 10px 30px rgba(45, 55, 72, 0.09);
+    padding: 2.5rem;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    width: 100%;
+    min-height: 450px; 
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#eye-story-section .eye-story-card-wide:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(45, 55, 72, 0.12);
+}
+
+#eye-story-section .eye-story-card-wide h5 {
+    font-size: 1.75rem;
+    margin-bottom: 0.75rem;
+    /* ROZWIĄZANIE PROBLEMU: Pozwala na łamanie długich słów, które nie mieszczą się w kontenerze */
+    overflow-wrap: break-word; 
+}
+
+#eye-story-section .eye-story-card-wide p {
+    padding-top: 1.5rem;
+    font-size: 1.5rem;
+    color: #333333;
+    line-height: 1.6;
+}
+
+/* ========================================================================= */
+/* POPRAWKI ODSTĘPÓW I POZYCJONOWANIA KARUZELI - WERSJA POPRAWIONA      */
+/* ========================================================================= */
+
+.carousel {
+    position: relative;
+}
+
+#eyeStoryCarouselDesktop .carousel-item .d-flex {
+    padding: 0 5.75rem; 
+}
+
+#eyeStoryCarouselMobile .carousel-item {
+    padding: 0 1.5rem; 
+}
+
+#eyeStoryCarouselDesktop .carousel-inner {
+    margin-bottom: 3rem;
+    padding: 0;
+}
+#eyeStoryCarouselMobile .carousel-inner {
+    padding: 0;
+}
+
+.carousel .carousel-control-prev,
+.carousel .carousel-control-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: auto;
+    opacity: 1;
+    background: none;
+}
+
+.carousel .carousel-control-prev {
+    left: 2rem; 
+}
+
+.carousel .carousel-control-next {
+    right: 2rem;
+}
+
+.carousel .carousel-control-prev-icon,
+.carousel .carousel-control-next-icon {
+    filter: invert(20%) grayscale(100%);
+    width: 2.5rem;
+    height: 2.5rem;
+}
+
+.carousel .carousel-indicators {
+    bottom: -3rem;
+}
+
+.carousel .carousel-indicators button {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background-color: #ced4da;
+    border: none;
+    opacity: 1;
+    margin: 0 8px;
+    transition: background-color 0.3s ease;
+}
+
+.carousel .carousel-indicators .active {
+    background-color: #343a40;
+}
+
+/* ========================================================================= */
+/* POPRAWKI RESPONSIVE                                                       */
+/* ========================================================================= */
+
+@media (max-width: 991.98px) {
+    #eye-story-section {
+        padding-top: 4rem;
+        padding-bottom: 8rem; 
     }
-    .section-subtitle {
-        strong { font-weight: 700; }
-        .subtitle-suffix { font-weight: 500; }
+
+    #eye-story-section .main-title {
+        font-size: 2rem;
+    }
+
+    #eye-story-section .section-subtitle {
+        font-size: 1.1rem !important;
+        margin-bottom: 2.5rem !important;
+    }
+
+    #eye-story-section .eye-story-card-wide {
+        padding: 2rem;
+        min-height: 500px; 
+    }
+
+    #eye-story-section .eye-story-card-wide h5 {
+        font-size: 1.5rem;
+    }
+
+    #eye-story-section .eye-story-card-wide p {
+        font-size: 1.1rem;
     }
     
-    .eye-story-card-wide {
-        background-color: #ffffff;
-        border-radius: 3rem;
-        box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
-        padding: 2rem 3rem;
-        min-height: 320px;
-        display: flex;
-        flex-direction: column;
-        text-align: left;
-        width: 100%;
-
-        h5 {
-            font-size: 1.75rem; 
-            margin-bottom: 0.75rem;
-        }
-        p {
-            padding-top: 1.5rem;
-            font-size: 1.5rem; 
-            color: #333333;
-            line-height: 1.6;
-        }
+    #eyeStoryCarouselMobile .carousel-control-prev {
+        left: 1rem;
     }
-
-    // =========================================================================
-    // Widok MOBILNY (< 992px) - POPRAWIONA WERSJA
-    // =========================================================================
-    @media (max-width: 991.98px) {
-        .container-fluid.container-lg {
-            padding-left: 0;
-            padding-right: 0;
-        }
-        
-        #eyeStoryCarousel {
-            .carousel-inner {
-                display: flex;
-                padding: 1rem 0;
-                // --- ZMIANA: Usuwamy 'gap', ponieważ powoduje problemy w karuzeli ---
-            }
-
-            .carousel-item {
-                gap: 2rem;
-                display: block;
-                flex: 0 0 80%; // Lekko zwiększamy, aby karta była większa
-                transition: transform 0.5s ease, opacity 0.5s ease;
-                transform: scale(0.85);
-                opacity: 0.6;
-                
-                // --- KLUCZOWA ZMIANA: Używamy paddingu do stworzenia odstępu ---
-                // Usuwamy 'margin-right' i zamiast tego dodajemy padding po bokach.
-                // To sprawia, że odstęp jest częścią elementu i zawsze będzie zachowany.
-                padding: 0 10px; // np. 10px z każdej strony = 20px odstępu między kartami
-
-                &.active {
-                    transform: scale(1);
-                    opacity: 1;
-                }
-            }
-            
-            .carousel-control-prev, .carousel-control-next {
-                display: none;
-            }
-        }
-        
-        .main-title { font-size: 2rem; }
-        .section-subtitle { font-size: 1.1rem !important; margin-bottom: 2.5rem !important; }
-        .eye-story-card-wide {
-            min-height: 280px;
-            padding: 1.5rem;
-            h5 { font-size: 1.5rem; }
-            p { font-size: 1rem; }
-        }
+    #eyeStoryCarouselMobile .carousel-control-next {
+        right: 1rem;
     }
-
-    // =========================================================================
-    // Widok DESKTOPOWY (>= 992px) - Bez zmian
-    // =========================================================================
-    @media (min-width: 992px) {
-        #eyeStoryCarousel {
-            .carousel-inner {
-                display: flex;
-                flex-wrap: wrap;
-                justify-content: center;
-                gap: 2rem;
-                transform: translateX(0) !important;
-            }
-
-            .carousel-item {
-                display: block;
-                opacity: 1 !important;
-                transform: none !important;
-                flex: 1 1 22%;
-                max-width: 320px;
-                // --- DODANE: Usuwamy padding z mobilki, aby nie dublować odstępu ---
-                padding: 0;
-            }
-
-            .carousel-control-prev,
-            .carousel-control-next,
-            .carousel-indicators {
-                display: none;
-            }
-        }
+    #eyeStoryCarouselMobile .carousel-control-prev-icon,
+    #eyeStoryCarouselMobile .carousel-control-next-icon {
+        display: none;
     }
 }

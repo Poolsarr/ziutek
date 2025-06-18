@@ -90,6 +90,24 @@
     min-width: calc(10% - 0.5rem);
 }
 
+/* 1. Styl dla aktywnego taba (ten, który jest na stałe podświetlony) */
+.pricing-details-section .product-type-tabs .nav-link.active {
+    background-color: #a8a8a8;
+    color: #fff;
+    border-color: #a8a8a8;
+}
+
+/* 2. Styl dla podświetlenia w momencie kliknięcia (focus) */
+.pricing-details-section .product-type-tabs .nav-link:focus {
+    box-shadow: 0 0 0 0.2rem rgba(168, 168, 168, 0.5); 
+}
+
+/* 3. Przywrócenie oryginalnego stylu dla najechania myszką (hover) */
+.pricing-details-section .product-type-tabs .nav-link:not(.active):hover {
+    background-color: #f1f3f5;
+    border-color: #ced4da;
+    color: #495057;
+}
 .pricing-details-section .product-type-tabs .nav-link {
     border: 1px solid #dee2e6;
     border-radius: 8px;

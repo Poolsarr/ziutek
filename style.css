@@ -301,63 +301,135 @@ a:hover {
   font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   background-color: #F8FAFC;
   overflow-x: hidden;
+  padding-top: 7rem;
+  padding-bottom: 9rem;
 }
+
 #eye-story-section .main-title {
   font-size: 3rem;
   font-weight: 700;
   margin-bottom: 0.75rem;
 }
+
+#eye-story-section .section-subtitle {
+  font-size: 1.75rem;
+}
+
 #eye-story-section .section-subtitle strong {
   font-weight: 700;
 }
+
 #eye-story-section .section-subtitle .subtitle-suffix {
   font-weight: 500;
 }
+
 #eye-story-section .eye-story-card-wide {
   background-color: #ffffff;
   border-radius: 3rem;
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
-  padding: 2rem 3rem;
-  min-height: 320px;
+  box-shadow: 0 10px 30px rgba(45, 55, 72, 0.09);
+  padding: 2.5rem;
   display: flex;
   flex-direction: column;
   text-align: left;
   width: 100%;
+  min-height: 450px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
+
+#eye-story-section .eye-story-card-wide:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(45, 55, 72, 0.12);
+}
+
 #eye-story-section .eye-story-card-wide h5 {
   font-size: 1.75rem;
   margin-bottom: 0.75rem;
+  /* ROZWIĄZANIE PROBLEMU: Pozwala na łamanie długich słów, które nie mieszczą się w kontenerze */
+  overflow-wrap: break-word;
 }
+
 #eye-story-section .eye-story-card-wide p {
   padding-top: 1.5rem;
   font-size: 1.5rem;
   color: #333333;
   line-height: 1.6;
 }
+
+/* ========================================================================= */
+/* POPRAWKI ODSTĘPÓW I POZYCJONOWANIA KARUZELI - WERSJA POPRAWIONA      */
+/* ========================================================================= */
+.carousel {
+  position: relative;
+}
+
+#eyeStoryCarouselDesktop .carousel-item .d-flex {
+  padding: 0 5.75rem;
+}
+
+#eyeStoryCarouselMobile .carousel-item {
+  padding: 0 1.5rem;
+}
+
+#eyeStoryCarouselDesktop .carousel-inner {
+  margin-bottom: 3rem;
+  padding: 0;
+}
+
+#eyeStoryCarouselMobile .carousel-inner {
+  padding: 0;
+}
+
+.carousel .carousel-control-prev,
+.carousel .carousel-control-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: auto;
+  opacity: 1;
+  background: none;
+}
+
+.carousel .carousel-control-prev {
+  left: 2rem;
+}
+
+.carousel .carousel-control-next {
+  right: 2rem;
+}
+
+.carousel .carousel-control-prev-icon,
+.carousel .carousel-control-next-icon {
+  filter: invert(20%) grayscale(100%);
+  width: 2.5rem;
+  height: 2.5rem;
+}
+
+.carousel .carousel-indicators {
+  bottom: -3rem;
+}
+
+.carousel .carousel-indicators button {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background-color: #ced4da;
+  border: none;
+  opacity: 1;
+  margin: 0 8px;
+  transition: background-color 0.3s ease;
+}
+
+.carousel .carousel-indicators .active {
+  background-color: #343a40;
+}
+
+/* ========================================================================= */
+/* POPRAWKI RESPONSIVE                                                       */
+/* ========================================================================= */
 @media (max-width: 991.98px) {
-  #eye-story-section .container-fluid.container-lg {
-    padding-left: 0;
-    padding-right: 0;
-  }
-  #eye-story-section #eyeStoryCarousel .carousel-inner {
-    display: flex;
-    padding: 1rem 0;
-  }
-  #eye-story-section #eyeStoryCarousel .carousel-item {
-    gap: 2rem;
-    display: block;
-    flex: 0 0 80%;
-    transition: transform 0.5s ease, opacity 0.5s ease;
-    transform: scale(0.85);
-    opacity: 0.6;
-    padding: 0 10px;
-  }
-  #eye-story-section #eyeStoryCarousel .carousel-item.active {
-    transform: scale(1);
-    opacity: 1;
-  }
-  #eye-story-section #eyeStoryCarousel .carousel-control-prev, #eye-story-section #eyeStoryCarousel .carousel-control-next {
-    display: none;
+  #eye-story-section {
+    padding-top: 4rem;
+    padding-bottom: 8rem;
   }
   #eye-story-section .main-title {
     font-size: 2rem;
@@ -367,39 +439,26 @@ a:hover {
     margin-bottom: 2.5rem !important;
   }
   #eye-story-section .eye-story-card-wide {
-    min-height: 280px;
-    padding: 1.5rem;
+    padding: 2rem;
+    min-height: 500px;
   }
   #eye-story-section .eye-story-card-wide h5 {
     font-size: 1.5rem;
   }
   #eye-story-section .eye-story-card-wide p {
-    font-size: 1rem;
+    font-size: 1.1rem;
   }
-}
-@media (min-width: 992px) {
-  #eye-story-section #eyeStoryCarousel .carousel-inner {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 2rem;
-    transform: translateX(0) !important;
+  #eyeStoryCarouselMobile .carousel-control-prev {
+    left: 1rem;
   }
-  #eye-story-section #eyeStoryCarousel .carousel-item {
-    display: block;
-    opacity: 1 !important;
-    transform: none !important;
-    flex: 1 1 22%;
-    max-width: 320px;
-    padding: 0;
+  #eyeStoryCarouselMobile .carousel-control-next {
+    right: 1rem;
   }
-  #eye-story-section #eyeStoryCarousel .carousel-control-prev,
-  #eye-story-section #eyeStoryCarousel .carousel-control-next,
-  #eye-story-section #eyeStoryCarousel .carousel-indicators {
+  #eyeStoryCarouselMobile .carousel-control-prev-icon,
+  #eyeStoryCarouselMobile .carousel-control-next-icon {
     display: none;
   }
 }
-
 .product-dimensions-section {
   padding: 4rem 0;
   background-color: #f8f9fa;
@@ -585,6 +644,25 @@ a:hover {
 .pricing-details-section .product-type-tabs .nav-item {
   flex-grow: 1;
   min-width: calc(10% - 0.5rem);
+}
+
+/* 1. Styl dla aktywnego taba (ten, który jest na stałe podświetlony) */
+.pricing-details-section .product-type-tabs .nav-link.active {
+  background-color: #a8a8a8;
+  color: #fff;
+  border-color: #a8a8a8;
+}
+
+/* 2. Styl dla podświetlenia w momencie kliknięcia (focus) */
+.pricing-details-section .product-type-tabs .nav-link:focus {
+  box-shadow: 0 0 0 0.2rem rgba(168, 168, 168, 0.5);
+}
+
+/* 3. Przywrócenie oryginalnego stylu dla najechania myszką (hover) */
+.pricing-details-section .product-type-tabs .nav-link:not(.active):hover {
+  background-color: #f1f3f5;
+  border-color: #ced4da;
+  color: #495057;
 }
 
 .pricing-details-section .product-type-tabs .nav-link {
@@ -833,11 +911,12 @@ button[type=submit]:hover {
 .why-eye-story .custom-card {
   background: #fff;
   border-radius: 3rem;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 10px 30px rgba(45, 55, 72, 0.09);
   padding: 30px;
   height: 100%;
-  transition: transform 0.2s ease;
   color: #343a40;
+  /* ZMIANA: Dodajemy przejście dla cienia, aby animacja była płynna */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 .why-eye-story .custom-card .creation-step-icon {
   width: 48px;
@@ -849,6 +928,8 @@ button[type=submit]:hover {
 }
 .why-eye-story .custom-card:hover {
   transform: translateY(-5px);
+  /* ZMIANA: Dodajemy wzmocnienie cienia przy najechaniu, tak jak w karuzeli */
+  box-shadow: 0 15px 35px rgba(45, 55, 72, 0.12);
 }
 .why-eye-story .text-link-small {
   font-size: 0.85rem;
