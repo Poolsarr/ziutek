@@ -159,6 +159,7 @@ a:hover {
     display: block;
     padding-top: 2rem;
     padding-bottom: 2rem;
+    padding-top: 5rem;
   }
   .main-section .row {
     flex-direction: column;
@@ -551,10 +552,10 @@ a:hover {
   box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
 }
 .product-dimensions-section .info-card-products {
-  background-image: url("ziutek/assets/wizualizacja 2.png");
+  background-image: url("assets/wizualizacja 2.png");
 }
 .product-dimensions-section .info-card-dimensions {
-  background-image: url("ziutek/assets/wizualizacja.png");
+  background-image: url("assets/wizualizacja.png");
 }
 .product-dimensions-section .info-card-dimensions h3 {
   color: #000000 !important;
@@ -1036,6 +1037,132 @@ button[type=submit]:hover {
 }
 .contact-form-section button[type=submit]:hover {
   background-color: #888;
+}
+
+/* ========================================================================= */
+/* Navbar Styles - DOMYŚLNE (CIEMNY NAVBAR)                                  */
+/* ========================================================================= */
+.bg-dark-custom {
+  background-color: #111111;
+  transition: background-color 0.4s ease-in-out;
+}
+
+/* Domyślnie pokazujemy tylko białe logo, a ciemne ukrywamy */
+.navbar-brand .logo-dark {
+  display: none;
+}
+
+/* Style linków w navbarze - z płynnym przejściem koloru */
+.navbar .nav-link {
+  color: rgba(255, 255, 255, 0.85);
+  font-weight: bold;
+  padding: 0.6rem 1.2rem;
+  border-radius: 6px;
+  transition: color 0.4s ease-in-out, background-color 0.2s ease;
+}
+
+.navbar .nav-link:hover,
+.navbar .nav-link.active {
+  color: #ffffff;
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Style zielonego przycisku (pozostają takie same w obu trybach) */
+.btn-custom-green {
+  display: inline-block;
+  background-color: #2ecc71;
+  color: #ffffff !important;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none;
+  vertical-align: middle;
+  cursor: pointer;
+  border: 1px solid transparent;
+  border-radius: 1rem;
+  padding: 0.6rem 1.2rem;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.btn-custom-green:hover {
+  background-color: #27ae60;
+  color: #ffffff !important;
+}
+
+/* NOWE STYLE - Customowy wygląd przycisku "hamburgera" */
+.navbar-toggler {
+  border: 2px solid rgba(255, 255, 255, 0.5) !important;
+  border-radius: 0.5rem;
+}
+.navbar-toggler:focus {
+  box-shadow: none;
+}
+
+/* ========================================================================= */
+/* Navbar Styles - Wersja dynamiczna (JASNY NAVBAR na ciemnej sekcji)        */
+/* ========================================================================= */
+.navbar.navbar-on-dark-section {
+  background-color: #ffffff;
+  /* Zmiana koloru ramki "hamburgera" w jasnym motywie */
+}
+.navbar.navbar-on-dark-section .navbar-brand .logo-light {
+  display: none;
+}
+.navbar.navbar-on-dark-section .navbar-brand .logo-dark {
+  display: block;
+}
+.navbar.navbar-on-dark-section .nav-link {
+  color: #212529;
+}
+.navbar.navbar-on-dark-section .nav-link:hover, .navbar.navbar-on-dark-section .nav-link.active {
+  color: #000000;
+  background-color: rgba(0, 0, 0, 0.05);
+}
+.navbar.navbar-on-dark-section .navbar-toggler {
+  border-color: rgba(0, 0, 0, 0.4) !important;
+}
+
+/* ========================================================================= */
+/* Style dla widoku mobilnego (TUTAJ NAJWIĘKSZE ZMIANY)                      */
+/* ========================================================================= */
+@media (max-width: 991.98px) {
+  .navbar-collapse {
+    background-color: rgba(25, 25, 25, 0.98);
+    border-radius: 0.5rem;
+    padding: 1rem;
+    margin-top: 0.75rem;
+    margin-bottom: 0.5rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  /* === DODAJ TEN FRAGMENT === */
+  .navbar-collapse .navbar-nav {
+    padding-left: 0;
+  }
+  /* === KONIEC FRAGMENTU DO DODANIA === */
+  /* NOWE STYLE - Rozciągnięte przyciski w mobilnym menu */
+  .navbar-collapse .nav-item {
+    width: 100%;
+    margin-bottom: 0.75rem;
+  }
+  .navbar-collapse .nav-item:last-child {
+    margin-bottom: 0;
+  }
+  .navbar-collapse .nav-link,
+  .navbar-collapse .btn-custom-green {
+    width: 100%;
+    text-align: center;
+    padding: 0.75rem 1rem;
+  }
+  .navbar-collapse .nav-link:not(.btn) {
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    border-radius: 1rem;
+  }
+  .navbar.navbar-on-dark-section .navbar-collapse {
+    background-color: rgba(250, 250, 250, 0.98);
+    border-color: rgba(0, 0, 0, 0.1);
+  }
+  .navbar.navbar-on-dark-section .navbar-collapse .nav-link:not(.btn) {
+    border-color: rgba(0, 0, 0, 0.15);
+  }
 }
 
 /*# sourceMappingURL=style.css.map */
