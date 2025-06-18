@@ -1,33 +1,34 @@
 document.addEventListener('DOMContentLoaded', function () {
-    // ... Twoje istniejące sekcje 1, 2, 3 ...
-
-    // =========================================================================
-    // SEKCJA 4: Ulepszenie mobilnej nawigacji
-    // (Automatyczne zamykanie menu po kliknięciu linku)
-    // =========================================================================
     const navCollapse = document.getElementById('navbarNav');
-    
-    // Upewniamy się, że menu istnieje na stronie
+
     if (navCollapse) {
-        // Pobieramy WSZYSTKIE klikalne elementy wewnątrz menu
         const navLinks = navCollapse.querySelectorAll('.nav-link, .btn-custom-green');
-        
-        // Tworzymy instancję Collapse z Bootstrapa, aby móc używać jej metod (np. .hide())
         const bsCollapse = new bootstrap.Collapse(navCollapse, {
-            toggle: false // Zapobiega dziwnemu zachowaniu przy pierwszym załadowaniu
+            toggle: false
         });
 
-        // Do każdego linku w menu dodajemy listener
         navLinks.forEach(function (link) {
-            link.addEventListener('click', function () {
-                // Sprawdzamy, czy menu jest AKTUALNIE otwarte (ma klasę .show)
-                if (navCollapse.classList.contains('show')) {
-                    // Jeśli tak, używamy wbudowanej metody Bootstrapa, aby je płynnie zamknąć.
-                    // To uruchomi tę samą, poprawną animację, ale w drugą stronę.
+            link.addEventListener('click', function (event) {
+                // Sprawdzamy, czy menu jest aktualnie rozwinięte i czy kliknięto w coś, co ma href
+                if (navCollapse.classList.contains('show') && this.hasAttribute('href')) {
+                    
+                    const href = this.getAttribute('href');
+                    
+                    // KROK 1: Zatrzymaj domyślną akcję ORAZ zatrzymaj "bąbelkowanie" zdarzenia w górę DOM.
+                    // To zapobiega konfliktom z wewnętrznymi listenerami Bootstrapa.
+                    event.preventDefault();
+                    event.stopPropagation();
+
+                    // KROK 2: Ustawiamy JEDNORAZOWY listener, który odpali się po zakończeniu animacji zamykania.
+                    navCollapse.addEventListener('hidden.bs.collapse', function onHide() {
+                        // KROK 3: Po zakończeniu animacji, ręcznie wykonaj akcję.
+                        window.location.href = href;
+                    }, { once: true });
+
+                    // KROK 4: Rozpocznij animację zamykania menu.
                     bsCollapse.hide();
                 }
             });
         });
     }
-
-}); // <-- Koniec głównej funkcji
+});
