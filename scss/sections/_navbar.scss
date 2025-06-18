@@ -14,6 +14,10 @@
     display: none;
 }
 
+.navbar .navbar-nav {
+    gap: 2rem; /* Ustawienie odstępu między elementami w navbarze */
+}
+
 /* Style linków w navbarze - z płynnym przejściem koloru */
 .navbar .nav-link {
     color: rgba(255, 255, 255, 0.85);
@@ -106,6 +110,10 @@
         padding-left: 0; // Kluczowa reguła: usuwa domyślne wcięcie listy
     }
     /* === KONIEC FRAGMENTU DO DODANIA === */
+
+    .navbar .navbar-nav {
+        gap: 0.5rem; /* Ustawienie odstępu między elementami w navbarze */
+    }
 
 
 

@@ -1052,6 +1052,10 @@ button[type=submit]:hover {
   display: none;
 }
 
+.navbar .navbar-nav {
+  gap: 2rem; /* Ustawienie odstępu między elementami w navbarze */
+}
+
 /* Style linków w navbarze - z płynnym przejściem koloru */
 .navbar .nav-link {
   color: rgba(255, 255, 255, 0.85);
@@ -1138,6 +1142,9 @@ button[type=submit]:hover {
     padding-left: 0;
   }
   /* === KONIEC FRAGMENTU DO DODANIA === */
+  .navbar .navbar-nav {
+    gap: 0.5rem; /* Ustawienie odstępu między elementami w navbarze */
+  }
   /* NOWE STYLE - Rozciągnięte przyciski w mobilnym menu */
   .navbar-collapse .nav-item {
     width: 100%;
