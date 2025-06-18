@@ -4,10 +4,37 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // =========================================================================
     // SEKCJA 1: Logika dla rozwijanego CENNIKA
-    // (Przełączanie tabów i inteligentne przewijanie)
+    // (Przełączanie tabów i inteligentne przewijanie z uwzględnieniem navbar)
     // =========================================================================
     const pricingButtons = document.querySelectorAll('a[data-tab-target]');
     const detailsSection = document.querySelector('#pricingDetailsSolo');
+    
+    // --- POCZĄTEK ZMIAN ---
+
+    // ZMIANA 1: Znajdź navbar i pobierz jego wysokość.
+    // WAŻNE: Upewnij się, że selektor '.navbar' jest prawidłowy dla Twojego paska nawigacji.
+    // Może to być np. 'header', '#main-nav' itp.
+    const navbar = document.querySelector('.navbar'); 
+    const navbarHeight = navbar ? navbar.offsetHeight : 70; // Użyj faktycznej wysokości lub wartości domyślnej
+
+    /**
+     * Funkcja pomocnicza do przewijania z offsetem dla paska nawigacji.
+     * @param {HTMLElement} element - Element, do którego chcemy przewinąć.
+     */
+    function scrollToWithOffset(element) {
+        // Oblicz pozycję elementu względem góry dokumentu
+        const elementPosition = element.getBoundingClientRect().top + window.pageYOffset;
+        // Odejmij wysokość paska nawigacji i mały margines dla estetyki
+        const offsetPosition = elementPosition - navbarHeight - 20; // 20px dodatkowego marginesu
+
+        window.scrollTo({
+            top: offsetPosition,
+            behavior: 'smooth'
+        });
+    }
+
+    // --- KONIEC ZMIAN ---
+
 
     if (pricingButtons.length > 0 && detailsSection) {
         pricingButtons.forEach(button => {
@@ -27,12 +54,14 @@ document.addEventListener('DOMContentLoaded', function () {
                 const isAlreadyOpen = detailsSection.classList.contains('show');
 
                 if (isAlreadyOpen) {
-                    // Jeśli tak, po prostu do niej przewiń
-                    detailsSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    // Jeśli tak, po prostu do niej przewiń z uwzględnieniem offsetu
+                    // ZMIANA 2: Użyj nowej funkcji zamiast scrollIntoView
+                    scrollToWithOffset(detailsSection);
                 } else {
                     // Jeśli nie, poczekaj aż się otworzy i dopiero wtedy przewiń
                     detailsSection.addEventListener('shown.bs.collapse', function () {
-                        detailsSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                        // ZMIANA 3: Użyj nowej funkcji również tutaj
+                        scrollToWithOffset(detailsSection);
                     }, { once: true });
                 }
             });
@@ -41,7 +70,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // =========================================================================
     // SEKCJA 2: Logika dla głównego przycisku "Zobacz cennik"
-    // (Przewijanie do cennika przy otwieraniu i do sekcji "Proces" przy zamykaniu)
+    // (Ta sekcja nie wymagała zmian, ale zostawiam dla kompletności)
     // =========================================================================
     const seePricingButton = document.querySelector('a[href="#pricingContainer"]');
     const pricingContainer = document.querySelector('#pricingContainer');
@@ -69,7 +98,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // =========================================================================
     // SEKCJA 3: Logika dla FORMULARZY KONTAKTOWYCH
-    // (Otwieranie klienta poczty)
+    // (Ta sekcja nie wymagała zmian)
     // =========================================================================
     function handleFormSubmit(formId, fields) {
         const form = document.getElementById(formId);
