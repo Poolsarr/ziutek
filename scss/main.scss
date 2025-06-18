@@ -3,19 +3,19 @@
 // ==========================================================================
 
 // 1. Podstawowe style i globalne ustawienia
-@import 'base/base';
+@use 'base/base';
 
 // 2. Komponenty wielokrotnego użytku
-@import 'components/buttons';
-@import 'components/orb';
+@use 'components/buttons';
+@use 'components/orb';
 
 // 3. Style poszczególnych sekcji strony
-@import 'sections/hero';
-@import 'sections/gallery';
-@import 'sections/eye-story';
-@import 'sections/product-dimensions';
-@import 'sections/pricing';
-@import 'sections/creation-process';
-@import 'sections/why-us';
-@import 'sections/contact';
-@import 'sections/navbar';
+@use 'sections/hero';
+@use 'sections/gallery';
+@use 'sections/eye-story';
+@use 'sections/product-dimensions';
+@use 'sections/pricing';
+@use 'sections/creation-process';
+@use 'sections/why-us';
+@use 'sections/contact';
+@use 'sections/navbar';
