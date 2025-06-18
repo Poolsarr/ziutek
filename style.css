@@ -551,10 +551,10 @@ a:hover {
   box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
 }
 .product-dimensions-section .info-card-products {
-  background-image: url("../assets/wizualizacja 2.png");
+  background-image: url("/assets/wizualizacja 2.png");
 }
 .product-dimensions-section .info-card-dimensions {
-  background-image: url("../assets/wizualizacja.png");
+  background-image: url("/assets/wizualizacja.png");
 }
 .product-dimensions-section .info-card-dimensions h3 {
   color: #000000 !important;
