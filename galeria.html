@@ -21,7 +21,7 @@
 <body>
 
     <!-- ========================================================================= -->
-    <!-- Navbar (bez zmian)                                                      -->
+    <!-- Navbar                                                                    -->
     <!-- ========================================================================= -->
     <nav id="main-navbar" class="navbar navbar-expand-lg navbar-dark bg-dark-custom fixed-top">
         <div class="container-fluid px-lg-5">          
@@ -35,9 +35,12 @@
                 <ul class="navbar-nav ms-auto align-items-center">
                     <li class="nav-item">
                         <a class="nav-link" href="index.html#eye-story-section">O nas</a>
-                    </li>           
-                    <li class="nav-item">                             
-                        <a class="nav-link active" href="galeria.html">Galeria</a> 
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="cennik.html">Cennik</a>
+                    </li>
+                    <li class="nav-item">                                            
+                        <a class="nav-link" href="galeria.html">Galeria</a>
                     </li>
                     <li class="nav-item">
                         <a class="btn btn-custom-green" href="index.html#kontakt">Napisz do nas już teraz!</a>
@@ -45,21 +48,16 @@
                 </ul>
             </div>
         </div>
-    </nav>    
-
-    <!-- Pusta przestrzeń pod stałą nawigacją, aby treść nie była zasłonięta -->
-    <div style="margin-top: 80px;"></div>
+    </nav>
 
     <!-- ========================================================================= -->
     <!-- SEKCJA GALERII (ZMIENIONA)                                              -->
     <!-- ========================================================================= -->
-    <section class="gallery-grid">
-        <!-- ZMIANA: Dodano pt-5 dla odstępu i usunięto nagłówek H1 -->
-        <div class="container pt-5">
+    <section class="gallery-page">
 
-            <!-- ZMIANA: Dodano klasę 'justify-content-center' do wyśrodkowania elementów w niepełnych rzędach -->
-            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4 justify-content-center">
-                
+        <div class="container-fluid py-5 mt-3">
+
+           <div class="row row-cols-3 row-cols-sm-3 row-cols-lg-4 g-2 g-lg-4 justify-content-center"> 
                 <!-- TUTAJ WKLEJ KOLEJNE ZDJĘCIA -->
                 <!-- Pamiętaj, aby 'data-bs-slide-to' miało unikalny, kolejny numer od 0 -->
 

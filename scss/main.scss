@@ -11,7 +11,6 @@
 
 // 3. Style poszczególnych sekcji strony
 @use 'sections/hero';
-@use 'sections/gallery';
 @use 'sections/eye-story';
 @use 'sections/product-dimensions';
 @use 'sections/pricing';
@@ -20,3 +19,4 @@
 @use 'sections/contact';
 @use 'sections/navbar';
 @use 'sections/gallery-page';
+@use 'sections/gallery-index';

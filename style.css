@@ -217,125 +217,6 @@ a:hover {
   }
 }
 
-/* ========================================================================= */
-/* Sekcja Galeria                                                            */
-/* ========================================================================= */
-#galeria {
-  scroll-margin-top: 70px;
-}
-
-.gallery-section {
-  min-height: auto;
-  display: flex;
-  align-items: center;
-  background-color: #111;
-  padding: 4rem 3rem;
-  /* === POCZĄTEK POPRAWIONEGO BLOKU DLA MOBILE === */
-  /* === KONIEC POPRAWIONEGO BLOKU DLA MOBILE === */
-}
-.gallery-section .gallery-text-column {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-.gallery-section .gallery-title {
-  font-size: clamp(2.8rem, 6vw, 3.5rem);
-  line-height: 1.15;
-  margin-bottom: 3.5rem;
-  color: #fff;
-}
-.gallery-section .description-block-1 {
-  margin-bottom: 2rem;
-}
-.gallery-section .description-block-2 {
-  margin-bottom: 3rem;
-}
-.gallery-section .link-block a {
-  font-weight: 500;
-  color: #a2ccfe !important;
-  text-decoration: underline !important;
-  transition: color 0.2s ease-in-out;
-}
-.gallery-section .link-block a:hover {
-  color: #79b3ed !important;
-}
-.gallery-section .gallery-text-styling {
-  line-height: 1.25;
-  margin-bottom: 0.2rem;
-  color: #fff;
-}
-@media (min-width: 992px) {
-  .gallery-section .gallery-text-column {
-    padding-left: 5rem;
-  }
-}
-@media (max-width: 767.98px) {
-  .gallery-section {
-    padding: 4rem 1rem;
-    /* NOWA REGUŁA: Dodaje odstęp między obrazkami w karuzeli */
-    /* Zmieniamy kontener karuzeli, aby zrobić miejsce na strzałki */
-    /* Przesuwamy strzałki na zewnątrz obrazka, w obszar stworzony przez padding */
-    /* Opcjonalne: Poprawia wygląd strzałek */
-  }
-  .gallery-section .gallery-text-column {
-    margin-top: 2rem;
-    text-align: center;
-  }
-  .gallery-section .gallery-title {
-    font-size: clamp(1.8rem, 7vw, 2.2rem);
-  }
-  .gallery-section .fs-3 {
-    font-size: 1.1rem !important;
-  }
-  .gallery-section .link-block .fs-2 {
-    font-size: 1.25rem !important;
-  }
-  .gallery-section .description-block-1, .gallery-section .description-block-2 {
-    margin-bottom: 1.5rem;
-  }
-  .gallery-section #mobileGalleryCarousel .carousel-item {
-    /* Dodajemy padding po lewej i prawej stronie każdego slajdu.
-       Wartość 8px da w sumie 16px odstępu między sąsiadującymi obrazkami. */
-    padding: 0 8px;
-    /* Upewniamy się, że padding jest wliczany w szerokość elementu, co jest kluczowe */
-    box-sizing: border-box;
-  }
-  .gallery-section #mobileGalleryCarousel {
-    /* Zwiększamy padding, aby strzałki miały gdzie "mieszkać" */
-    padding: 0 30px;
-    /* Usuwamy poprzedni margin, który nie jest już potrzebny */
-    margin: 0;
-  }
-  .gallery-section #mobileGalleryCarousel .carousel-control-prev {
-    left: 0; /* Ustawiamy na krawędzi nowej, węższej przestrzeni */
-  }
-  .gallery-section #mobileGalleryCarousel .carousel-control-next {
-    right: 0; /* Ustawiamy na krawędzi nowej, węższej przestrzeni */
-  }
-  .gallery-section #mobileGalleryCarousel .carousel-control-prev,
-  .gallery-section #mobileGalleryCarousel .carousel-control-next {
-    background-color: rgba(0, 0, 0, 0.3);
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-    top: 50%;
-    transform: translateY(-50%);
-  }
-}
-
-.gallery-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1rem;
-}
-
-.gallery-grid img, .gallery-carousel-img {
-  width: 100%;
-  height: auto;
-  border-radius: 0.5rem;
-  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
-}
-
 #eye-story-section {
   font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   background-color: #F8FAFC;
@@ -597,6 +478,13 @@ a:hover {
 .pricing-section .my-rounded {
   border-radius: 3rem;
   max-width: 75%;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.12);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.pricing-section .card:hover .my-rounded {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.15);
 }
 
 .pricing-section .btn-primary {
@@ -1179,20 +1067,29 @@ button[type=submit]:hover {
   }
 }
 /* ========================================================================= */
-/* GALERIA - SIATKA ZDJĘĆ                                                    */
+/* Sekcja Galeria (dla strony głównej - index.html)                          */
 /* ========================================================================= */
-.gallery-grid {
-  padding: 4rem 0;
+#galeria {
+  scroll-margin-top: 70px;
+}
+
+.gallery-page {
+  background-color: #111;
+  min-height: 100vh;
 }
 
 .gallery-item {
+  position: relative;
   overflow: hidden;
   border-radius: 0.5rem;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  /* POPRAWIONO: Bardziej czytelny zapis dla kwadratu */
+  aspect-ratio: 1/1;
 }
 
 .gallery-item a {
   display: block;
+  height: 100%;
   cursor: pointer;
 }
 
@@ -1200,70 +1097,259 @@ button[type=submit]:hover {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.3s ease-in-out;
+  transition: transform 0.3s ease-in-out, filter 0.3s ease;
 }
 
-.gallery-item a:hover img {
+.gallery-item:hover img {
   transform: scale(1.05);
+  filter: brightness(0.8);
 }
 
-/* ========================================================================= */
-/* LIGHTBOX / MODAL                                                          */
-/* ========================================================================= */
-/* Stylizacja tła modala (ciemniejsze) */
-.modal-backdrop.show {
-  opacity: 0.85; /* Standardowo jest 0.5 */
-}
-
-/* Ukrycie domyślnego tła i ramki w oknie modala */
-#galleryModal .modal-content {
+/* --- Stylizacja Modala (Lightbox) dla galerii --- */
+.modal-content {
   background-color: transparent;
   border: none;
-  box-shadow: none;
 }
 
-/* Stylizacja karuzeli wewnątrz modala */
-#galleryModal .carousel-item img {
-  max-height: 85vh; /* Ograniczenie wysokości obrazu */
-  width: auto; /* Automatyczna szerokość, aby zachować proporcje */
-  margin: 0 auto; /* Wyśrodkowanie obrazu w poziomie */
-}
-
-/* Stylizacja przycisków nawigacyjnych karuzeli */
-#galleryModal .carousel-control-prev,
-#galleryModal .carousel-control-next {
-  width: 5%; /* Zmniejszenie szerokości, aby nie nachodziły zbytnio na obraz */
-}
-
-#galleryModal .carousel-control-prev-icon,
-#galleryModal .carousel-control-next-icon {
-  background-size: 60%;
-  filter: drop-shadow(0 0 3px rgba(0, 0, 0, 0.7));
-}
-
-/* Licznik zdjęć */
-.carousel-counter {
-  color: white;
-  font-size: 1.25rem;
-  font-weight: bold;
-  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
-  margin-top: 1rem;
-  text-align: center;
-}
-
-/* Przycisk zamknięcia (X) */
-#galleryModal .btn-close {
+.modal-body .btn-close {
   position: absolute;
-  top: 15px;
-  right: 15px;
+  top: 1rem;
+  right: 1rem;
   z-index: 10;
-  filter: invert(1) grayscale(100%) brightness(200%) drop-shadow(0 0 3px rgba(0, 0, 0, 0.7));
-  opacity: 0.8;
-  transition: opacity 0.2s;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 50%;
+  padding: 0.75rem;
+  filter: invert(1) grayscale(100%) brightness(200%);
 }
 
-#galleryModal .btn-close:hover {
+.carousel-counter {
+  position: absolute;
+  bottom: 15px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: rgba(0, 0, 0, 0.6);
+  color: #fff;
+  padding: 5px 15px;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  z-index: 5;
+}
+
+/* NAPRAWIONO: Zagnieżdżone reguły zostały przekształcone w standardowy CSS */
+.gallery-section {
+  min-height: auto;
+  display: flex;
+  align-items: center;
+  background-color: #111;
+  padding: 4rem 3rem;
+}
+
+.gallery-section .gallery-text-column {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.gallery-section .gallery-title {
+  font-size: clamp(2.8rem, 6vw, 3.5rem);
+  line-height: 1.15;
+  margin-bottom: 3.5rem;
+  color: #fff;
+}
+
+.gallery-section .description-block-1 {
+  margin-bottom: 2rem;
+}
+
+.gallery-section .description-block-2 {
+  margin-bottom: 3rem;
+}
+
+.gallery-section .link-block a {
+  font-weight: 500;
+  color: #a2ccfe !important;
+  text-decoration: underline !important;
+  transition: color 0.2s ease-in-out;
+}
+
+.gallery-section .link-block a:hover {
+  color: #79b3ed !important;
+}
+
+.gallery-section .gallery-text-styling {
+  line-height: 1.25;
+  margin-bottom: 0.2rem;
+  color: #fff;
+}
+
+/* Reguły dla urządzeń stacjonarnych (dla sekcji na stronie głównej) */
+@media (min-width: 992px) {
+  .gallery-section .gallery-text-column {
+    padding-left: 5rem;
+  }
+}
+/* Reguły dla urządzeń mobilnych (dla sekcji na stronie głównej) */
+@media (max-width: 767.98px) {
+  .gallery-section {
+    padding: 4rem 1rem;
+  }
+  .gallery-section .gallery-text-column {
+    margin-top: 2rem;
+    text-align: center;
+  }
+  .gallery-section .gallery-title {
+    font-size: clamp(1.8rem, 7vw, 2.2rem);
+  }
+  .gallery-section .fs-3 {
+    font-size: 1.1rem !important;
+  }
+  .gallery-section .link-block .fs-2 {
+    font-size: 1.25rem !important;
+  }
+  .gallery-section .description-block-1,
+  .gallery-section .description-block-2 {
+    margin-bottom: 1.5rem;
+  }
+  /* Zmniejszenie licznika w modalu na mobile */
+  .carousel-counter {
+    font-size: 0.8rem;
+    padding: 4px 12px;
+    bottom: 10px;
+  }
+  #mobileGalleryCarousel .carousel-item {
+    padding: 0 8px;
+    box-sizing: border-box;
+  }
+  #mobileGalleryCarousel {
+    padding: 0 30px;
+    margin: 0;
+  }
+  #mobileGalleryCarousel .carousel-control-prev {
+    left: 0;
+  }
+  #mobileGalleryCarousel .carousel-control-next {
+    right: 0;
+  }
+  #mobileGalleryCarousel .carousel-control-prev,
+  #mobileGalleryCarousel .carousel-control-next {
+    background-color: rgba(0, 0, 0, 0.3);
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+}
+/* ========================================================================= */
+/* Sekcja Galeria                                                            */
+/* ========================================================================= */
+#galeria {
+  scroll-margin-top: 70px;
+}
+
+.gallery-section {
+  min-height: auto;
+  display: flex;
+  align-items: center;
+  background-color: #111;
+  padding: 4rem 3rem;
+}
+.gallery-section .gallery-text-column {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.gallery-section .gallery-title {
+  font-size: clamp(2.8rem, 6vw, 3.5rem);
+  line-height: 1.15;
+  margin-bottom: 3.5rem;
+  color: #fff;
+}
+.gallery-section .description-block-1 {
+  margin-bottom: 2rem;
+}
+.gallery-section .description-block-2 {
+  margin-bottom: 3rem;
+}
+.gallery-section .link-block a {
+  font-weight: 500;
+  color: #a2ccfe !important;
+  text-decoration: underline !important;
+  transition: color 0.2s ease-in-out;
+}
+.gallery-section .link-block a:hover {
+  color: #79b3ed !important;
+}
+.gallery-section .gallery-text-styling {
+  line-height: 1.25;
+  margin-bottom: 0.2rem;
+  color: #fff;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.gallery-grid img, .gallery-carousel-img {
+  width: 100%;
+  height: auto;
+  border-radius: 0.5rem;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+}
+
+/* ========================================================================= */
+/* Styl karuzeli mobilnej – strzałki i indykatory                           */
+/* ========================================================================= */
+#mobileGalleryCarousel .carousel-control-prev-icon,
+#mobileGalleryCarousel .carousel-control-next-icon {
+  filter: invert(1); /* sprawia, że domyślne strzałki Bootstrapu są białe */
+  width: 2rem;
+  height: 2rem;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+#mobileGalleryCarousel .carousel-control-prev,
+#mobileGalleryCarousel .carousel-control-next {
+  opacity: 0;
+  pointer-events: auto; /* ważne: żeby nadal dało się kliknąć */
+  width: 15%; /* opcjonalnie: zostaw szeroki obszar klikalny */
+  z-index: 2;
+}
+
+/* Indykatory (kropki) */
+#mobileGalleryCarousel .carousel-indicators [data-bs-target] {
+  background-color: #a8a8a8;
+  height: 8px;
+  width: 8px;
+  border-radius: 100%;
+  margin: 0 5px;
+  opacity: 0.7;
+}
+
+#mobileGalleryCarousel .carousel-indicators .active {
+  background-color: #ffffff;
   opacity: 1;
+}
+
+@media (max-width: 767.98px) {
+  #mobileGalleryCarousel {
+    width: 100vw;
+    margin-left: calc(-1 * (100vw - 100%) / 2); /* pełna szerokość, bez paddingu kontenera */
+  }
+  #mobileGalleryCarousel .carousel-item {
+    height: 90vw; /* powiększona wysokość */
+    overflow: hidden;
+    border-radius: 1rem;
+  }
+  #mobileGalleryCarousel .gallery-carousel-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
 }
 
 /*# sourceMappingURL=style.css.map */
