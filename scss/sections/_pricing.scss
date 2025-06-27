@@ -50,6 +50,8 @@
     overflow: hidden;
     min-height: 480px;
     padding: 0;
+    /* ZMIANA: Dodano margines dolny, aby zrobić miejsce na wskaźniki karuzeli */
+    margin-bottom: 30px; 
 }
 .pricing-details-section .pricing-options-wrapper h4 span {
     color: #a8a8a8 !important;
@@ -59,9 +61,7 @@
     width: 100%;
     height: 100%;
     object-fit: contain;
-    position: absolute;
-    top: 0;
-    left: 0;
+    /* ZMIANA: Usunięto pozycjonowanie absolutne. Bootstrap sam zarządza pozycją slajdów. */
 }
 
 
@@ -100,19 +100,16 @@
     min-width: calc(10% - 0.5rem);
 }
 
-/* 1. Styl dla aktywnego taba (ten, który jest na stałe podświetlony) */
 .pricing-details-section .product-type-tabs .nav-link.active {
     background-color: #a8a8a8;
     color: #fff;
     border-color: #a8a8a8;
 }
 
-/* 2. Styl dla podświetlenia w momencie kliknięcia (focus) */
 .pricing-details-section .product-type-tabs .nav-link:focus {
     box-shadow: 0 0 0 0.2rem rgba(168, 168, 168, 0.5); 
 }
 
-/* 3. Przywrócenie oryginalnego stylu dla najechania myszką (hover) */
 .pricing-details-section .product-type-tabs .nav-link:not(.active):hover {
     background-color: #f1f3f5;
     border-color: #ced4da;
@@ -154,13 +151,14 @@
 }
 
 /* ========================================================================= */
-/* STYLE DLA KARUZELI NA URZĄDZENIACH MOBILNYCH                              */
+/* STYLE DLA KARUZELI WE WSZYSTKICH ZAKŁADKACH                               */
 /* ========================================================================= */
-#pricingCarousel .carousel-control-prev-icon,
-#pricingCarousel .carousel-control-next-icon {
+/* ZMIANA: Zastąpiono #pricingCarousel klasą .pricing-visual-wrapper, aby style działały dla wszystkich karuzel */
+.pricing-visual-wrapper .carousel-control-prev-icon,
+.pricing-visual-wrapper .carousel-control-next-icon {
     filter: invert(1);
 }
-#pricingCarousel .carousel-indicators [data-bs-target] {
+.pricing-visual-wrapper .carousel-indicators [data-bs-target] {
     background-color: #a8a8a8;
     height: 8px;
     width: 8px;
@@ -168,48 +166,19 @@
     margin: 0 5px;
     opacity: 0.7;
 }
-#pricingCarousel .carousel-indicators .active {
+.pricing-visual-wrapper .carousel-indicators .active {
     background-color: #343a40;
     opacity: 1;
 }
-@media (max-width: 767.98px) {
-    #pricingCarousel .pricing-details-section .contact-btn-blue:hover {
-        margin-bottom: 5rem;
-    }
-    #pricingCarousel .my-rounded {
-        max-width: 60%;
-    }
-}
 
 .indicators-pozycja {
-    bottom: -20px; /* Przesuwa wskaźniki o 20px w dół od ich domyślnej pozycji */
+    bottom: -30px; /* Zaktualizowano pozycję, aby pasowała do dodanego marginesu */
 }
 
-/* Poprawiona wersja CSS */
-.pricing-details-section {
-    font-family: 'Century Gothic', sans-serif;
-    overflow-x: hidden;
-    /* Usuń padding z tego miejsca, ponieważ został przeniesiony do wewnętrznego elementu w HTML */
-}
 
 @media (max-width: 767.98px) {
-    
-    /* === POCZĄTEK ZMIAN === */
     .pricing-details-section {
         margin-bottom: 3rem; /* Dodaj odstęp specjalnie dla widoku mobilnego */
-    }
-    /* === KONIEC ZMIAN === */
-
-    .pricing-details-section .pricing-visual-wrapper {
-        min-height: 350px;
-        border-radius: 15px;
-    }
-    .pricing-details-section .product-type-tabs {
-        gap: 0.5rem;
-    }
-    .pricing-details-section .product-type-tabs .nav-link {
-        padding: 0.6rem 0.5rem;
-        font-size: 0.9rem;
     }
 }
 
@@ -287,7 +256,7 @@ button[type="submit"] {
   font-weight: bold;
   text-transform: uppercase;
   padding: 0.5rem 2rem;
-  &:hover {
+}
+button[type="submit"]:hover {
     background-color: #888;
-  }
 }

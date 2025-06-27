@@ -74,7 +74,7 @@
                         <!-- Karta: SOLO -->
                         <div class="col">
                             <div class="card border-0 text-center h-100 d-flex flex-column">
-                                <img src="assets/cennik solo.png" class="card-img-top my-rounded mb-5 mx-auto d-block" alt="Solo">
+                                <img src="assets/cennik/cennik solo.png" class="card-img-top my-rounded mb-5 mx-auto d-block" alt="Solo">
                                 <div class="card-body px-2 flex-grow-1">
                                     <h5 class="fw-bold">Solo</h5>
                                     <p class="text-muted mb-1">Jedna tęczówka.<br>Czysta forma.</p>
@@ -89,7 +89,7 @@
                         <!-- Karta: DUO -->
                         <div class="col">
                             <div class="card border-0 text-center h-100 d-flex flex-column">
-                                <img src="assets/cennik duo.png" class="card-img-top my-rounded mb-5 mx-auto d-block" alt="Duo">
+                                <img src="assets/cennik/cennik duo.png" class="card-img-top my-rounded mb-5 mx-auto d-block" alt="Duo">
                                 <div class="card-body px-2 flex-grow-1">
                                     <h5 class="fw-bold">Duo</h5>
                                     <p class="text-muted mb-1">Dwie tęczówki.<br>Idealne dla par.</p>
@@ -104,7 +104,7 @@
                         <!-- Karta: TRIO -->
                         <div class="col">
                             <div class="card border-0 text-center h-100 d-flex flex-column">
-                                <img src="assets/cennik trio.png" class="card-img-top my-rounded mb-5 mx-auto d-block" alt="Trio">
+                                <img src="assets/cennik/cennik trio.png" class="card-img-top my-rounded mb-5 mx-auto d-block" alt="Trio">
                                 <div class="card-body px-2 flex-grow-1">
                                     <h5 class="fw-bold">Trio</h5>
                                     <p class="text-muted mb-1">Trzy tęczówki.<br>Bliscy w jednym spojrzeniu.</p>
@@ -119,7 +119,7 @@
                         <!-- Karta: QUADRO -->
                         <div class="col">
                             <div class="card border-0 text-center h-100 d-flex flex-column">
-                                <img src="assets/cennik quadro.png" class="card-img-top my-rounded mb-5 mx-auto d-block" alt="Quadro">
+                                <img src="assets/cennik/cennik quadro.png" class="card-img-top my-rounded mb-5 mx-auto d-block" alt="Quadro">
                                 <div class="card-body px-2 flex-grow-1">
                                     <h5 class="fw-bold">Quadro</h5>
                                     <p class="text-muted mb-1">Cztery tęczówki.<br>Rodzina pełna więzi.</p>
@@ -147,7 +147,7 @@
                             <!-- Slajd: SOLO -->
                             <div class="carousel-item active">
                                 <div class="card border-0 bg-transparent text-center w-75 mx-auto">
-                                    <img src="assets/cennik solo.png" class="card-img-top my-rounded mb-5 mx-auto d-block" alt="Solo">
+                                    <img src="assets/cennik/cennik solo.png" class="card-img-top my-rounded mb-5 mx-auto d-block" alt="Solo">
                                     <div class="card-body px-2">
                                         <h5 class="fw-bold">Solo</h5>
                                         <p class="text-muted mb-1">Jedna tęczówka.<br>Czysta forma.</p>
@@ -159,7 +159,7 @@
                             <!-- Slajd: DUO -->
                             <div class="carousel-item">
                                 <div class="card border-0 bg-transparent text-center w-75 mx-auto">
-                                    <img src="assets/cennik duo.png" class="card-img-top my-rounded mb-5 mx-auto d-block" alt="Duo">
+                                    <img src="assets/cennik/cennik duo.png" class="card-img-top my-rounded mb-5 mx-auto d-block" alt="Duo">
                                     <div class="card-body px-2">
                                         <h5 class="fw-bold">Duo</h5>
                                         <p class="text-muted mb-1">Dwie tęczówki.<br>Idealne dla par.</p>
@@ -171,7 +171,7 @@
                             <!-- Slajd: TRIO -->
                             <div class="carousel-item">
                                 <div class="card border-0 bg-transparent text-center w-75 mx-auto">
-                                    <img src="assets/cennik trio.png" class="card-img-top my-rounded mb-5 mx-auto d-block" alt="Trio">
+                                    <img src="assets/cennik/cennik trio.png" class="card-img-top my-rounded mb-5 mx-auto d-block" alt="Trio">
                                     <div class="card-body px-2">
                                         <h5 class="fw-bold">Trio</h5>
                                         <p class="text-muted mb-1">Trzy tęczówki.<br>Bliscy w jednym spojrzeniu.</p>
@@ -183,7 +183,7 @@
                             <!-- Slajd: QUADRO -->
                             <div class="carousel-item">
                                 <div class="card border-0 bg-transparent text-center w-75 mx-auto">
-                                    <img src="assets/cennik quadro.png" class="card-img-top my-rounded mb-5 mx-auto d-block" alt="Quadro">
+                                    <img src="assets/cennik/cennik quadro.png" class="card-img-top my-rounded mb-5 mx-auto d-block" alt="Quadro">
                                     <div class="card-body px-2">
                                         <h5 class="fw-bold">Quadro</h5>
                                         <p class="text-muted mb-1">Cztery tęczówki.<br>Rodzina pełna więzi.</p>
@@ -237,8 +237,23 @@
                             <div class="tab-pane fade show active" id="solo-tab-pane" role="tabpanel" aria-labelledby="solo-tab" tabindex="0">
                                 <div class="row align-items-center">
                                     <div class="col-lg-8 mb-4 mb-lg-0">
-                                        <div class="pricing-visual-wrapper">
-                                            <img src="assets/mockup 1-1.png" alt="Wizualizacja produktu Solo" class="product-image">
+                                        <div id="soloCarousel" class="carousel slide" data-bs-ride="carousel">
+                                            <div class="carousel-inner">
+                                                <div class="carousel-item active">
+                                                    <img src="assets/cennik/mockup 1-1.png" alt="Wizualizacja produktu Solo 1" class="product-image d-block w-100">
+                                                </div>
+                                                <div class="carousel-item">
+                                                    <img src="assets/cennik/solo mockup 1.webp" alt="Wizualizacja produktu Solo 2" class="product-image d-block w-100">
+                                                </div>
+                                            </div>
+                                            <button class="carousel-control-prev" type="button" data-bs-target="#soloCarousel" data-bs-slide="prev">
+                                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                                <span class="visually-hidden">Poprzedni</span>
+                                            </button>
+                                            <button class="carousel-control-next" type="button" data-bs-target="#soloCarousel" data-bs-slide="next">
+                                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                                <span class="visually-hidden">Następny</span>
+                                            </button>
                                         </div>
                                     </div>
                                     <div class="col-lg-4">
@@ -274,7 +289,7 @@
                                                     <span class="fw-bold">229 zł</span>
                                                 </div>
                                             </div>
-                                            <a href="#kontakt" class="btn contact-btn-blue w-75 py-2 fs-5 mt-3">Skontaktuj się już teraz!</a>
+                                            <a href="index.html#kontakt" class="btn contact-btn-blue w-75 py-2 fs-5 mt-3">Skontaktuj się już teraz!</a>
                                         </div>
                                     </div>
                                 </div>
@@ -284,8 +299,23 @@
                             <div class="tab-pane fade" id="duo-tab-pane" role="tabpanel" aria-labelledby="duo-tab" tabindex="0">
                                 <div class="row align-items-center">
                                     <div class="col-lg-8 mb-4 mb-lg-0">
-                                        <div class="pricing-visual-wrapper">
-                                            <img src="assets/mockup 2-1.png" alt="Wizualizacja produktu Duo" class="product-image">
+                                        <div id="duoCarousel" class="carousel slide" data-bs-ride="carousel">
+                                            <div class="carousel-inner">
+                                                <div class="carousel-item active">
+                                                    <img src="assets/cennik/mockup 2-1.png" alt="Wizualizacja produktu Duo 1" class="product-image d-block w-100">
+                                                </div>
+                                                <div class="carousel-item">
+                                                    <img src="assets/cennik/duo mockup 2.webp" alt="Wizualizacja produktu Duo 2" class="product-image d-block w-100">
+                                                </div>
+                                            </div>
+                                            <button class="carousel-control-prev" type="button" data-bs-target="#duoCarousel" data-bs-slide="prev">
+                                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                                <span class="visually-hidden">Poprzedni</span>
+                                            </button>
+                                            <button class="carousel-control-next" type="button" data-bs-target="#duoCarousel" data-bs-slide="next">
+                                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                                <span class="visually-hidden">Następny</span>
+                                            </button>
                                         </div>
                                     </div>
                                     <div class="col-lg-4">
@@ -328,7 +358,7 @@
                                                     <span class="fw-bold">339 zł</span>
                                                 </div>
                                             </div>
-                                            <a href="#kontakt" class="btn contact-btn-blue w-75 py-2 fs-5 mt-3">Skontaktuj się już teraz!</a>
+                                            <a href="index.html#kontakt" class="btn contact-btn-blue w-75 py-2 fs-5 mt-3">Skontaktuj się już teraz!</a>
                                         </div>
                                     </div>
                                 </div>
@@ -338,8 +368,23 @@
                             <div class="tab-pane fade" id="trio-tab-pane" role="tabpanel" aria-labelledby="trio-tab" tabindex="0">
                                 <div class="row align-items-center">
                                     <div class="col-lg-8 mb-4 mb-lg-0">
-                                        <div class="pricing-visual-wrapper">
-                                            <img src="assets/mockup 3-1.png" alt="Wizualizacja produktu Trio" class="product-image">
+                                        <div id="trioCarousel" class="carousel slide" data-bs-ride="carousel">
+                                            <div class="carousel-inner">
+                                                <div class="carousel-item active">
+                                                    <img src="assets/cennik/mockup 3-1.png" alt="Wizualizacja produktu Trio 1" class="product-image d-block w-100">
+                                                </div>
+                                                <div class="carousel-item">
+                                                    <img src="assets/cennik/mockup 3-2.png" alt="Wizualizacja produktu Trio 2" class="product-image d-block w-100">
+                                                </div>
+                                            </div>
+                                            <button class="carousel-control-prev" type="button" data-bs-target="#trioCarousel" data-bs-slide="prev">
+                                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                                <span class="visually-hidden">Poprzedni</span>
+                                            </button>
+                                            <button class="carousel-control-next" type="button" data-bs-target="#trioCarousel" data-bs-slide="next">
+                                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                                <span class="visually-hidden">Następny</span>
+                                            </button>
                                         </div>
                                     </div>
                                     <div class="col-lg-4">
@@ -375,7 +420,7 @@
                                                     <span class="fw-bold">439 zł</span>
                                                 </div>
                                             </div>
-                                            <a href="#kontakt" class="btn contact-btn-blue w-75 py-2 fs-5 mt-3">Skontaktuj się już teraz!</a>
+                                            <a href="index.html#kontakt" class="btn contact-btn-blue w-75 py-2 fs-5 mt-3">Skontaktuj się już teraz!</a>
                                         </div>
                                     </div>
                                 </div>
@@ -385,8 +430,23 @@
                             <div class="tab-pane fade" id="quadro-tab-pane" role="tabpanel" aria-labelledby="quadro-tab" tabindex="0">
                                 <div class="row align-items-center">
                                     <div class="col-lg-8 mb-4 mb-lg-0">
-                                        <div class="pricing-visual-wrapper">
-                                            <img src="assets/mockup 4-1.png" alt="Wizualizacja produktu Quadro" class="product-image">
+                                        <div id="quadroCarousel" class="carousel slide" data-bs-ride="carousel">
+                                            <div class="carousel-inner">
+                                                <div class="carousel-item active">
+                                                    <img src="assets/cennik/mockup 4-1.png" alt="Wizualizacja produktu Quadro 1" class="product-image d-block w-100">
+                                                </div>
+                                                <div class="carousel-item">
+                                                    <img src="assets/cennik/mockup 4-2.png" alt="Wizualizacja produktu Quadro 2" class="product-image d-block w-100">
+                                                </div>
+                                            </div>
+                                            <button class="carousel-control-prev" type="button" data-bs-target="#quadroCarousel" data-bs-slide="prev">
+                                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                                <span class="visually-hidden">Poprzedni</span>
+                                            </button>
+                                            <button class="carousel-control-next" type="button" data-bs-target="#quadroCarousel" data-bs-slide="next">
+                                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                                <span class="visually-hidden">Następny</span>
+                                            </button>
                                         </div>
                                     </div>
                                     <div class="col-lg-4">
@@ -415,7 +475,7 @@
                                                     <span class="fw-bold">509 zł</span>
                                                 </div>
                                             </div>
-                                            <a href="#kontakt" class="btn contact-btn-blue w-75 py-2 fs-5 mt-3">Skontaktuj się już teraz!</a>
+                                            <a href="index.html#kontakt" class="btn contact-btn-blue w-75 py-2 fs-5 mt-3">Skontaktuj się już teraz!</a>
                                         </div>
                                     </div>
                                 </div>
