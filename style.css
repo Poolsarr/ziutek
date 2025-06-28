@@ -722,6 +722,10 @@ a:hover {
   box-shadow: 0 0 0 0.2rem rgba(84, 163, 245, 0.25);
 }
 
+.carousel-inner {
+  border-radius: 3rem;
+}
+
 button[type=submit] {
   background-color: #aaa;
   color: white;
@@ -987,32 +991,42 @@ button[type=submit]:hover {
 /* ========================================================================= */
 /* Style dla widoku mobilnego (POPRAWIONA WERSJA)                            */
 /* ========================================================================= */
-/* ========================================================================= */
-/* Style dla widoku mobilnego (POPRAWIONA WERSJA)                            */
-/* ========================================================================= */
 @media (max-width: 991.98px) {
-  /* KROK 1: "Czyścimy" kontener zwijania. */
-  /* Zostawiamy mu tylko margines, aby odsunął się od przycisku hamburgera. */
+  /* KROK 1: Przygotowanie kontenera collapse do płynnej animacji */
   .navbar-collapse {
+    /* Usuń wszystkie marginesy podczas animacji */
+    margin-top: 0;
+    margin-bottom: 0;
+    padding: 0;
+    /* Dodaj płynne przejścia */
+    transition: all 0.3s ease-in-out;
+    /* Wymuś przyspieszenie sprzętowe */
+    transform: translateZ(0);
+    will-change: height, opacity;
+  }
+  /* KROK 2: Wrapper wewnętrzny z marginesami */
+  .navbar-collapse .navbar-nav {
+    /* Marginesy przenosimy tutaj, aby nie wpływały na animację */
     margin-top: 0.75rem;
     margin-bottom: 0.5rem;
-    /* WAŻNE: Cała reszta (padding, tło, border) została stąd usunięta! */
-  }
-  /* KROK 2: Przenosimy wszystkie style wizualne na listę UL wewnątrz. */
-  /* To ona teraz będzie tworzyć tło i ramkę dla całego menu. */
-  .navbar .navbar-nav {
-    /* STYLE PRZENIESIONE Z .navbar-collapse */
+    /* Style wizualne */
     background-color: rgba(25, 25, 25, 0.98);
     border-radius: 0.5rem;
     padding: 1rem;
     border: 1px solid rgba(255, 255, 255, 0.1);
-    /* Istniejący styl, który jest OK */
     gap: 0.5rem;
+    /* Płynne przejścia dla właściwości wizualnych */
+    transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+    /* Zapobieganie przeskakiwaniu */
+    backface-visibility: hidden;
+    -webkit-font-smoothing: antialiased;
   }
-  /* Reszta Twoich stylów, które są już poprawne i nie wymagają zmiany */
+  /* KROK 3: Style dla poszczególnych elementów menu */
   .navbar-collapse .nav-item {
     width: 100%;
     margin-bottom: 0.75rem;
+    /* Płynne przejścia */
+    transition: all 0.2s ease-in-out;
   }
   .navbar-collapse .nav-item:last-child {
     margin-bottom: 0;
@@ -1022,19 +1036,49 @@ button[type=submit]:hover {
     width: 100%;
     text-align: center;
     padding: 0.75rem 1rem;
+    /* Płynne przejścia */
+    transition: all 0.2s ease-in-out;
   }
   .navbar-collapse .nav-link:not(.btn) {
     border: 1px solid rgba(255, 255, 255, 0.25);
     border-radius: 1rem;
   }
-  /* KROK 3: Poprawiamy również regułę dla jasnego navbara. */
-  /* Tutaj też przenosimy style z .navbar-collapse na .navbar-nav */
-  .navbar.navbar-on-dark-section .navbar-nav {
+  /* KROK 4: Style dla jasnego navbara */
+  .navbar.navbar-on-dark-section .navbar-collapse .navbar-nav {
     background-color: rgba(250, 250, 250, 0.98);
     border-color: rgba(0, 0, 0, 0.1);
   }
-  .navbar.navbar-on-dark-section .navbar-nav .nav-link:not(.btn) {
+  .navbar.navbar-on-dark-section .navbar-collapse .navbar-nav .nav-link:not(.btn) {
     border-color: rgba(0, 0, 0, 0.15);
+  }
+  /* KROK 5: Dodatkowe style dla stabilności */
+  .navbar-toggler {
+    /* Zapobieganie przeskakiwaniu przycisku */
+    position: relative;
+    z-index: 1001;
+  }
+  /* KROK 6: Optymalizacja dla różnych stanów animacji */
+  .navbar-collapse.collapsing {
+    /* Podczas animacji ukryj overflow */
+    overflow: hidden;
+  }
+  .navbar-collapse.collapsing .navbar-nav {
+    /* Zachowaj opacity podczas animacji */
+    opacity: 1;
+  }
+  .navbar-collapse:not(.show):not(.collapsing) {
+    /* Gdy menu jest ukryte */
+  }
+  .navbar-collapse:not(.show):not(.collapsing) .navbar-nav {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  .navbar-collapse.show {
+    /* Gdy menu jest widoczne */
+  }
+  .navbar-collapse.show .navbar-nav {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 /* ========================================================================= */
