@@ -1,5 +1,23 @@
 // js/scripts.js - JEDEN PLIK DO WSZYSTKIEGO
 
+// POPRAWKA: Ten listener jest teraz na zewnątrz i jest tylko jeden.
+// Uruchomi się po załadowaniu całej strony i wszystkich zasobów.
+window.addEventListener('load', () => {
+    // Sprawdzamy, czy weszliśmy na stronę z linku z kotwicą do FAQ
+    if (window.location.hash === '#faq-cennik') {
+        // Dajemy małe opóźnienie, aby animacje miały szansę się zakończyć, jeśli jakieś są
+        setTimeout(() => {
+            // Sprawdzamy, czy funkcja handleFaqScroll już istnieje (bo jest definiowana w DOMContentLoaded)
+            if (typeof handleFaqScroll === 'function') {
+                handleFaqScroll();
+            }
+        }, 100); 
+    }
+});
+
+// Ta funkcja musi być zadeklarowana w globalnym zakresie, aby listener 'load' mógł ją znaleźć
+let handleFaqScroll;
+
 document.addEventListener('DOMContentLoaded', function () {
 
     // --- Funkcje pomocnicze, używane w wielu miejscach ---
@@ -14,6 +32,25 @@ document.addEventListener('DOMContentLoaded', function () {
             top: offsetPosition,
             behavior: 'smooth'
         });
+    }
+
+    // =========================================================================
+    // SEKCJA 4: Definicja funkcji FAQ (przeniesiona wyżej dla czytelności)
+    // =========================================================================
+    handleFaqScroll = function() { // POPRAWKA: przypisujemy do globalnej zmiennej
+        const faqSection = document.getElementById('faq-cennik');
+        const pricingContainerToOpen = document.querySelector('#pricingDetailsSolo');
+
+        if (faqSection && pricingContainerToOpen) {
+            const collapse = bootstrap.Collapse.getOrCreateInstance(pricingContainerToOpen);
+            
+            if (pricingContainerToOpen.classList.contains('show')) {
+                scrollToWithOffset(faqSection);
+            } else {
+                pricingContainerToOpen.addEventListener('shown.bs.collapse', () => scrollToWithOffset(faqSection), { once: true });
+                collapse.show();
+            }
+        }
     }
 
     // =========================================================================
@@ -62,69 +99,39 @@ document.addEventListener('DOMContentLoaded', function () {
     handleFormSubmit("contactFormInspired", { name: "contactName", email: "contactEmail", message: "contactMessage" });
 
     // =========================================================================
-    // SEKCJA 4: NOWA, ULEPSZONA LOGIKA DLA FAQ
+    // SEKCJA 4: Logika dla FAQ (kontynuacja)
     // =========================================================================
 
-    /**
-     * Funkcja, która otwiera cennik i przewija do sekcji FAQ.
-     * Będziemy jej używać w dwóch różnych miejscach.
-     */
-    function handleFaqScroll() {
-        const faqSection = document.getElementById('faq-cennik');
-        const pricingContainerToOpen = document.querySelector('#pricingDetailsSolo');
-
-        if (faqSection && pricingContainerToOpen) {
-            const collapse = bootstrap.Collapse.getOrCreateInstance(pricingContainerToOpen);
-            
-            // Jeśli kontener jest już otwarty, po prostu przewiń
-            if (pricingContainerToOpen.classList.contains('show')) {
-                scrollToWithOffset(faqSection);
-            } else {
-                // Jeśli jest zamknięty, najpierw go otwórz, a potem przewiń
-                pricingContainerToOpen.addEventListener('shown.bs.collapse', () => scrollToWithOffset(faqSection), { once: true });
-                collapse.show();
-            }
-        }
-    }
-
-    // SCENARIUSZ 1: Użytkownik wchodzi na stronę z innej podstrony
-    // (Sprawdzamy hash w URL po załadowaniu strony)
-    if (window.location.hash === '#faq-cennik') {
-        setTimeout(handleFaqScroll, 300); // czas możesz dostroić
-    }
-
     // SCENARIUSZ 2: Użytkownik jest już na stronie cennik.html i klika "FAQ"
-    // (Dodajemy aktywny listener na przycisk)
     const faqButton = document.querySelector('a[href="cennik.html#faq-cennik"]');
     if (faqButton) {
         faqButton.addEventListener('click', function(event) {
-            // Sprawdzamy, czy na pewno jesteśmy na stronie cennika
             if (window.location.pathname.endsWith('cennik.html')) {
-                // Zapobiegamy domyślnemu "skokowi" przeglądarki
                 event.preventDefault();
-                // Ręcznie uruchamiamy naszą funkcję
                 handleFaqScroll();
             }
-            // Jeśli nie jesteśmy na cennik.html (np. na index.html),
-            // link zadziała normalnie i przeniesie nas na cennik.html#faq-cennik,
-            // a wtedy zadziała SCENARIUSZ 1.
         });
     }
 
+    // =========================================================================
+    // Logika dla karuzeli w cenniku
+    // =========================================================================
     const pricingCarousel = document.querySelector('#pricingCarousel');
-    const tabIds = ['#solo-tab', '#duo-tab', '#trio-tab', '#quadro-tab']; // wg kolejności slajdów
+    const tabIds = ['#solo-tab', '#duo-tab', '#trio-tab', '#quadro-tab'];
 
     if (pricingCarousel) {
         pricingCarousel.addEventListener('slid.bs.carousel', function (event) {
-            const activeIndex = event.to; // indeks aktywnego slajdu (0–3)
+            const activeIndex = event.to;
             const targetTabId = tabIds[activeIndex];
             const targetTab = document.querySelector(targetTabId);
 
             if (targetTab) {
+                // UWAGA: Usunąłem stąd linię, która przewijała do FAQ. 
+                // Jeśli to było celowe, możesz ją przywrócić.
+                // setTimeout(() => handleFaqScroll(), 400); 
                 new bootstrap.Tab(targetTab).show();
             }
         });
     }
-
 
 }); // Koniec DOMContentLoaded
