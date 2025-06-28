@@ -772,6 +772,28 @@ button[type=submit]:hover {
   background-color: #888;
 }
 
+/* ========================================================================= */
+/* Poprawka responsywności dla zakładek FAQ na urządzeniach mobilnych        */
+/* ========================================================================= */
+/* Ta reguła zadziała tylko na ekranach o szerokości do 767.98px (telefony) */
+@media (max-width: 767.98px) {
+  #faq-cennik .nav-item {
+    margin-bottom: 1rem;
+  }
+  /* Zmieniamy układ nawigacji z poziomego na pionowy */
+  #faq-cennik .nav-pills {
+    flex-direction: column;
+  }
+  /* Sprawiamy, że każdy przycisk zajmuje pełną szerokość i ma odstęp na dole */
+  #faq-cennik .nav-pills .nav-link {
+    width: 100%;
+    margin-bottom: 0.5rem; /* Odstęp między przyciskami */
+  }
+  /* Usuwamy dolny margines z ostatniego przycisku, aby wyglądało to czysto */
+  #faq-cennik .nav-pills .nav-link:last-child {
+    margin-bottom: 0;
+  }
+}
 .creation-process-section {
   background-color: #fff;
 }
