@@ -471,6 +471,39 @@ a:hover {
   padding: 3rem 0;
 }
 
+.body-light-theme {
+  background-color: #ffffff; /* Czysta biel */
+}
+
+/* ========================================================================= */
+/* Modyfikacja kolorów zakładek (Tabs) w sekcji FAQ                          */
+/* ========================================================================= */
+/* Celujemy w nawigację zakładek wewnątrz sekcji FAQ */
+#faq-cennik .nav-pills .nav-link {
+  /* Kolor tła dla nieaktywnych zakładek */
+  background-color: #f1f1f1;
+  color: #495057;
+  margin: 0 5px; /* Dodaje mały odstęp między przyciskami */
+  border-radius: 0.375rem; /* Standardowe zaokrąglenie Bootstrapa */
+}
+
+/* Styl dla aktywnej (klikniętej) zakładki */
+#faq-cennik .nav-pills .nav-link.active {
+  background-color: #343a40; /* Twój docelowy kolor */
+  color: white;
+}
+
+/* Styl po najechaniu myszką (opcjonalnie, ale polecam) */
+#faq-cennik .nav-pills .nav-link:hover {
+  background-color: #495057; /* Nieco jaśniejszy odcień niż aktywny */
+  color: white;
+}
+
+/* Usuwamy domyślne kolory linków Bootstrapa, aby uniknąć konfliktów */
+#faq-cennik .nav-pills .nav-link:focus {
+  box-shadow: none; /* Usuwa niebieską obwódkę po kliknięciu */
+}
+
 .pricing-section h1 {
   font-size: 3rem;
 }
@@ -1084,6 +1117,10 @@ button[type=submit]:hover {
 /* ========================================================================= */
 /* Sekcja Galeria (dla strony głównej - index.html)                          */
 /* ========================================================================= */
+body {
+  background-color: #111;
+}
+
 #galeria {
   scroll-margin-top: 70px;
 }
@@ -1365,6 +1402,58 @@ button[type=submit]:hover {
     height: 100%;
     object-fit: cover;
   }
+}
+/* ========================================================================= */
+/* Stylizacja Stopki (Footer)                                                */
+/* ========================================================================= */
+/* --- Domyślny wygląd stopki (dla index.html, cennik.html) --- */
+.site-footer {
+  /* NADAJEMY WŁASNE, JASNE TŁO */
+  background-color: #f8f9fa; /* To standardowy, jasnoszary kolor Bootstrapa */
+  /* LUB jeśli chcesz czystą biel: */
+  /* background-color: #ffffff; */
+  /* Przywracamy górną ramkę, która dobrze wygląda na jasnym tle */
+  border-top: 1px solid #dee2e6 !important;
+}
+
+/* Upewniamy się, że tekst w domyślnej stopce jest ciemny */
+.site-footer p {
+  color: #6c757d; /* Standardowy kolor tekstu 'secondary' w Bootstrapie */
+}
+
+/* Upewniamy się, że ikony w domyślnej stopce są ciemne */
+.site-footer .nav a {
+  color: #6c757d;
+}
+
+/* --- Specjalny wygląd dla ciemnej stopki (dla galeria.html) --- */
+/* Te reguły NADPISZĄ domyślne style, gdy stopka ma też klasę .footer-dark */
+.footer-dark {
+  background-color: #111; /* Zmieniamy tło na ciemne */
+  border-top: none; /* Usuwamy ramkę */
+}
+
+.footer-dark p {
+  color: white !important; /* Zmieniamy tekst na biały */
+}
+
+.footer-dark .nav a {
+  color: white !important; /* Zmieniamy ikony na białe */
+}
+
+/* Logo w ciemnej stopce staje się białe */
+.footer-dark img {
+  filter: invert(1);
+}
+
+.site-footer {
+  background-color: #f8f9fa;
+  border-top: 1px solid #dee2e6 !important;
+}
+
+.footer-dark {
+  background-color: #111;
+  border-top: none;
 }
 
 /*# sourceMappingURL=style.css.map */

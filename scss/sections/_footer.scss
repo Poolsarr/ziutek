@@ -1,0 +1,54 @@
+/* ========================================================================= */
+/* Stylizacja Stopki (Footer)                                                */
+/* ========================================================================= */
+
+/* --- Domyślny wygląd stopki (dla index.html, cennik.html) --- */
+.site-footer {
+    /* NADAJEMY WŁASNE, JASNE TŁO */
+    background-color: #f8f9fa; /* To standardowy, jasnoszary kolor Bootstrapa */
+    /* LUB jeśli chcesz czystą biel: */
+    /* background-color: #ffffff; */
+    
+    /* Przywracamy górną ramkę, która dobrze wygląda na jasnym tle */
+    border-top: 1px solid #dee2e6 !important;
+}
+
+/* Upewniamy się, że tekst w domyślnej stopce jest ciemny */
+.site-footer p {
+    color: #6c757d; /* Standardowy kolor tekstu 'secondary' w Bootstrapie */
+}
+
+/* Upewniamy się, że ikony w domyślnej stopce są ciemne */
+.site-footer .nav a {
+    color: #6c757d;
+}
+
+/* --- Specjalny wygląd dla ciemnej stopki (dla galeria.html) --- */
+/* Te reguły NADPISZĄ domyślne style, gdy stopka ma też klasę .footer-dark */
+.footer-dark {
+    background-color: #111; /* Zmieniamy tło na ciemne */
+    border-top: none;       /* Usuwamy ramkę */
+}
+
+.footer-dark p {
+    color: white !important; /* Zmieniamy tekst na biały */
+}
+
+.footer-dark .nav a {
+    color: white !important; /* Zmieniamy ikony na białe */
+}
+
+/* Logo w ciemnej stopce staje się białe */
+.footer-dark img {
+    filter: invert(1);
+}
+
+.site-footer {
+    background-color: #f8f9fa;
+    border-top: 1px solid #dee2e6 !important;
+}
+
+.footer-dark {
+    background-color: #111;
+    border-top: none;
+}
