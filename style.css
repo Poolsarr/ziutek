@@ -1209,6 +1209,32 @@ body {
   z-index: 5;
 }
 
+/* Ograniczenie rozmiaru zdjęć w modalu galerii */
+#galleryModal .carousel-item picture,
+#galleryModal .carousel-item img {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  max-width: 100%;
+  max-height: 80vh;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  background: transparent;
+}
+
+#galleryModal .carousel-item {
+  position: relative;
+  min-height: 80vh; 
+}
+
+#galleryModal .carousel-item.active {
+  display: flex;
+  align-items: center;       /* Centruje zawartość (obrazek) w pionie */
+  justify-content: center;   /* Dodatkowe wyśrodkowanie w poziomie */
+}
+
 /* NAPRAWIONO: Zagnieżdżone reguły zostały przekształcone w standardowy CSS */
 .gallery-section {
   min-height: auto;
