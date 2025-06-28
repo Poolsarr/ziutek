@@ -249,6 +249,10 @@
   box-shadow: 0 0 0 0.2rem rgba(84, 163, 245, 0.25);
 }
 
+.carousel-inner{
+    border-radius: 3rem;
+}
+
 button[type="submit"] {
   background-color: #aaa;
   color: white;
