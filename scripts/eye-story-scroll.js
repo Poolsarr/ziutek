@@ -1,6 +1,27 @@
 // Użyj tego jednego, kompletnego skryptu w swoim pliku (np. main.js)
 document.addEventListener('DOMContentLoaded', function() {
 
+// CZĘŚĆ 2: OBSŁUGA ŁADOWANIA STRONY Z KOTWICĄ (NAJWAŻNIEJSZY TEST)
+// =========================================================================
+
+// Zamiast 'load', użyjemy logiki wewnątrz DOMContentLoaded z setTimeout, co jest bardziej niezawodne.
+if (window.location.hash) {
+    console.log('[DEBUG] Znaleziono hash w URL po załadowaniu DOM:', window.location.hash);
+    setTimeout(() => {
+        console.log('[DEBUG] setTimeout minął. Uruchamiam logikę dla hasha.');
+        const hash = window.location.hash;
+
+        if (hash === '#faq-cennik') {
+            console.log('[DEBUG] Hash pasuje do #faq-cennik. Wywołuję handleFaqScroll.');
+            handleFaqScroll();
+        } else {
+            console.log('[DEBUG] Hash to', hash, '. Wywołuję standardowe przewijanie smoothScrollTo.');
+            smoothScrollTo(hash);
+        }
+    }, 200); // Zwiększono lekko czas na wszelki wypadek
+}
+
+
     // --- KROK 1: Dynamiczne obliczanie offsetu ---
     // Znajdź swój pasek nawigacji. Upewnij się, że selektor '.navbar' jest prawidłowy.
     const navbar = document.querySelector('.navbar');
