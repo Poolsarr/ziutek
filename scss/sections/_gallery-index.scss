@@ -103,12 +103,12 @@
     #mobileGalleryCarousel .carousel-item {
         height: 90vw; /* powiększona wysokość */
         overflow: hidden;
-        border-radius: 1rem;
     }
 
     #mobileGalleryCarousel .gallery-carousel-img {
         width: 100%;
         height: 100%;
         object-fit: cover;
+        border-radius: 3rem;
     }
 }

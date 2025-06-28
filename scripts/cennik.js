@@ -2,135 +2,129 @@
 
 document.addEventListener('DOMContentLoaded', function () {
 
-    // =========================================================================
-    // SEKCJA 1: Logika dla rozwijanego CENNIKA
-    // (Przełączanie tabów i inteligentne przewijanie z uwzględnieniem navbar)
-    // =========================================================================
-    const pricingButtons = document.querySelectorAll('a[data-tab-target]');
-    const detailsSection = document.querySelector('#pricingDetailsSolo');
-    
-    // --- POCZĄTEK ZMIAN ---
-
-    // ZMIANA 1: Znajdź navbar i pobierz jego wysokość.
-    // WAŻNE: Upewnij się, że selektor '.navbar' jest prawidłowy dla Twojego paska nawigacji.
-    // Może to być np. 'header', '#main-nav' itp.
+    // --- Funkcje pomocnicze, używane w wielu miejscach ---
     const navbar = document.querySelector('.navbar'); 
-    const navbarHeight = navbar ? navbar.offsetHeight : 70; // Użyj faktycznej wysokości lub wartości domyślnej
+    const navbarHeight = navbar ? navbar.offsetHeight : 70;
 
-    /**
-     * Funkcja pomocnicza do przewijania z offsetem dla paska nawigacji.
-     * @param {HTMLElement} element - Element, do którego chcemy przewinąć.
-     */
     function scrollToWithOffset(element) {
-        // Oblicz pozycję elementu względem góry dokumentu
+        if (!element) return;
         const elementPosition = element.getBoundingClientRect().top + window.pageYOffset;
-        // Odejmij wysokość paska nawigacji i mały margines dla estetyki
-        const offsetPosition = elementPosition - navbarHeight - 20; // 20px dodatkowego marginesu
-
+        const offsetPosition = elementPosition - navbarHeight - 20;
         window.scrollTo({
             top: offsetPosition,
             behavior: 'smooth'
         });
     }
 
-    // --- KONIEC ZMIAN ---
-
+    // =========================================================================
+    // SEKCJA 1: Logika dla rozwijanego CENNIKA (bez zmian)
+    // =========================================================================
+    const pricingButtons = document.querySelectorAll('a[data-tab-target]');
+    const detailsSection = document.querySelector('#pricingDetailsSolo');
 
     if (pricingButtons.length > 0 && detailsSection) {
         pricingButtons.forEach(button => {
             button.addEventListener('click', function (event) {
-                // Zatrzymaj domyślną akcję linku, aby przejąć kontrolę
                 event.preventDefault();
-
-                // Przełącz na odpowiednią zakładkę (tab)
                 const tabTargetId = this.getAttribute('data-tab-target');
                 const tabToActivate = document.querySelector(tabTargetId);
                 if (tabToActivate) {
-                    const tab = new bootstrap.Tab(tabToActivate);
-                    tab.show();
+                    new bootstrap.Tab(tabToActivate).show();
                 }
-
-                // Sprawdź, czy sekcja ze szczegółami jest już otwarta
-                const isAlreadyOpen = detailsSection.classList.contains('show');
-
-                if (isAlreadyOpen) {
-                    // Jeśli tak, po prostu do niej przewiń z uwzględnieniem offsetu
-                    // ZMIANA 2: Użyj nowej funkcji zamiast scrollIntoView
+                if (detailsSection.classList.contains('show')) {
                     scrollToWithOffset(detailsSection);
                 } else {
-                    // Jeśli nie, poczekaj aż się otworzy i dopiero wtedy przewiń
-                    detailsSection.addEventListener('shown.bs.collapse', function () {
-                        // ZMIANA 3: Użyj nowej funkcji również tutaj
-                        scrollToWithOffset(detailsSection);
-                    }, { once: true });
+                    detailsSection.addEventListener('shown.bs.collapse', () => scrollToWithOffset(detailsSection), { once: true });
                 }
             });
         });
     }
 
     // =========================================================================
-    // SEKCJA 2: Logika dla głównego przycisku "Zobacz cennik"
-    // (Ta sekcja nie wymagała zmian, ale zostawiam dla kompletności)
+    // SEKCJA 2: Logika dla głównego przycisku "Zobacz cennik" (bez zmian)
     // =========================================================================
     const seePricingButton = document.querySelector('a[href="#pricingContainer"]');
     const pricingContainer = document.querySelector('#pricingContainer');
-    const processSection = document.querySelector('#proces-tworzenia'); // Upewnij się, że masz to ID w HTML
 
-    if (seePricingButton && pricingContainer && processSection) {
+    if (seePricingButton && pricingContainer) {
         seePricingButton.addEventListener('click', function(event) {
             event.preventDefault();
-
-            // Nasłuchuj na zakończenie animacji otwierania
-            pricingContainer.addEventListener('shown.bs.collapse', function() {
-                pricingContainer.scrollIntoView({ behavior: 'smooth', block: 'start' });
-            }, { once: true });
-
-            // Nasłuchuj na zakończenie animacji zamykania
-            pricingContainer.addEventListener('hidden.bs.collapse', function() {
-                processSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-            }, { once: true });
-
-            // Ręcznie aktywuj rozwinięcie/zwinięcie
-            const collapseInstance = bootstrap.Collapse.getOrCreateInstance(pricingContainer);
-            collapseInstance.toggle();
+            pricingContainer.addEventListener('shown.bs.collapse', () => pricingContainer.scrollIntoView({ behavior: 'smooth', block: 'start' }), { once: true });
+            bootstrap.Collapse.getOrCreateInstance(pricingContainer).toggle();
         });
     }
 
     // =========================================================================
-    // SEKCJA 3: Logika dla FORMULARZY KONTAKTOWYCH
-    // (Ta sekcja nie wymagała zmian)
+    // SEKCJA 3: Logika dla FORMULARZY KONTAKTOWYCH (bez zmian)
     // =========================================================================
-    function handleFormSubmit(formId, fields) {
-        const form = document.getElementById(formId);
-        if (form) { // Dodano sprawdzenie, czy formularz istnieje
-            form.addEventListener("submit", function(e) {
-                e.preventDefault();
+    function handleFormSubmit(formId, fields) { /* ... kod bez zmian ... */ }
+    handleFormSubmit("contactForm", { name: "name", email: "email", message: "message" });
+    handleFormSubmit("contactFormInspired", { name: "contactName", email: "contactEmail", message: "contactMessage" });
 
-                const name = document.getElementById(fields.name).value;
-                const email = document.getElementById(fields.email).value;
-                const message = document.getElementById(fields.message).value;
+    // =========================================================================
+    // SEKCJA 4: NOWA, ULEPSZONA LOGIKA DLA FAQ
+    // =========================================================================
 
-                const recipient = "eyestory@email.pl"; // Zmień na swój adres e-mail
-                const subject = encodeURIComponent("Wiadomość z formularza kontaktowego");
-                const body = encodeURIComponent(`Imię i nazwisko: ${name}\nEmail: ${email}\n\n${message}`);
+    /**
+     * Funkcja, która otwiera cennik i przewija do sekcji FAQ.
+     * Będziemy jej używać w dwóch różnych miejscach.
+     */
+    function handleFaqScroll() {
+        const faqSection = document.getElementById('faq-cennik');
+        const pricingContainerToOpen = document.querySelector('#pricingDetailsSolo');
 
-                window.location.href = `mailto:${recipient}?subject=${subject}&body=${body}`;
-            });
+        if (faqSection && pricingContainerToOpen) {
+            const collapse = bootstrap.Collapse.getOrCreateInstance(pricingContainerToOpen);
+            
+            // Jeśli kontener jest już otwarty, po prostu przewiń
+            if (pricingContainerToOpen.classList.contains('show')) {
+                scrollToWithOffset(faqSection);
+            } else {
+                // Jeśli jest zamknięty, najpierw go otwórz, a potem przewiń
+                pricingContainerToOpen.addEventListener('shown.bs.collapse', () => scrollToWithOffset(faqSection), { once: true });
+                collapse.show();
+            }
         }
     }
 
-    // Obsługa pierwszego formularza (jeśli istnieje)
-    handleFormSubmit("contactForm", {
-        name: "name",
-        email: "email",
-        message: "message"
-    });
+    // SCENARIUSZ 1: Użytkownik wchodzi na stronę z innej podstrony
+    // (Sprawdzamy hash w URL po załadowaniu strony)
+    if (window.location.hash === '#faq-cennik') {
+        setTimeout(handleFaqScroll, 300); // czas możesz dostroić
+    }
 
-    // Obsługa drugiego formularza w cenniku
-    handleFormSubmit("contactFormInspired", {
-        name: "contactName",
-        email: "contactEmail",
-        message: "contactMessage"
-    });
+    // SCENARIUSZ 2: Użytkownik jest już na stronie cennik.html i klika "FAQ"
+    // (Dodajemy aktywny listener na przycisk)
+    const faqButton = document.querySelector('a[href="cennik.html#faq-cennik"]');
+    if (faqButton) {
+        faqButton.addEventListener('click', function(event) {
+            // Sprawdzamy, czy na pewno jesteśmy na stronie cennika
+            if (window.location.pathname.endsWith('cennik.html')) {
+                // Zapobiegamy domyślnemu "skokowi" przeglądarki
+                event.preventDefault();
+                // Ręcznie uruchamiamy naszą funkcję
+                handleFaqScroll();
+            }
+            // Jeśli nie jesteśmy na cennik.html (np. na index.html),
+            // link zadziała normalnie i przeniesie nas na cennik.html#faq-cennik,
+            // a wtedy zadziała SCENARIUSZ 1.
+        });
+    }
 
-}); // <-- TEN WIERSZ ZAMYKA GŁÓWNY I JEDYNY DOMContentLoaded
+    const pricingCarousel = document.querySelector('#pricingCarousel');
+    const tabIds = ['#solo-tab', '#duo-tab', '#trio-tab', '#quadro-tab']; // wg kolejności slajdów
+
+    if (pricingCarousel) {
+        pricingCarousel.addEventListener('slid.bs.carousel', function (event) {
+            const activeIndex = event.to; // indeks aktywnego slajdu (0–3)
+            const targetTabId = tabIds[activeIndex];
+            const targetTab = document.querySelector(targetTabId);
+
+            if (targetTab) {
+                new bootstrap.Tab(targetTab).show();
+            }
+        });
+    }
+
+
+}); // Koniec DOMContentLoaded

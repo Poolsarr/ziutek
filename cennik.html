@@ -43,7 +43,7 @@
                         <a class="nav-link" href="galeria.html">Galeria</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="cennik.html#faq">FAQ</a>
+                        <a class="nav-link" href="cennik.html#faq-cennik">FAQ</a>
                     </li>
                     <li class="nav-item">
                         <a class="btn btn-custom-green" href="index.html#kontakt">Napisz do nas już teraz!</a>
@@ -704,28 +704,6 @@
         <path d="M8 4.884c-1.74 0-3.116 1.376-3.116 3.116s1.376 3.116 3.116 3.116 3.116-1.376 3.116-3.116S9.74 4.884 8 4.884zm0 5.098c-1.09 0-1.982-.892-1.982-1.982s.892-1.982 1.982-1.982 1.982.892 1.982 1.982-.892 1.982-1.982 1.982zm4.11-6.19c-.38 0-.69.31-.69.69s.31.69.69.69.69-.31.69-.69-.31-.69-.69-.69z"/>
     </symbol>
     </svg>
-
-    <!-- Skrypt do automatycznego przełączania zakładek po kliknięciu "Dowiedz się więcej" -->
-    <script>
-      document.addEventListener('DOMContentLoaded', function () {
-        // Znajdź wszystkie przyciski, które mają atrybut data-tab-target
-        const tabTriggers = document.querySelectorAll('[data-tab-target]');
-        
-        tabTriggers.forEach(trigger => {
-          trigger.addEventListener('click', function (event) {
-            // Pobierz ID docelowej zakładki z atrybutu data-tab-target
-            const targetTabId = event.currentTarget.dataset.tabTarget;
-            const targetTab = document.querySelector(targetTabId);
-            
-            // Jeśli zakładka istnieje, aktywuj ją
-            if (targetTab) {
-              const tab = new bootstrap.Tab(targetTab);
-              tab.show();
-            }
-          });
-        });
-      });
-    </script>
 
 </body>
 </html>
