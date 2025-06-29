@@ -1137,49 +1137,79 @@ button[type=submit]:hover {
   }
 }
 /* ========================================================================= */
-/* Sekcja Galeria (dla strony głównej - index.html)                          */
+/* Style ogólne & Nowa Sekcja Galerii                                        */
 /* ========================================================================= */
 body {
   background-color: #111;
+  font: normal 16px sans-serif;
+  color: #fff;
 }
 
-#galeria {
-  scroll-margin-top: 70px;
-}
-
-.gallery-page {
-  background-color: #111;
-  min-height: 100vh;
-}
-
-.gallery-item {
-  position: relative;
+body.modal-open {
   overflow: hidden;
-  border-radius: 0.5rem;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-  /* POPRAWIONO: Bardziej czytelny zapis dla kwadratu */
-  aspect-ratio: 1/1;
+  padding-right: 0 !important; /* usuń kompensację dla scrolla */
 }
 
-.gallery-item a {
-  display: block;
-  height: 100%;
-  cursor: pointer;
+.gallery-page-new {
+  padding: 100px 0 40px 0;
 }
 
-.gallery-item img {
+.container.gallery-container {
+  background-color: transparent;
+  padding: 0;
+}
+
+.gallery-container h1 {
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 15px;
+  font-weight: bold;
+}
+
+.gallery-container p.page-description {
+  text-align: center;
+  margin: 0 auto 40px auto;
+  font-size: 1.1rem;
+  color: #adb5bd;
+}
+
+.tz-gallery {
+  padding: 10px;
+}
+
+.tz-gallery .lightbox img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.3s ease-in-out, filter 0.3s ease;
+  transition: 0.2s ease-in-out;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
 
-.gallery-item:hover img {
+.tz-gallery .lightbox:hover img {
+  border-radius: 1rem;
   transform: scale(1.05);
-  filter: brightness(0.8);
+  filter: brightness(0.7);
 }
 
-/* --- Stylizacja Modala (Lightbox) dla galerii --- */
+.tz-gallery .lightbox {
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.781);
+  display: block;
+  position: relative;
+  overflow: hidden;
+  border-radius: 0.25rem;
+  height: 100%;
+  max-height: 350px;
+  cursor: pointer;
+}
+
+.tz-gallery .lightbox:before, .tz-gallery .lightbox:after {
+  /* Usuwamy pseudoelementy z poprzedniej wersji, bo nie są już potrzebne */
+  display: none;
+}
+
+/* ========================================================================= */
+/* PRZYWRÓCONE I DOSTOSOWANE STYLE DLA MODALA I KARUZELI BOOTSTRAPA          */
+/* ========================================================================= */
 .modal-content {
   background-color: transparent;
   border: none;
@@ -1189,7 +1219,7 @@ body {
   position: absolute;
   top: 1rem;
   right: 1rem;
-  z-index: 10;
+  z-index: 1056; /* Wyższy z-index, aby był nad karuzelą */
   background-color: rgba(0, 0, 0, 0.5);
   border-radius: 50%;
   padding: 0.75rem;
@@ -1209,135 +1239,108 @@ body {
   z-index: 5;
 }
 
-/* Ograniczenie rozmiaru zdjęć w modalu galerii */
-#galleryModal .carousel-item picture,
-#galleryModal .carousel-item img {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 0 auto;
-  max-width: 100%;
-  max-height: 80vh;
-  width: auto;
-  height: auto;
-  object-fit: contain;
-  background: transparent;
+#galleryModal.modal {
+  overflow: hidden !important;
+}
+
+/* ---- OSTATECZNA, UNIWERSALNA WERSJA ---- */
+#galleryModal .modal-dialog {
+  max-width: 70vw;
+  margin-top: 5vh;
+  margin-bottom: 5vh;
+  margin-left: auto;
+  margin-right: auto;
+  max-height: 90vh;
+}
+
+/* ---- NOWY I PRAWIDŁOWY KOD ---- */
+#galleryModal .modal-content {
+  width: 100%;
+  height: 100%; /* Upewniamy się, że wypełnia .modal-dialog */
+  background-color: black;
+  border: none;
+  padding: 0;
+}
+
+/* ---- PRAWIDŁOWA WERSJA DLA KONTENERA KARUZELI ---- */
+#galleryModal .carousel-inner {
+  width: 100%;
+  max-height: 90vh; /* Maksymalna wysokość, by nie wystawał poza modal KLUCZOWEEEEEEEEEEEEEEEEEEEEE */
+  /* 
+    NAJWAŻNIEJSZA ZMIANA: Narzucamy stałe proporcje 16:9.
+    Możesz zmienić na 4/3 lub inne, jeśli wolisz.
+    To eliminuje "skakanie" modala.
+  */
+  aspect-ratio: 4/3;
+  background-color: #000; /* Tło dla ewentualnych czarnych pasów (letterboxing) */
 }
 
 #galleryModal .carousel-item {
-  position: relative;
-  min-height: 80vh; 
+  height: 100%;
+  width: 100%;
 }
 
-#galleryModal .carousel-item.active {
-  display: flex;
-  align-items: center;       /* Centruje zawartość (obrazek) w pionie */
-  justify-content: center;   /* Dodatkowe wyśrodkowanie w poziomie */
-}
-
-/* NAPRAWIONO: Zagnieżdżone reguły zostały przekształcone w standardowy CSS */
-.gallery-section {
-  min-height: auto;
+/* 
+  Pozostałe style do centrowania i dopasowania obrazka zostają bez zmian,
+  bo są prawidłowe.
+*/
+#galleryModal .carousel-item.active,
+#galleryModal .carousel-item-next,
+#galleryModal .carousel-item-prev {
   display: flex;
   align-items: center;
-  background-color: #111;
-  padding: 4rem 3rem;
-}
-
-.gallery-section .gallery-text-column {
-  display: flex;
-  flex-direction: column;
   justify-content: center;
 }
 
-.gallery-section .gallery-title {
-  font-size: clamp(2.8rem, 6vw, 3.5rem);
-  line-height: 1.15;
-  margin-bottom: 3.5rem;
-  color: #fff;
+#galleryModal .carousel-item img {
+  max-width: 100%;
+  max-height: 90vh;
+  height: auto;
+  width: auto;
+  display: block;
+  min-height: 0;
 }
 
-.gallery-section .description-block-1 {
-  margin-bottom: 2rem;
+/* 
+  KLUCZOWA ZMIANA:
+  Stosujemy 'display: flex' nie tylko do aktywnego slajdu,
+  ale też do następnego (next) i poprzedniego (prev), które
+  uczestniczą w animacji. To eliminuje "skok" na końcu.
+*/
+#galleryModal .carousel-item.active,
+#galleryModal .carousel-item-next,
+#galleryModal .carousel-item-prev {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.gallery-section .description-block-2 {
-  margin-bottom: 3rem;
-}
-
-.gallery-section .link-block a {
-  font-weight: 500;
-  color: #a2ccfe !important;
-  text-decoration: underline !important;
-  transition: color 0.2s ease-in-out;
-}
-
-.gallery-section .link-block a:hover {
-  color: #79b3ed !important;
-}
-
-.gallery-section .gallery-text-styling {
-  line-height: 1.25;
-  margin-bottom: 0.2rem;
-  color: #fff;
-}
-
-/* Reguły dla urządzeń stacjonarnych (dla sekcji na stronie głównej) */
-@media (min-width: 992px) {
-  .gallery-section .gallery-text-column {
-    padding-left: 5rem;
+/* ========================================================================= */
+/* Poprawki dla widoku mobilnego                                             */
+/* ========================================================================= */
+@media (max-width: 768px) { /* Stosujemy od tabletów w dół */
+  /* Zmniejszamy wysokość kafelków w siatce galerii */
+  .tz-gallery .lightbox {
+    max-height: 200px; /* Zmniejszamy z 350px, aby kafelki były bardziej kwadratowe */
+  }
+  /* Zmniejszamy górny odstęp strony na mobilkach */
+  .gallery-page-new {
+    padding-top: 80px;
   }
 }
-/* Reguły dla urządzeń mobilnych (dla sekcji na stronie głównej) */
-@media (max-width: 767.98px) {
-  .gallery-section {
-    padding: 4rem 1rem;
+@media (max-width: 576px) {
+  /* Poprawki dla modala na najmniejszych ekranach (z Twojego kodu) */
+  #galleryModal .modal-dialog {
+    max-width: 90vw;
+    max-height: 70vh;
+    margin-top: 5vh;
+    margin-bottom: 5vh;
   }
-  .gallery-section .gallery-text-column {
-    margin-top: 2rem;
-    text-align: center;
+  #galleryModal .carousel-inner {
+    aspect-ratio: 4/3; /* możesz zmniejszyć np. do 3/2 jeśli za wysokie */
   }
-  .gallery-section .gallery-title {
-    font-size: clamp(1.8rem, 7vw, 2.2rem);
-  }
-  .gallery-section .fs-3 {
-    font-size: 1.1rem !important;
-  }
-  .gallery-section .link-block .fs-2 {
-    font-size: 1.25rem !important;
-  }
-  .gallery-section .description-block-1,
-  .gallery-section .description-block-2 {
-    margin-bottom: 1.5rem;
-  }
-  /* Zmniejszenie licznika w modalu na mobile */
-  .carousel-counter {
-    font-size: 0.8rem;
-    padding: 4px 12px;
-    bottom: 10px;
-  }
-  #mobileGalleryCarousel .carousel-item {
-    padding: 0 8px;
-    box-sizing: border-box;
-  }
-  #mobileGalleryCarousel {
-    padding: 0 30px;
-    margin: 0;
-  }
-  #mobileGalleryCarousel .carousel-control-prev {
-    left: 0;
-  }
-  #mobileGalleryCarousel .carousel-control-next {
-    right: 0;
-  }
-  #mobileGalleryCarousel .carousel-control-prev,
-  #mobileGalleryCarousel .carousel-control-next {
-    background-color: rgba(0, 0, 0, 0.3);
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-    top: 50%;
-    transform: translateY(-50%);
+  #galleryModal .carousel-item img {
+    max-height: 30vh; /* by nie wystawał */
   }
 }
 /* ========================================================================= */
