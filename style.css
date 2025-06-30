@@ -922,6 +922,7 @@ button[type=submit]:hover {
 }
 
 .contact-form-section {
+  font-family: "Century Gothic", sans-serif;
   background: #fff;
   padding: 4rem 0;
   text-align: center;

@@ -20,6 +20,8 @@
     <script src="scripts/dynamic-navbar.js" defer></script>
     <script src="scripts/eye-story-scroll.js" defer></script>
 
+    
+
     <!-- Optymalizacja -->
     <link rel="preload" fetchpriority="high" as="image" href="assets/kolaz-nowy.webp">
 
@@ -426,32 +428,45 @@
     <!-- ========================================================================= -->
     <!-- Kontakt                                                                   -->
     <!-- ========================================================================= -->
-
+   
     <section id="kontakt" class="contact-form-section">
         <div class="container">
             <h3 class="section-title mb-4 text-dark">Zainteresowany?<br>Skorzystaj z formularza kontaktowego</h3>
-            <form id="contactForm">
+            
+            <form id="contactForm" action="https://formspree.io/f/xwpbyogo" method="POST">
+
                 <div class="mb-3">
                     <label for="name" class="form-label text-dark">Imię i Nazwisko <span>*</span></label>
-                    <input type="text" class="form-control" id="name" required>
+                    <input type="text" name="Imię i Nazwisko" class="form-control" id="name" required>
                 </div>
                 <div class="mb-3">
                     <label for="email" class="form-label text-dark">E-mail <span>*</span></label>
-                    <input type="email" class="form-control" id="email" placeholder="jan.kowalski@poczta.pl" required>
+                    <input type="email" name="email" class="form-control" id="email" placeholder="jan.kowalski@poczta.pl" required>
                 </div>
                 <div class="mb-3">
                     <label for="message" class="form-label text-dark">Wiadomość <span>*</span></label>
-                    <textarea class="form-control" id="message" rows="5" placeholder="Zacznij pisać..." required></textarea>
+                    <textarea name="Wiadomość" class="form-control" id="message" rows="5" placeholder="Zacznij pisać..." required></textarea>
                 </div>
+
+                <div class="mb-3 d-flex justify-content-center">
+                    <div class="g-recaptcha" data-sitekey="6LcS13IrAAAAAH7fNZM6z0-QI2Ca5jFw-g-vEXDk"></div>
+                </div>
+
                 <div class="text-center mt-4">
                     <button type="submit" class="btn btn-secondary">PRZEŚLIJ</button>
-                    <!-- DEBUG <p><a href="mailto:someone@example.com">Send email</a></p> -->
                 </div>
+
+                <p id="form-status" class="text-center mt-3"></p>
+
             </form>
         </div>
     </section>
+
+
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
     <script src="scripts/contact-form.js"></script>
-   
+
     <!-- ========================================================================= -->
     <!-- Stopka                                                                    -->
     <!-- ========================================================================= -->
