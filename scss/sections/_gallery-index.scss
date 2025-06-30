@@ -114,3 +114,44 @@
         border-radius: 3rem;
     }
 }
+
+/* ========================================================================= */
+/* Poprawki responsywności dla sekcji Galerii z tekstem                      */
+/* ========================================================================= */
+
+/* Style dla tabletów i mniejszych urządzeń (poniżej 992px) */
+@media (max-width: 991.98px) {
+    .gallery-text-column {
+        text-align: center; /* Wyśrodkowanie tekstu, gdy kolumna jest na całą szerokość */
+        margin-top: 2rem;   /* Dodatkowy margines od góry, aby oddzielić od galerii */
+    }
+
+    .gallery-title {
+        /* Bootstrapowy h3 ma ok. 1.75rem. Możemy go trochę zwiększyć. */
+        font-size: 2rem; 
+    }
+
+    .gallery-text-styling {
+        /* Zmniejszamy czcionkę z Bootstrapowego fs-3 (1.75rem) do czegoś rozsądniejszego */
+        font-size: 1.2rem;
+        line-height: 1.4; /* Poprawia czytelność */
+    }
+
+    .link-block a {
+         /* Zmniejszamy link 'Przejdź do galerii' z fs-2 (2rem) */
+        font-size: 1.5rem;
+    }
+}
+
+/* Dodatkowe poprawki dla najmniejszych telefonów (poniżej 576px) */
+@media (max-width: 575.98px) {
+    .gallery-title {
+        font-size: 1.75rem; /* Jeszcze mniejszy tytuł */
+    }
+    .gallery-text-styling {
+        font-size: 1.1rem; /* Mniejszy tekst opisowy */
+    }
+     .link-block a {
+        font-size: 1.25rem;
+    }
+}

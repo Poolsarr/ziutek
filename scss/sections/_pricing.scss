@@ -22,6 +22,7 @@
     color: #495057;
     margin: 0 5px; /* Dodaje mały odstęp między przyciskami */
     border-radius: 0.375rem; /* Standardowe zaokrąglenie Bootstrapa */
+    margin-right: 2rem;
 }
 
 /* Styl dla aktywnej (klikniętej) zakładki */
@@ -40,7 +41,6 @@
 #faq-cennik .nav-pills .nav-link:focus {
     box-shadow: none; /* Usuwa niebieską obwódkę po kliknięciu */
 }
-
 
 .pricing-section h1 {
     font-size: 3rem;

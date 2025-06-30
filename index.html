@@ -99,65 +99,63 @@
         </div>
     </section>
 
-    <!-- ========================================================================= -->
-    <!-- Sekcja Galeria                                                            -->
-    <!-- ========================================================================= -->
+<!-- ========================================================================= -->
+<!-- Sekcja Galeria                                                            -->
+<!-- ========================================================================= -->
+<section id="galeria" class="main-section gallery-section">
+    <div class="container-fluid px-3">
+        <div id="galeria-start-point"></div>
+        <div class="row gx-2 mt-2 align-items-center justify-content-center">
+            <!-- Galeria -->
+            <div class="col-lg-6 d-flex align-items-center">
+                <div class="w-100">
+                    <!-- Karuzela (mobile only) -->
+                    <div id="mobileGalleryCarousel" class="carousel slide d-md-none mb-5" data-bs-ride="carousel">
+                        <!-- Kropki -->
+                        <div class="carousel-indicators">
+                            <button type="button" data-bs-target="#mobileGalleryCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                            <button type="button" data-bs-target="#mobileGalleryCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                            <button type="button" data-bs-target="#mobileGalleryCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                            <button type="button" data-bs-target="#mobileGalleryCarousel" data-bs-slide-to="3" aria-label="Slide 4"></button>
+                        </div>
 
-    <section id="galeria" class="main-section gallery-section">
-        <div class="container-fluid px-3">
-            <div id="galeria-start-point"></div>
-            <div class="row gx-2 mt-2 align-items-center justify-content-center">
-        <!-- Galeria -->
-        <div class="col-lg-6 d-flex align-items-center">
-            <div class="w-100">
-                <!-- Karuzela (mobile only) -->
-                <div id="mobileGalleryCarousel" class="carousel slide d-md-none mb-5" data-bs-ride="carousel">
-                    <!-- Kropki -->
-                    <div class="carousel-indicators">
-                        <button type="button" data-bs-target="#mobileGalleryCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                        <button type="button" data-bs-target="#mobileGalleryCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                        <button type="button" data-bs-target="#mobileGalleryCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
-                        <button type="button" data-bs-target="#mobileGalleryCarousel" data-bs-slide-to="3" aria-label="Slide 4"></button>
+                        <!-- Slajdy -->
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <img src="assets/przykład-1.webp" class="gallery-carousel-img" alt="Przykład zdjęcia tęczówki 1" />
+                            </div>
+                            <div class="carousel-item">
+                                <img src="assets/wizualizacja 3.jpg" class="gallery-carousel-img" alt="Wizualizacja produktu 3" />
+                            </div>
+                            <div class="carousel-item">
+                                <img src="assets/wizualizacja 4.jpg" class="gallery-carousel-img" alt="Wizualizacja produktu 4" />
+                            </div>
+                            <div class="carousel-item">
+                                <img src="assets/przykład-2.webp" class="gallery-carousel-img" alt="Przykład zdjęcia tęczówki 2" />
+                            </div>
+                        </div>
+
+                        <!-- Strzałki -->
+                        <button class="carousel-control-prev" type="button" data-bs-target="#mobileGalleryCarousel" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Poprzedni</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#mobileGalleryCarousel" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Następny</span>
+                        </button>
                     </div>
 
-                    <!-- Slajdy -->
-                    <div class="carousel-inner">
-                        <div class="carousel-item active">
-                            <img src="assets/przykład-1.webp" class="gallery-carousel-img" alt="Przykład zdjęcia tęczówki 1" />
-                        </div>
-                        <div class="carousel-item">
-                            <img src="assets/wizualizacja 3.jpg" class="gallery-carousel-img" alt="Wizualizacja produktu 3" />
-                        </div>
-                        <div class="carousel-item">
-                            <img src="assets/wizualizacja 4.jpg" class="gallery-carousel-img" alt="Wizualizacja produktu 4" />
-                        </div>
-                        <div class="carousel-item">
-                            <img src="assets/przykład-2.webp" class="gallery-carousel-img" alt="Przykład zdjęcia tęczówki 2" />
-                        </div>
+                    <!-- Siatka 2x2 (desktop only) -->
+                    <div id="desktop-gallery-grid" class="gallery-grid d-none d-md-grid">
+                        <img src="assets/przykład 1.png" alt="Przykład zdjęcia tęczówki 1" />
+                        <img src="assets/wizualizacja 3.jpg" alt="Wizualizacja produktu 3" />
+                        <img src="assets/wizualizacja 4.jpg" alt="Wizualizacja produktu 4" />
+                        <img src="assets/przykład-2.webp" alt="Przykład zdjęcia tęczówki 2" />
                     </div>
-
-                    <!-- Strzałki -->
-                    <button class="carousel-control-prev" type="button" data-bs-target="#mobileGalleryCarousel" data-bs-slide="prev">
-                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Poprzedni</span>
-                    </button>
-                    <button class="carousel-control-next" type="button" data-bs-target="#mobileGalleryCarousel" data-bs-slide="next">
-                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Następny</span>
-                    </button>
                 </div>
-
-                <!-- Siatka 2x2 (desktop only) -->
-                <div id="desktop-gallery-grid" class="gallery-grid d-none d-md-grid">
-                <img src="assets/przykład 1.png" alt="Przykład zdjęcia tęczówki 1" />
-                <img src="assets/wizualizacja 3.jpg" alt="Wizualizacja produktu 3" />
-                <img src="assets/wizualizacja 4.jpg" alt="Wizualizacja produktu 4" />
-                <img src="assets/przykład-2.webp" alt="Przykład zdjęcia tęczówki 2" />
             </div>
-        </div>
-        </div>
-            <!-- Kolumna z tekstem opisowym galerii -->
-            <div class="col-lg-6 px-5 text-white gallery-text-column">
+            <div class="col-lg-6 px-3 px-lg-5 mt-4 text-white gallery-text-column">
                 <div class="title-block">
                     <h3 class="fw-bold gallery-title">Twoja tęczówka jako<br>element wystroju</h3>
                 </div>
@@ -166,18 +164,18 @@
                     <p class="fs-3 gallery-text-styling">Zdjęcie oka to nie tylko</p>
                     <p class="fs-3 gallery-text-styling">wyjątkowa forma sztuki – to coś, co ma znaczenie.</p>
                 </div>
-                    <div class="description-block-2">
-                        <p class="fs-3 gallery-text-styling"><strong>Dostępne różne formaty -</strong></p>
-                        <p class="fs-3 gallery-text-styling">zapytaj mnie, a pomogę dobrać</p>
-                        <p class="fs-3 gallery-text-styling">odpowiedni dla Ciebie.</p>
-                    </div>
-                    <div class="link-block">
-                        <a href="galeria.html" class="text-decoration-underline d-inline-block fs-2">Przejdź do galerii ></a>
-                    </div>
+                <div class="description-block-2">
+                    <p class="fs-3 gallery-text-styling"><strong>Dostępne różne formaty -</strong></p>
+                    <p class="fs-3 gallery-text-styling">zapytaj mnie, a pomogę dobrać</p>
+                    <p class="fs-3 gallery-text-styling">odpowiedni dla Ciebie.</p>
+                </div>
+                <div class="link-block">
+                    <a href="galeria.html" class="text-decoration-underline d-inline-block fs-2">Przejdź do galerii ></a>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
       
 <!-- ========================================================================= -->
