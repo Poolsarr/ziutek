@@ -1140,9 +1140,9 @@ button[type=submit]:hover {
 /* Style ogólne & Nowa Sekcja Galerii                                        */
 /* ========================================================================= */
 body {
-  background-color: #111;
+  background-color: #fff;
   font: normal 16px sans-serif;
-  color: #fff;
+  color: #111;
 }
 
 body.modal-open {
@@ -1196,7 +1196,6 @@ body.modal-open {
   display: block;
   position: relative;
   overflow: hidden;
-  border-radius: 0.25rem;
   height: 100%;
   max-height: 350px;
   cursor: pointer;
@@ -1321,6 +1320,7 @@ body.modal-open {
 @media (max-width: 768px) { /* Stosujemy od tabletów w dół */
   /* Zmniejszamy wysokość kafelków w siatce galerii */
   .tz-gallery .lightbox {
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.781);
     max-height: 200px; /* Zmniejszamy z 350px, aby kafelki były bardziej kwadratowe */
   }
   /* Zmniejszamy górny odstęp strony na mobilkach */
@@ -1441,6 +1441,8 @@ body.modal-open {
 @media (max-width: 767.98px) {
   #mobileGalleryCarousel {
     width: 100vw;
+    margin: 2rem;
+    padding: 2rem;
     margin-left: calc(-1 * (100vw - 100%) / 2); /* pełna szerokość, bez paddingu kontenera */
   }
   #mobileGalleryCarousel .carousel-item {

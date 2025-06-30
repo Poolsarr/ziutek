@@ -97,6 +97,8 @@
 @media (max-width: 767.98px) {
     #mobileGalleryCarousel {
         width: 100vw;
+        margin: 2rem;
+        padding: 2rem;
         margin-left: calc(-1 * (100vw - 100%) / 2); /* pełna szerokość, bez paddingu kontenera */
     }
 
