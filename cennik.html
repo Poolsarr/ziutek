@@ -25,7 +25,11 @@
     <nav id="main-navbar" class="navbar navbar-expand-lg navbar-dark bg-dark-custom fixed-top">
         <div class="container-fluid px-lg-5">       
             <a class="navbar-brand" href="index.html">
-                <img src="assets/logo eyestory-1.webp" alt="Eyestory Logo" height="35">
+                <picture>
+                    <!-- Jest png a nie jpg fallback bo musi byc support dla transparency -->
+                    <source type="image/webp" srcset="assets/logo-eyestory-1.webp">
+                    <img src="assets/logo-eyestory-1.png" alt="Eyestory Logo" height="35">
+                </picture>
             </a> 
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -73,7 +77,10 @@
                             <!-- Karta: SOLO -->
                             <div class="col">
                                 <div class="card border-0 text-center h-100 d-flex flex-column">
-                                    <img src="assets/cennik/cennik solo.png" class="card-img-top my-rounded mb-5 mx-auto d-block" alt="Solo">
+                                    <picture>
+                                        <source type="image/webp" srcset="assets/cennik/cennik-solo.webp">
+                                        <img src="assets/cennik/cennik-solo.jpg" class="card-img-top my-rounded mb-5 mx-auto d-block" alt="Solo">
+                                    </picture>
                                     <div class="card-body px-2 flex-grow-1">
                                         <h5 class="fw-bold">Solo</h5>
                                         <p class="text-muted mb-1">Jedna tęczówka.<br>Czysta forma.</p>
@@ -88,7 +95,10 @@
                             <!-- Karta: DUO -->
                             <div class="col">
                                 <div class="card border-0 text-center h-100 d-flex flex-column">
-                                    <img src="assets/cennik/cennik duo.png" class="card-img-top my-rounded mb-5 mx-auto d-block" alt="Duo">
+                                    <picture>
+                                        <source type="image/webp" srcset="assets/cennik/cennik-duo.webp">
+                                        <img src="assets/cennik/cennik-duo.jpg" class="card-img-top my-rounded mb-5 mx-auto d-block" alt="Duo">
+                                    </picture>
                                     <div class="card-body px-2 flex-grow-1">
                                         <h5 class="fw-bold">Duo</h5>
                                         <p class="text-muted mb-1">Dwie tęczówki.<br>Idealne dla par.</p>
@@ -103,7 +113,10 @@
                             <!-- Karta: TRIO -->
                             <div class="col">
                                 <div class="card border-0 text-center h-100 d-flex flex-column">
-                                    <img src="assets/cennik/cennik trio.png" class="card-img-top my-rounded mb-5 mx-auto d-block" alt="Trio">
+                                    <picture>
+                                        <source type="image/webp" srcset="assets/cennik/cennik-trio.webp">
+                                        <img src="assets/cennik/cennik-trio.jpg" class="card-img-top my-rounded mb-5 mx-auto d-block" alt="Trio">
+                                    </picture>
                                     <div class="card-body px-2 flex-grow-1">
                                         <h5 class="fw-bold">Trio</h5>
                                         <p class="text-muted mb-1">Trzy tęczówki.<br>Bliscy w jednym spojrzeniu.</p>
@@ -118,7 +131,10 @@
                             <!-- Karta: QUADRO -->
                             <div class="col">
                                 <div class="card border-0 text-center h-100 d-flex flex-column">
-                                    <img src="assets/cennik/cennik quadro.png" class="card-img-top my-rounded mb-5 mx-auto d-block" alt="Quadro">
+                                    <picture>
+                                        <source type="image/webp" srcset="assets/cennik/cennik-quadro.webp">
+                                        <img src="assets/cennik/cennik-quadro.jpg" class="card-img-top my-rounded mb-5 mx-auto d-block" alt="Quadro">
+                                    </picture>
                                     <div class="card-body px-2 flex-grow-1">
                                         <h5 class="fw-bold">Quadro</h5>
                                         <p class="text-muted mb-1">Cztery tęczówki.<br>Rodzina pełna więzi.</p>
@@ -146,7 +162,10 @@
                                 <!-- Slajd: SOLO -->
                                 <div class="carousel-item active">
                                     <div class="card border-0 bg-transparent text-center w-75 mx-auto">
-                                        <img src="assets/cennik/cennik solo.png" class="card-img-top my-rounded mb-5 mx-auto d-block" alt="Solo">
+                                        <picture>
+                                            <source type="image/webp" srcset="assets/cennik/cennik-solo.webp">
+                                            <img src="assets/cennik/cennik-solo.jpg" class="card-img-top my-rounded mb-5 mx-auto d-block" alt="Solo">
+                                        </picture>
                                         <div class="card-body px-2">
                                             <h5 class="fw-bold">Solo</h5>
                                             <p class="text-muted mb-1">Jedna tęczówka.<br>Czysta forma.</p>
@@ -158,7 +177,10 @@
                                 <!-- Slajd: DUO -->
                                 <div class="carousel-item">
                                     <div class="card border-0 bg-transparent text-center w-75 mx-auto">
-                                        <img src="assets/cennik/cennik duo.png" class="card-img-top my-rounded mb-5 mx-auto d-block" alt="Duo">
+                                        <picture>
+                                            <source type="image/webp" srcset="assets/cennik/cennik-duo.webp">
+                                            <img src="assets/cennik/cennik-duo.jpg" class="card-img-top my-rounded mb-5 mx-auto d-block" alt="Duo">
+                                        </picture>
                                         <div class="card-body px-2">
                                             <h5 class="fw-bold">Duo</h5>
                                             <p class="text-muted mb-1">Dwie tęczówki.<br>Idealne dla par.</p>
@@ -170,7 +192,10 @@
                                 <!-- Slajd: TRIO -->
                                 <div class="carousel-item">
                                     <div class="card border-0 bg-transparent text-center w-75 mx-auto">
-                                        <img src="assets/cennik/cennik trio.png" class="card-img-top my-rounded mb-5 mx-auto d-block" alt="Trio">
+                                        <picture>
+                                            <source type="image/webp" srcset="assets/cennik/cennik-trio.webp">
+                                            <img src="assets/cennik/cennik-trio.jpg" class="card-img-top my-rounded mb-5 mx-auto d-block" alt="Trio">
+                                        </picture>
                                         <div class="card-body px-2">
                                             <h5 class="fw-bold">Trio</h5>
                                             <p class="text-muted mb-1">Trzy tęczówki.<br>Bliscy w jednym spojrzeniu.</p>
@@ -182,7 +207,10 @@
                                 <!-- Slajd: QUADRO -->
                                 <div class="carousel-item">
                                     <div class="card border-0 bg-transparent text-center w-75 mx-auto">
-                                        <img src="assets/cennik/cennik quadro.png" class="card-img-top my-rounded mb-5 mx-auto d-block" alt="Quadro">
+                                        <picture>
+                                            <source type="image/webp" srcset="assets/cennik/cennik-quadro.webp">
+                                            <img src="assets/cennik/cennik-quadro.jpg" class="card-img-top my-rounded mb-5 mx-auto d-block" alt="Quadro">
+                                        </picture>
                                         <div class="card-body px-2">
                                             <h5 class="fw-bold">Quadro</h5>
                                             <p class="text-muted mb-1">Cztery tęczówki.<br>Rodzina pełna więzi.</p>
@@ -239,10 +267,16 @@
                                             <div id="soloCarousel" class="carousel slide" data-bs-ride="carousel">
                                                 <div class="carousel-inner">
                                                     <div class="carousel-item active">
-                                                        <img src="assets/cennik/mockup 1-1.png" alt="Wizualizacja produktu Solo 1" class="product-image d-block w-100">
+                                                        <picture>
+                                                            <source type="image/webp" srcset="assets/cennik/mockup-1-1.webp">
+                                                            <img src="assets/cennik/mockup-1-1.jpg" alt="Wizualizacja produktu Solo 1" class="product-image d-block w-100">
+                                                        </picture>
                                                     </div>
                                                     <div class="carousel-item">
-                                                        <img src="assets/cennik/solo mockup 1.webp" alt="Wizualizacja produktu Solo 2" class="product-image d-block w-100">
+                                                        <picture>
+                                                            <source type="image/webp" srcset="assets/cennik/solo-mockup-1.webp">
+                                                            <img src="assets/cennik/solo-mockup-1.jpg" alt="Wizualizacja produktu Solo 2" class="product-image d-block w-100">
+                                                        </picture>
                                                     </div>
                                                 </div>
                                                 <button class="carousel-control-prev" type="button" data-bs-target="#soloCarousel" data-bs-slide="prev">
@@ -301,10 +335,16 @@
                                             <div id="duoCarousel" class="carousel slide" data-bs-ride="carousel">
                                                 <div class="carousel-inner">
                                                     <div class="carousel-item active">
-                                                        <img src="assets/cennik/mockup 2-1.png" alt="Wizualizacja produktu Duo 1" class="product-image d-block w-100">
+                                                        <picture>
+                                                            <source type="image/webp" srcset="assets/cennik/mockup-2-1.webp">
+                                                            <img src="assets/cennik/mockup-2-1.jpg" alt="Wizualizacja produktu Duo 1" class="product-image d-block w-100">
+                                                        </picture>
                                                     </div>
                                                     <div class="carousel-item">
-                                                        <img src="assets/cennik/duo mockup 2.webp" alt="Wizualizacja produktu Duo 2" class="product-image d-block w-100">
+                                                        <picture>
+                                                            <source type="image/webp" srcset="assets/cennik/duo-mockup-2.webp">
+                                                            <img src="assets/cennik/duo-mockup-2.jpg" alt="Wizualizacja produktu Duo 2" class="product-image d-block w-100">
+                                                        </picture>
                                                     </div>
                                                 </div>
                                                 <button class="carousel-control-prev" type="button" data-bs-target="#duoCarousel" data-bs-slide="prev">
@@ -370,10 +410,16 @@
                                             <div id="trioCarousel" class="carousel slide" data-bs-ride="carousel">
                                                 <div class="carousel-inner">
                                                     <div class="carousel-item active">
-                                                        <img src="assets/cennik/mockup 3-1.png" alt="Wizualizacja produktu Trio 1" class="product-image d-block w-100">
+                                                        <picture>
+                                                            <source type="image/webp" srcset="assets/cennik/mockup-3-1.webp">
+                                                            <img src="assets/cennik/mockup-3-1.jpg" alt="Wizualizacja produktu Trio 1" class="product-image d-block w-100">
+                                                        </picture>
                                                     </div>
                                                     <div class="carousel-item">
-                                                        <img src="assets/cennik/trio 1.webp" alt="Wizualizacja produktu Trio 2" class="product-image d-block w-100">
+                                                        <picture>
+                                                            <source type="image/webp" srcset="assets/cennik/trio-1.webp">
+                                                            <img src="assets/cennik/trio-1.jpg" alt="Wizualizacja produktu Trio 2" class="product-image d-block w-100">
+                                                        </picture>
                                                     </div>
                                                 </div>
                                                 <button class="carousel-control-prev" type="button" data-bs-target="#trioCarousel" data-bs-slide="prev">
@@ -432,10 +478,16 @@
                                             <div id="quadroCarousel" class="carousel slide" data-bs-ride="carousel">
                                                 <div class="carousel-inner">
                                                     <div class="carousel-item active">
-                                                        <img src="assets/cennik/mockup 4-1.png" alt="Wizualizacja produktu Quadro 1" class="product-image d-block w-100">
+                                                        <picture>
+                                                            <source type="image/webp" srcset="assets/cennik/mockup-4-1.webp">
+                                                            <img src="assets/cennik/mockup-4-1.jpg" alt="Wizualizacja produktu Quadro 1" class="product-image d-block w-100">
+                                                        </picture>
                                                     </div>
                                                     <div class="carousel-item">
-                                                        <img src="assets/cennik/quadro 1.webp" alt="Wizualizacja produktu Quadro 2" class="product-image d-block w-100">
+                                                        <picture>
+                                                            <source type="image/webp" srcset="assets/cennik/quadro-1.webp">
+                                                            <img src="assets/cennik/quadro-1.jpg" alt="Wizualizacja produktu Quadro 2" class="product-image d-block w-100">
+                                                        </picture>
                                                     </div>
                                                 </div>
                                                 <button class="carousel-control-prev" type="button" data-bs-target="#quadroCarousel" data-bs-slide="prev">
