@@ -1015,18 +1015,13 @@ button[type=submit]:hover {
   top: 50%;
   transform: translate(-50%, -50%);
   pointer-events: none; /* Zapobiega blokowaniu kliknięć na elementach pod spodem */
-  /* Ukrywamy napis na widoku mobilnym */
-}
-@media (max-width: 991.98px) {
-  .location-info-wrapper {
-    display: none;
-  }
 }
 
 .location-info {
   color: #ffffff; /* Wyraźny czerwony kolor */
   font-weight: bold;
   font-size: 0.9rem; /* Delikatnie mniejszy niż linki nawigacji */
+  transition: opacity 0.3s ease;
 }
 
 /* Style zielonego przycisku (pozostają takie same w obu trybach) */
@@ -1087,6 +1082,25 @@ button[type=submit]:hover {
 /* Style dla widoku mobilnego (POPRAWIONA WERSJA)                            */
 /* ========================================================================= */
 @media (max-width: 991.98px) {
+  /* === ZMIANA DLA NAPISU O LOKALIZACJI === */
+  .navbar > .container-fluid {
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  .location-info-wrapper {
+    position: static;
+    transform: none;
+    pointer-events: auto;
+    flex-basis: 100%;
+    width: 100%;
+    order: 3;
+    text-align: center;
+    padding-bottom: 0.5rem;
+  }
+  .location-info {
+    font-size: 0.75rem;
+  }
+  /* === KONIEC ZMIAN DLA NAPISU === */
   /* KROK 1: Przygotowanie kontenera collapse do płynnej animacji */
   .navbar-collapse {
     /* Usuń wszystkie marginesy podczas animacji */
