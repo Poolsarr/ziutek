@@ -1,5 +1,3 @@
-// scss/sections/_navbar.scss
-
 /* ========================================================================= */
 /* Navbar Styles - DOMYŚLNE (CIEMNY NAVBAR)                                  */
 /* ========================================================================= */
@@ -32,6 +30,29 @@
     color: #ffffff;
     background-color: rgba(255, 255, 255, 0.1);
 }
+
+/* ========================================================================= */
+/* NOWY STYL - Informacja o lokalizacji sesji                                */
+/* ========================================================================= */
+.location-info-wrapper {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none; /* Zapobiega blokowaniu kliknięć na elementach pod spodem */
+
+    /* Ukrywamy napis na widoku mobilnym */
+    @media (max-width: 991.98px) {
+        display: none;
+    }
+}
+
+.location-info {
+    color: #ffffff; /* Wyraźny czerwony kolor */
+    font-weight: bold;
+    font-size: 0.9rem; /* Delikatnie mniejszy niż linki nawigacji */
+}
+
 
 /* Style zielonego przycisku (pozostają takie same w obu trybach) */
 .btn-custom-green {

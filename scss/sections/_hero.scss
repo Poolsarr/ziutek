@@ -14,38 +14,46 @@
         z-index: 3;
     }
 
+    .orb-super-container {
+        text-align: center;
+    }
+    
     .hero-title-large { font-size: 6.5rem; }
     .hero-subtitle-medium { font-size: 1.5rem; }
     .hero-title-medium { font-size: 4.25rem; }
 
-    @media (max-width: 991.98px) {
+   @media (max-width: 991.98px) {
         min-height: auto;
         display: block; 
-        padding-top: 2rem; 
+        padding-top: 5rem; 
         padding-bottom: 2rem;
-        padding-top: 5rem;
         
-        .row { flex-direction: column; }
+        .row { 
+            flex-direction: column; 
+        }
         
         .col-lg-6.pb-5.pt-5.ps-lg-5 {
             order: -1;
             padding: 0 !important;
         }
         
+
+        //Centruje obraz
+        .orb-super-container {
+            text-align: center;
+        }
+        
+        // Kontener z tekstem
         .hero-text-container {
             text-align: center;
             max-width: 90%;   
-            // Przywracamy duży ujemny margines, aby cały kontener nachodził na obraz
             margin: -5rem auto 0; 
         }
 
         .hero-title-large { 
             font-size: 2.8rem; 
             line-height: 1.1; 
-            // === KLUCZOWA ZMIANA ===
-            // Dodajemy margines górny tylko do tego nagłówka,
-            // aby "odepchnąć" go w dół od krawędzi kontenera.
-            margin-top: 3rem; // Możesz dostosować tę wartość (np. 2rem, 4rem)
+            margin-top: 3rem; 
         }
         .hero-subtitle-medium { font-size: 1rem !important; }
         .hero-title-medium { font-size: 2rem; line-height: 1.1; }
