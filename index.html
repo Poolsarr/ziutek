@@ -38,7 +38,11 @@
         <div class="container-fluid px-lg-5">
             <!-- Logo -->            
             <a class="navbar-brand" href="#">
-                <img src="assets/logo eyestory-1.webp" alt="Eyestory Logo" height="35">
+                <picture>
+                    <!-- Jest png a nie jpg fallback bo musi byc support dla transparency -->
+                    <source type="image/webp" srcset="assets/logo-eyestory-1.webp">
+                    <img src="assets/logo-eyestory-1.png" alt="Eyestory Logo" height="35">
+                </picture>
             </a> 
             <!-- Przycisk "Hamburger" dla widoku mobilnego -->
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -88,7 +92,11 @@
                 <!-- Kolumna z obrazem i efektem orb -->
                 <div class="col-lg-6 pb-5 pt-5 ps-lg-5">
                     <div class="orb-super-container">
-                        <img src="assets/kolaz-nowy.webp" class="img-fluid hero-image" alt="kolaż zdjęć tęczówek">
+                        <picture>
+                            <!-- Jest png a nie jpg fallback bo musi byc support dla transparency -->
+                            <source type="image/webp" srcset="assets/kolaz-nowy.webp">
+                            <img src="assets/kolaz-nowy.png" class="img-fluid hero-image" alt="kolaż zdjęć tęczówek">
+                        </picture>
                         <span class="orb-container">
                             <span class="orb-inner"></span>
                             <span class="orb-outer"></span>
@@ -122,16 +130,29 @@
                         <!-- Slajdy -->
                         <div class="carousel-inner">
                             <div class="carousel-item active">
-                                <img src="assets/przykład-1.webp" class="gallery-carousel-img" alt="Przykład zdjęcia tęczówki 1" />
+                                <picture>
+                                    <source type="image/webp" srcset="assets/przyklad-1.webp">
+                                    <img src="assets/przyklad-1.jpg" class="gallery-carousel-img" alt="Przykład zdjęcia tęczówki 1" />
+                                </picture>
                             </div>
                             <div class="carousel-item">
-                                <img src="assets/wizualizacja 3.webp" class="gallery-carousel-img" alt="Wizualizacja produktu 3" />
+                                <picture>
+                                    <source type="image/webp" srcset="assets/wizualizacja-3.webp">
+                                    <img src="assets/wizualizacja-3.jpg" class="gallery-carousel-img" alt="Wizualizacja produktu 3" />
+                                </picture>
                             </div>
                             <div class="carousel-item">
-                                <img src="assets/wizualizacja 4.webp" class="gallery-carousel-img" alt="Wizualizacja produktu 4" />
+                                <picture>
+                                    <source type="image/webp" srcset="assets/wizualizacja-4.webp">
+                                    <img src="assets/wizualizacja-4.jpg" class="gallery-carousel-img" alt="Wizualizacja produktu 4" />
+                                </picture>
                             </div>
                             <div class="carousel-item">
-                                <img src="assets/przykład-2.webp" class="gallery-carousel-img" alt="Przykład zdjęcia tęczówki 2" />
+
+                                <picture>
+                                    <source type="image/webp" srcset="assets/przyklad-2.webp">
+                                    <img src="assets/przyklad-2.jpg" class="gallery-carousel-img" alt="Przykład zdjęcia tęczówki 2" />
+                                </picture>
                             </div>
                         </div>
 
@@ -148,10 +169,22 @@
 
                     <!-- Siatka 2x2 (desktop only) -->
                     <div id="desktop-gallery-grid" class="gallery-grid d-none d-md-grid">
-                        <img src="assets/przykład 1.png" alt="Przykład zdjęcia tęczówki 1" />
-                        <img src="assets/wizualizacja 3.webp" alt="Wizualizacja produktu 3" />
-                        <img src="assets/wizualizacja 4.webp" alt="Wizualizacja produktu 4" />
-                        <img src="assets/przykład-2.webp" alt="Przykład zdjęcia tęczówki 2" />
+                        <picture>
+                            <source type="image/webp" srcset="assets/przyklad-1.webp">
+                            <img src="assets/przyklad-1.jpg" alt="Przykład zdjęcia tęczówki 1" />
+                        </picture>
+                        <picture>
+                            <source type="image/webp" srcset="assets/wizualizacja-3.webp">
+                            <img src="assets/wizualizacja-3.jpg" alt="Wizualizacja produktu 3" />
+                        </picture>
+                        <picture>
+                            <source type="image/webp" srcset="assets/wizualizacja-4.webp">
+                            <img src="assets/wizualizacja-4.jpg" alt="Wizualizacja produktu 4" />
+                        </picture>
+                        <picture>
+                            <source type="image/webp" srcset="assets/przyklad-2.webp">
+                            <img src="assets/przyklad-2.jpg" alt="Przykład zdjęcia tęczówki 2" />
+                        </picture>
                     </div>
                 </div>
             </div>

@@ -57,9 +57,21 @@
             box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
         }
     }
-    .info-card-products { background-image: url('assets/wizualizacja2.png'); }
+    
+    @mixin webp-background($webp-path, $fallback-path) {
+        // Fallback: Default to the PNG image
+        background-image: url($fallback-path);
+
+        // Check if the browser supports WebP (using a tiny base64 encoded WebP image)
+        // If it does, override the background-image with the WebP version
+        @supports (background-image: url('data:image/webp;base64,UklGRiSIAABXRUJQVlA4IBaIAAAQAwCdASoBAAEAAgDbtlstgFAAgAAAAA')) {
+            background-image: url($webp-path);
+        }
+    }
+
+    .info-card-products { @include webp-background('assets/wizualizacja-2.webp', 'assets/wizualizacja-2.jpg'); }
     .info-card-dimensions {
-        background-image: url('assets/wizualizacja.png');
+        @include webp-background('assets/wizualizacja.webp', 'assets/wizualizacja.jpg');
         h3 { color: #000000 !important; }
         p { color: #333; }
     }
