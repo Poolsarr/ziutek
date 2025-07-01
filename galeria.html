@@ -18,7 +18,13 @@
     <!-- Nawigacja -->
     <nav id="main-navbar" class="navbar navbar-expand-lg navbar-dark bg-dark-custom fixed-top">
         <div class="container-fluid px-lg-5">          
-            <a class="navbar-brand" href="index.html"><img src="assets/logo eyestory-1.webp" alt="Eyestory Logo" height="35"></a> 
+            <a class="navbar-brand" href="index.html">
+                <picture>
+                    <!-- Jest png a nie jpg fallback bo musi byc support dla transparency -->
+                    <source type="image/webp" srcset="assets/logo-eyestory-1.webp">
+                    <img src="assets/logo-eyestory-1.png" alt="Eyestory Logo" height="35">
+                </picture>
+            </a> 
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
