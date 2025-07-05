@@ -120,8 +120,12 @@
                     <div class="orb-super-container">
                         <picture>
                             <!-- Jest png a nie jpg fallback bo musi byc support dla transparency -->
-                            <source type="image/webp" srcset="assets/kolaz-nowy.webp">
-                            <img src="assets/kolaz-nowy.png" class="img-fluid hero-image" alt="kolaż zdjęć tęczówek">
+                            <source media="(max-width: 767.98px)" srcset="assets/kolaz-nowy-s.webp" type="image/webp">
+                            <source media="(max-width: 767.98px)" srcset="assets/kolaz-nowy-s.png" type="image/png">
+                            <source media="(max-width: 991.98px)" srcset="assets/kolaz-nowy-m.webp" type="image/webp">
+                            <source media="(max-width: 991.98px)" srcset="assets/kolaz-nowy-m.png" type="image/png">
+                            <source type="image/webp" srcset="assets/kolaz-nowy-xl.webp">
+                            <img src="assets/kolaz-nowy-xl.png" class="img-fluid hero-image" alt="kolaż zdjęć tęczówek" fetchpriority="high">
                         </picture>
                         <span class="orb-container">
                             <span class="orb-inner"></span>
@@ -170,14 +174,14 @@
                             <div class="carousel-item">
                                 <picture>
                                     <source type="image/webp" srcset="assets/wizualizacja-4.webp">
-                                    <img src="assets/wizualizacja-4.jpg" class="gallery-carousel-img" alt="Wizualizacja produktu 4" />
+                                    <img src="assets/wizualizacja-4.jpg" class="gallery-carousel-img" alt="Wizualizacja produktu 4" loading="lazy" />
                                 </picture>
                             </div>
                             <div class="carousel-item">
 
                                 <picture>
                                     <source type="image/webp" srcset="assets/przyklad-2.webp">
-                                    <img src="assets/przyklad-2.jpg" class="gallery-carousel-img" alt="Przykład zdjęcia tęczówki 2" />
+                                    <img src="assets/przyklad-2.jpg" class="gallery-carousel-img" alt="Przykład zdjęcia tęczówki 2" loading="lazy" />
                                 </picture>
                             </div>
                         </div>
@@ -205,11 +209,11 @@
                         </picture>
                         <picture>
                             <source type="image/webp" srcset="assets/wizualizacja-4.webp">
-                            <img src="assets/wizualizacja-4.jpg" alt="Wizualizacja produktu 4" />
+                            <img src="assets/wizualizacja-4.jpg" alt="Wizualizacja produktu 4" loading="lazy" />
                         </picture>
                         <picture>
                             <source type="image/webp" srcset="assets/przyklad-2.webp">
-                            <img src="assets/przyklad-2.jpg" alt="Przykład zdjęcia tęczówki 2" />
+                            <img src="assets/przyklad-2.jpg" alt="Przykład zdjęcia tęczówki 2" loading="lazy"/>
                         </picture>
                     </div>
                 </div>
