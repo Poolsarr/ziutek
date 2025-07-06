@@ -1,24 +1,32 @@
 {
   "devDependencies": {
+    "@rollup/plugin-node-resolve": "^16.0.1",
+    "@rollup/plugin-terser": "^0.4.4",
+    "copyfiles": "^2.4.1",
+    "critical": "^7.2.1",
     "html-minifier": "^4.0.0",
     "mkdirp": "^3.0.1",
     "npm-run-all": "^4.1.5",
+    "purgecss": "^7.0.2",
     "sass": "^1.89.2",
     "terser": "^5.43.1"
   },
   "scripts": {
-    "prebuild": "mkdirp optimized/scripts",
-    "build:html": "npm-run-all -p build:html:*",
-    "build:html:index": "html-minifier index.html -o optimized/index.html --remove-comments --collapse-whitespace",
-    "build:html:cennik": "html-minifier cennik.html -o optimized/cennik.html --remove-comments --collapse-whitespace",
-    "build:html:galeria": "html-minifier galeria.html -o optimized/galeria.html --remove-comments --collapse-whitespace",
+    "prebuild": "mkdirp optimized optimized/scripts",
     "build:js": "npm-run-all -p build:js:*",
-    "build:js:carousel-touch": "terser scripts/carousel-touch.js -o optimized/scripts/carousel-touch.js -c -m",
-    "build:js:cennik": "terser scripts/cennik.js -o optimized/scripts/cennik.js -c -m",
-    "build:js:contact-form": "terser scripts/contact-form.js -o optimized/scripts/contact-form.js -c -m",
-    "build:js:dynamic-navbar": "terser scripts/dynamic-navbar.js -o optimized/scripts/dynamic-navbar.js -c -m",
-    "build:js:eye-story-scroll": "terser scripts/eye-story-scroll.js -o optimized/scripts/eye-story-scroll.js -c -m",
+    "build:js:carousel-touch": "terser scripts/carousel-touch.js -o optimized/scripts/carousel-touch.js -c drop_console=true -m",
+    "build:js:cennik": "terser scripts/cennik.js -o optimized/scripts/cennik.js -c drop_console=true -m",
+    "build:js:contact-form": "terser scripts/contact-form.js -o optimized/scripts/contact-form.js -c drop_console=true -m",
+    "build:js:dynamic-navbar": "terser scripts/dynamic-navbar.js -o optimized/scripts/dynamic-navbar.js -c drop_console=true -m",
+    "build:js:eye-story-scroll": "terser scripts/eye-story-scroll.js -o optimized/scripts/eye-story-scroll.js -c drop_console=true -m",
     "build:css": "sass scss/main.scss optimized/style.css --style compressed",
-    "build": "npm-run-all prebuild -p build:html build:js build:css"
+    "build:copy-html": "copyfiles --up 0 index.html cennik.html galeria.html optimized/",
+    "build:purgecss": "node run-purgecss.js",
+    "build:critical": "node generate-critical-css.js",
+    "build:minify-html": "npm-run-all -p build:minify-html:*",
+    "build:minify-html:index": "html-minifier optimized/index.html -o optimized/index.html --remove-comments --collapse-whitespace",
+    "build:minify-html:cennik": "html-minifier optimized/cennik.html -o optimized/cennik.html --remove-comments --collapse-whitespace",
+    "build:minify-html:galeria": "html-minifier optimized/galeria.html -o optimized/galeria.html --remove-comments --collapse-whitespace",
+    "build": "npm-run-all prebuild && npm-run-all -p build:js build:css build:copy-html && npm-run-all build:purgecss build:critical build:minify-html"
   }
 }

@@ -2,6 +2,12 @@
 // Główny plik SCSS - importuje wszystkie części
 // ==========================================================================
 
+// 0. Zewnętrzne importy
+@use 'vendor/normalize.css';
+@use 'vendor/bootstrap.min.css';
+@use 'vendor/bootstrap-icons.min.css';
+@use 'vendor/animate.min.css';
+
 // 1. Podstawowe style i globalne ustawienia
 @use 'base/base';
 
