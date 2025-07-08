@@ -3,5 +3,6 @@ module.exports = {
   css: ['./optimized/style.css'],
   keyframes: true,
   fontFace: true,
-  variables: true
+  variables: true,
+  safelist: [/^carousel/]
 }
