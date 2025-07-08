@@ -1,7 +1,7 @@
 <?php
 session_start();
 $password = 'siemaeniu339'; // Pamiętaj, aby używać swojego hasła!
-$galleryDir = '../assets/galeria/'; // Ścieżka do galerii
+$galleryDir = '../assets/galeria/';
 
 $login_error = '';
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['password'])) {
@@ -52,7 +52,7 @@ if (isset($_GET['logout'])) {
                         <?php elseif($_GET['status'] == 'error'): ?>
                             <div class="alert alert-danger">Wystąpił błąd podczas przesyłania.</div>
                         <?php elseif($_GET['status'] == 'deleted'): ?>
-                            <div class="alert alert-success">Plik został usunięty.</div>
+                            <div class="alert alert-success">Plik(i) został usunięty.</div>
                         <?php elseif($_GET['status'] == 'delete_error'): ?>
                             <div class="alert alert-danger">Nie udało się usunąć pliku.</div>
                         <?php endif; ?>
@@ -61,14 +61,14 @@ if (isset($_GET['logout'])) {
                     <form action="upload.php" method="post" enctype="multipart/form-data">
                         <div class="mb-3">
                             <label for="photos" class="form-label">Wybierz zdjęcia (możesz zaznaczyć kilka naraz)</label>
-                            <input class="form-control" type="file" id="photos" name="photos[]" multiple required accept="image/*">
+                            <input class="form-control" type="file" id="photos" name="photos[]" multiple required accept="image/jpeg,image/png,image/gif">
                         </div>
                         <button type="submit" class="btn btn-primary w-100">Prześlij na serwer</button>
                     </form>
                 </div>
             </div>
 
-            <!-- NOWA SEKCJA: Zarządzanie galerią -->
+            <!-- SEKCJA ZARZĄDZANIA GALERIĄ (ZMIENIONA) -->
             <div class="card">
                 <div class="card-header">
                     <h4 class="mb-0">Zarządzaj galerią</h4>
@@ -77,29 +77,39 @@ if (isset($_GET['logout'])) {
                     <ul class="list-group">
                         <?php
                         if (is_dir($galleryDir)) {
-                            // Skanujemy katalog i odrzucamy '.' i '..'
-                            $files = array_diff(scandir($galleryDir), ['.', '..']);
+                            // Skanujemy katalog
+                            $files = array_diff(scandir($galleryDir, SCANDIR_SORT_DESCENDING), ['.', '..']);
+                            $originalFiles = [];
+
+                            // Filtrujemy, aby zostawić tylko oryginalne pliki (nie .webp)
+                            foreach ($files as $file) {
+                                $ext = strtolower(pathinfo($file, PATHINFO_EXTENSION));
+                                if ($ext !== 'webp' && is_file($galleryDir . $file)) {
+                                    $originalFiles[] = $file;
+                                }
+                            }
                             
-                            if (empty($files)) {
+                            if (empty($originalFiles)) {
                                 echo '<li class="list-group-item">Galeria jest pusta.</li>';
                             } else {
-                                foreach ($files as $file) {
-                                    // Upewniamy się, że to plik, a nie folder
-                                    if (is_file($galleryDir . $file)) {
-                                        echo '<li class="list-group-item d-flex justify-content-between align-items-center">';
-                                        // Miniatura i nazwa pliku
-                                        echo '<div>';
-                                        echo '<img src="' . htmlspecialchars($galleryDir . $file) . '" class="img-thumbnail thumbnail me-3" alt="Miniatura">';
-                                        echo '<span>' . htmlspecialchars($file) . '</span>';
-                                        echo '</div>';
-                                        
-                                        // Formularz z przyciskiem do usuwania
-                                        echo '<form action="delete.php" method="post" onsubmit="return confirm(\'Czy na pewno chcesz usunąć ten plik?\');">';
-                                        echo '<input type="hidden" name="filename" value="' . htmlspecialchars($file) . '">';
-                                        echo '<button type="submit" class="btn btn-danger btn-sm">Usuń</button>';
-                                        echo '</form>';
-                                        echo '</li>';
-                                    }
+                                foreach ($originalFiles as $file) {
+                                    // Ścieżka do miniatury. Używamy oryginału, bo to tylko podgląd.
+                                    $thumbnailPath = htmlspecialchars($galleryDir . $file);
+                                    
+                                    echo '<li class="list-group-item d-flex justify-content-between align-items-center">';
+                                    // Miniatura i nazwa pliku
+                                    echo '<div>';
+                                    echo '<img src="' . $thumbnailPath . '?' . time() . '" class="img-thumbnail thumbnail me-3" alt="Miniatura">';
+                                    echo '<span>' . htmlspecialchars($file) . '</span>';
+                                    echo '</div>';
+                                    
+                                    // Formularz z przyciskiem do usuwania
+                                    echo '<form action="delete.php" method="post" onsubmit="return confirm(\'Czy na pewno chcesz usunąć to zdjęcie (JPG/PNG i WEBP)?\');">';
+                                    // Wysyłamy do delete.php nazwę oryginalnego pliku. On już będzie wiedział, co zrobić.
+                                    echo '<input type="hidden" name="filename" value="' . htmlspecialchars($file) . '">';
+                                    echo '<button type="submit" class="btn btn-danger btn-sm">Usuń</button>';
+                                    echo '</form>';
+                                    echo '</li>';
                                 }
                             }
                         } else {
