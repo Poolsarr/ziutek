@@ -92,9 +92,9 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto align-items-center">
                     <li class="nav-item"><a class="nav-link" href="index.html#eye-story-section">O nas</a></li>
-                    <li class="nav-item"><a class="nav-link" href="cennik.html">Cennik</a></li>
+                    <li class="nav-item"><a class="nav-link" href="cennik.php">Cennik</a></li>
                     <li class="nav-item"><a class="nav-link active" href="galeria.html">Galeria</a></li>
-                    <li class="nav-item"><a class="nav-link" href="cennik.html#faq-cennik">FAQ</a></li>
+                    <li class="nav-item"><a class="nav-link" href="cennik.php#faq-cennik">FAQ</a></li>
                     <li class="nav-item"><a class="btn btn-custom-green" href="index.html#kontakt">Napisz do nas już teraz!</a></li>
                 </ul>
             </div>

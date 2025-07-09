@@ -1,0 +1,76 @@
+{
+    "products": {
+        "solo": {
+            "title": "Solo",
+            "description": "Jedna tęczówka.<br>Czysta forma.",
+            "price_from": "Od 129 zł"
+        },
+        "duo": {
+            "title": "Duo",
+            "description": "Dwie tęczówki.<br>Idealne dla par.",
+            "price_from": "Od 229 zł"
+        },
+        "trio": {
+            "title": "Trio",
+            "description": "Trzy tęczówki.<br>Bliscy w jednym spojrzeniu.",
+            "price_from": "Od 329 zł"
+        },
+        "quadro": {
+            "title": "Quadro",
+            "description": "Cztery tęczówki.<br>Rodzina pełna więzi.",
+            "price_from": "Od 419 zł"
+        }
+    },
+    "pricing_details": {
+        "solo": [
+            { "size": "S (K)", "dimensions": "Ramka o wymiarach<br> 15x15 cm", "price": "129 zł" },
+            { "size": "M (K)", "dimensions": "Ramka o wymiarach<br> 20x20 cm", "price": "159 zł" },
+            { "size": "L (K)", "dimensions": "Ramka o wymiarach<br> 30x30 cm", "price": "179 zł" },
+            { "size": "XL (K)", "dimensions": "Ramka o wymiarach<br> 50x50 cm", "price": "229 zł" }
+        ],
+        "duo": [
+            { "size": "M (K)", "dimensions": "Ramka o wymiarach<br> 20x20 cm", "price": "229 zł" },
+            { "size": "L (K)", "dimensions": "Ramka o wymiarach<br> 30x30 cm", "price": "249 zł" },
+            { "size": "K (P)", "dimensions": "Ramka o wymiarach<br>40x30 cm", "price": "269 zł" },
+            { "size": "XL (K)", "dimensions": "Ramka o wymiarach<br> 50x50 cm", "price": "309 zł" },
+            { "size": "XL (P)", "dimensions": "Ramka o wymiarach<br> 60x40 cm", "price": "339 zł" }
+        ],
+        "trio": [
+            { "size": "L (K)", "dimensions": "Ramka o wymiarach<br> 30x20 cm", "price": "329 zł" },
+            { "size": "L (P)", "dimensions": "Ramka o wymiarach<br> 50x20 cm", "price": "369 zł" },
+            { "size": "XL (K)", "dimensions": "Ramka o wymiarach<br> 50x50 cm", "price": "399 zł" },
+            { "size": "XL (P)", "dimensions": "Ramka o wymiarach<br> 70x30 cm", "price": "439 zł" }
+        ],
+        "quadro": [
+            { "size": "L (K)", "dimensions": "Ramka o wymiarach<br> 40x40 cm", "price": "419 zł" },
+            { "size": "XL (P)", "dimensions": "Ramka o wymiarach<br> 70x30 cm", "price": "469 zł" },
+            { "size": "XXL (K)", "dimensions": "Ramka o wymiarach<br> 60x60 cm", "price": "509 zł" }
+        ]
+    },
+    "faq": {
+        "oferta": [
+            { "question": "Na jakim terenie realizowane są sesje?", "answer": "Sesje realizuję wyłącznie na terenie Trójmiasta – Gdańsk, Gdynia, Sopot. Spotkanie odbywa się w ustalonym wcześniej miejscu w obrębie tych miast." },
+            { "question": "Jakie są ceny?", "answer": "Ceny zależą od wybranego formatu i liczby osób na zdjęciu — sesja SOLO (1 osoba) zaczyna się od 129 zł, DUO (2 osoby) od 229 zł, TRIO (3 osoby) od 329 zł, a QUADRO (4 osoby) od 419 zł. Szczegóły znajdziesz w zakładce CENNIK." },
+            { "question": "Czy można zamówić zdjęcie z efektem specjalnym (np. czarno-białe)?", "answer": "Tak, oferujemy możliwość personalizacji zdjęć, w tym różne filtry i efekty artystyczne." },
+            { "question": "Czy można zamówić zdjęcia na płótnie?", "answer": "Tak, oferujemy różne opcje wydruków, w tym na płótnie." },
+            { "question": "Czy oferujecie oprawę zdjęć?", "answer": "Tak, oferujemy oprawę zdjęć na zamówienie. Możesz wybrać kolor ramki, który najlepiej pasuje do Twojego wnętrza. Szczegóły i dostępne opcje ustalamy indywidualnie." },
+            { "question": "Czy mogę zamówić wersję cyfrową zdjęcia?", "answer": "Tak — oprócz wydruku otrzymujesz również wersję cyfrową w wysokiej rozdzielczości, które wyślemy na Twój adres e-mail." },
+            { "question": "Jakie formaty wydruków oferujecie?", "answer": "Oferujemy wydruki w kilku popularnych formatach, które dopasujesz do swojego wnętrza i potrzeb. Jeśli masz nietypowe życzenia lub potrzebujesz innego formatu, zawsze możemy się dogadać i wyjść poza standardowe ramy - napisz do nas, a przygotujemy indywidualną ofertę." }
+        ],
+        "sesja": [
+            { "question": "Czy mogę zobaczyć przykładowe zdjęcia przed sesją?", "answer": "Tak, na stronie dostępne są galerie przykładowych prac GALERIA." },
+            { "question": "Jak wygląda sesja?", "answer": "Sesja trwa zwykle kilka minut. Ja wykonuje serię zdjęć Twojej tęczówki za pomocą specjalistycznego sprzętu. Cały proces jest bezbolesny i nieinwazyjny - wystarczy, że utrzymasz wzrok na wskazanym punkcie przez chwilę. Po sesji możesz od razu zobaczyć efekty na ekranie.\n\nUWAGA!\nPodczas fotografowania tęczówki używamy mocnego światła, aby uchwycić wszystkie detale oka. Światło jest całkowicie bezpieczne, ale może być chwilowo intensywne dla osób o wrażliwych oczach. Jeśli masz szczególne przeciwwskazania okulistyczne lub bardzo wrażliwe oczy – prosimy poinformuj nas o tym przed sesją." },
+            { "question": "Czy mogę mieć na sobie soczewki kontaktowe podczas sesji?", "answer": "Nie zalecamy noszenia soczewek kontaktowych podczas sesji, ponieważ mogą one wpłynąć na jakość zdjęcia tęczówki. Prosimy o ich zdjęcie na co najmniej kilka godzin przed sesją, aby uzyskać najlepszy efekt." },
+            { "question": "Czy dzieci mogą brać udział w sesji?", "answer": "Tak, aczkolwiek dopiero od 8 roku życia, jeśli są w stanie utrzymać wzrok w jednym punkcie przez kilka sekund. W przypadku młodszych dzieci sesja może być o wiele trudniejsza, ale zawsze próbujemy w bezpieczny i spokojny sposób." }
+        ],
+        "proces": [
+            { "question": "Jak wygląda proces składania większego zamówienia?", "answer": "Najpierw ustalamy szczegóły spotkania mailowo bądź telefonicznie wraz z zakresem zamówienia, następnie wykonujemy zdjęcie w wybranym terminie i tego samego dnia przygotowujemy projekt do akceptacji, a po zatwierdzeniu realizujemy zamówienie z priorytetem." },
+            { "question": "Czy otrzymam projekt do akceptacji?", "answer": "Tak, przed finalnym wydrukiem zawsze wysyłam klientowi projekt do akceptacji. Dzięki temu masz pewność, że efekt będzie dokładnie taki, jak sobie wymarzyłeś." },
+            { "question": "Jak długo trwa realizacja zamówienia?", "answer": "Zdjęcie wykonuję na miejscu, a projekt jeszcze tego samego dnia wysyłam do akceptacji ze strony klienta. Osobiście składam zamówienie w drukarni i zamawiam odpowiedni format wydruku wraz z ramką na zamówienie. Realizacja standardowego zamówienia zajmuje zwykle od 3 do 7 dni roboczych. W przypadku większego formatu lub większej ilości opraw ten termin może się wydłużyć do 14 dni roboczych.\n\nW przypadku zamówień z wysyłką, do czasu realizacji należy doliczyć czas dostawy (zwykle 1–2 dni robocze). Zamówienie można również odebrać osobiście :)\n\nJeśli klient wybiera wyłącznie wersję cyfrową, plik gotowy do pobrania wysyłam najczęściej w ciągu 24 godzin od zatwierdzenia projektu." },
+            { "question": "Czy mogę zamówić większą ilość takich zdjęć (np. na ślub albo urodziny)?", "answer": "Tak, oferujemy możliwość zamówienia większej ilości zdjęć na różne okazje, takie jak śluby, urodziny czy inne wydarzenia. W przypadku większych zamówień przygotowujemy indywidualną wycenę oraz dbamy o szybką realizację. Zachęcamy do kontaktu w celu omówienia szczegółów." }
+        ],
+        "reklamacje": [
+            { "question": "Czy przyjmujecie zwroty?", "answer": "Nie przyjmujemy reklamacji z tytułu subiektywnych różnic kolorystycznych, jeśli produkt jest zgodny z zamówieniem.\n\nNasze produkty są personalizowane, dlatego zgodnie z art. 38 ustawy o prawach konsumenta, nie podlegają one zwrotowi.\n\nJeśli produkt dotarł uszkodzony lub zawiera błąd (np. inny wzór, zła jakość wydruku), skontaktuj się z nami w ciągu 14 dni od otrzymania zamówienia, wysyłając zdjęcie produktu na adres: ameizstudio@gmail.com. Po pozytywnym rozpatrzeniu reklamacji zaoferujemy naprawę bądź zrealizowanie wcześniej uzgodnionego projektu." }
+        ]
+    }
+}
